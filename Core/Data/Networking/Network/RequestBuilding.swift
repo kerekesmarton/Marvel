@@ -22,9 +22,18 @@ protocol RequestBuilding: class {
     var cachePolicy: URLRequest.CachePolicy? { get }
     var parameters: [String:String] { get set }
     
+    /// Implemented by extension, do not override.
     func request() throws -> URLRequest
+    
+    /// NetworkDataService asks for the url using the RequestBuilder. Populate fields using `preprocess` frist.
     func createUrl() throws -> URL
+    
+    /// NetworkDataService gives an opportunity for the Request Builder to populate it's required fields, if any.
+    /// - Parameter parameters: Populate this with the required id, keyd by the field name.
     func preprocess(parameters: inout [String: String]) -> [String: String]
+    
+    /// pass parameters to fetch apropriate data model for persistence.
+    /// - Parameter parameters: Populate this with the required id, keyd by the field name.
     func persistenceRequest(parameters: [String: String]) -> [String:String]
 }
 

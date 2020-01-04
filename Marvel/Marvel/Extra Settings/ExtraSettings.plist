@@ -18,18 +18,18 @@
 		<key>Key</key>
 		<string>Environment</string>
 		<key>DefaultValue</key>
-		<string>https://api.dev01.cloud</string>
+		<string>https://gateway.marvel.com</string>
 		<key>Values</key>
 		<array>
-			<string>https://api.dev01</string>
-			<string>https://api.network</string>
-			<string>https://api.stage01.cloud</string>
+			<string>https://gateway.marvel.com</string>
+			<string>https://dev.gateway.marvel.com</string>
+			<string>https://stage.gateway.marvel.com</string>
 		</array>
 		<key>Titles</key>
 		<array>
-			<string>Dev</string>
 			<string>Prod</string>
-			<string>Stage</string>
+			<string>Dev - doesn&apos;t exist</string>
+			<string>Stage - doesn&apos;t exist</string>
 		</array>
 	</dict>
 	<dict>
