@@ -6,25 +6,25 @@
 import Foundation
 
 public protocol GenericDataService {
-    func getData<T>(fetchResult: @escaping (T?, ServiceError?)-> Void)
+    func getData<T>(fetchResult: @escaping (Result<T, ServiceError>) -> Void)
 }
 
 public protocol SpecialisedDataService: GenericDataService {
     
-    func getData<T>(from: URL, completion: @escaping (T?, ServiceError?) -> Void)
-    func getData<T>(from: URL, parameters: [String: String], completion: @escaping (T?, ServiceError?) -> Void)
-    func getData<T>(parameters: [String], completion: @escaping (T?, ServiceError?) -> Void)
-    func getData<T>(parameters: [String: String], completion: @escaping (T?, ServiceError?) -> Void)
-    func getData<T, U>(payload: U?, completion: @escaping (T?, ServiceError?) -> Void)
-    func getData<T, U>(parameters: [String], payload: U?, completion: @escaping (T?, ServiceError?) -> Void)
-    func getData<T, U>(parameters: [String: String], payload: U?, completion: @escaping (T?, ServiceError?) -> Void)
+    func getData<T>(from: URL, completion: @escaping (Result<T, ServiceError>) -> Void)
+    func getData<T>(from: URL, parameters: [String: String], completion: @escaping (Result<T, ServiceError>) -> Void)
+    func getData<T>(parameters: [String], completion: @escaping (Result<T, ServiceError>) -> Void)
+    func getData<T>(parameters: [String: String], completion: @escaping (Result<T, ServiceError>) -> Void)
+    func getData<T, U>(payload: U?, completion: @escaping (Result<T, ServiceError>) -> Void)
+    func getData<T, U>(parameters: [String], payload: U?, completion: @escaping (Result<T, ServiceError>) -> Void)
+    func getData<T, U>(parameters: [String: String], payload: U?, completion: @escaping (Result<T, ServiceError>) -> Void)
     
-    func upload<T, U>(data: Data, parameters: [String : String], payload: U, completion: @escaping (T?, ServiceError?) -> Void)
+    func upload<T, U>(data: Data, parameters: [String : String], payload: U, completion: @escaping (Result<T, ServiceError>) -> Void)
     
-    func subscribeToCache<T>(changes: @escaping (T?, ServiceError?)-> Void)
-    func subscribeToCache<T>(with parameters: [String: String], changes: @escaping (T?, ServiceError?)-> Void)
-    func fetchCache<T>(parameters: [String : String], update: @escaping (T?, ServiceError?) -> Void)
-    func fetchCacheList<T>(parameters: [String : String], update: @escaping (T?, ServiceError?) -> Void)
+    func subscribeToCache<T>(changes: @escaping (Result<T, ServiceError>) -> Void)
+    func subscribeToCache<T>(with parameters: [String: String], changes: @escaping (Result<T, ServiceError>) -> Void)
+    func fetchCache<T>(parameters: [String : String], update: @escaping (Result<T, ServiceError>) -> Void)
+    func fetchCacheList<T>(parameters: [String : String], update: @escaping (Result<T, ServiceError>) -> Void)
     
     /// Used to save an entity to cache through the service's access to DataPersistence
     ///
@@ -73,7 +73,7 @@ public enum ServiceError: Error {
         return nil
     }
     
-    public init?(from error: Error, response: HTTPURLResponse? = nil) {
+    public init(from error: Error, response: HTTPURLResponse? = nil) {
         switch error {
         case is DecodingError:
             switch error as! DecodingError {

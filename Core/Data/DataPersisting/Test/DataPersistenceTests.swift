@@ -27,12 +27,12 @@ class DataPersistenceTests: XCTestCase {
         persistence = DataPersistence(identifier: Constants.identifier)
     }
     
-    func testGivenInitialResult_WhenFetching_ThenEntitiesReturned() {
+    func testGivenInitialResult_WhenFetching_ThenEntitiesReturned() throws {
         persistence.realm = realm
         var capturedResults: StubEntity?
         let exp = expectation(description: "waiting for realm")
-        persistence.fetch(with: [:]) { (results: StubEntity?, error) in
-            capturedResults = results
+        persistence.fetch(with: [:]) { (results: Result<StubEntity, ServiceError>) in
+            capturedResults = try? results.get()
             exp.fulfill()
         }
         wait(for: [exp], timeout: 1)

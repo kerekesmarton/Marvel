@@ -71,11 +71,11 @@ class MockFeatureFlagLoading: FeatureFlagLoader {
 }
 
 class MockGenericDataService: GenericDataService {
-    func getData<T>(fetchResult: @escaping (T?, ServiceError?) -> Void) {
+    func getData<T>(fetchResult: @escaping (Result<T, ServiceError>) -> Void) {
         
     }
     
-    func subscribe<T>(to updates: @escaping (T?, ServiceError?) -> Void) {
+    func subscribe<T>(to updates: @escaping (Result<T, ServiceError>) -> Void) {
         
     }
 }

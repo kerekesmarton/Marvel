@@ -22,8 +22,9 @@ public class FeatureFlagLoader: AsyncOperaiton, FeatureFlagLoading {
     }
     
     public func load(completion: @escaping (FeatureFlags?) -> Void) {
-        service.getData { (featureFlag, error) in
-            completion(featureFlag)
+        service.getData { (result: Result<FeatureFlags,ServiceError>) in
+            let flag = try? result.get()
+            completion(flag)
         }
     }
     

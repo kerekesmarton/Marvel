@@ -10,11 +10,13 @@ import Foundation
 import Domain
 
 class CharacterDataParser: DataParsing {
-    func decode<T>(from data: Data, source: URL?) throws -> T? {
+    func decode<T>(from data: Data, source: URL?) throws -> T {
         do {
             let result = try JSONDecoder().decode(CharacterDataWrapper.self, from: data)
-            let entity = try result.generateEntity()
-            return entity as? T
+            guard let entity = try result.generateEntity() as? T else {
+                throw ServiceError.parsing("Entities.CharacterDataWrapper")
+            }
+            return entity
         } catch {
             throw findServiceError(data) ?? error
         }

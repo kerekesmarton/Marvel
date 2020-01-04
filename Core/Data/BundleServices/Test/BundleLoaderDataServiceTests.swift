@@ -21,9 +21,12 @@ class BundleLoaderDataServiceTests: XCTestCase {
         
         var capturedEntity: StubEntity?
         var capturedError: ServiceError?
-        bundleLoaderDataService.getData { (entity: StubEntity?, error) in
-            capturedEntity = entity
-            capturedError = error
+        bundleLoaderDataService.getData { (result: Result<StubEntity, ServiceError>) in
+            do {
+                capturedEntity = try result.get()
+            } catch {
+                capturedError = ServiceError(from: error)
+            }
         }
         
         XCTAssertNil(capturedEntity?.field)
@@ -41,9 +44,12 @@ class BundleLoaderDataServiceTests: XCTestCase {
         
         var capturedEntity: StubEntity?
         var capturedError: ServiceError?
-        bundleLoaderDataService.getData { (entity: StubEntity?, error) in
-            capturedEntity = entity
-            capturedError = error
+        bundleLoaderDataService.getData { (result: Result<StubEntity, ServiceError>) in
+            do {
+                capturedEntity = try result.get()
+            } catch {
+                capturedError = ServiceError(from: error)
+            }
         }
         
         XCTAssertNil(capturedEntity?.field)
@@ -63,9 +69,12 @@ class BundleLoaderDataServiceTests: XCTestCase {
         
         var capturedEntity: StubEntity?
         var capturedError: ServiceError?
-        bundleLoaderDataService.getData { (entity: StubEntity?, error) in
-            capturedEntity = entity
-            capturedError = error
+        bundleLoaderDataService.getData { (result: Result<StubEntity, ServiceError>) in
+            do {
+                capturedEntity = try result.get()
+            } catch {
+                capturedError = ServiceError(from: error)
+            }
         }
         
         XCTAssertNil(capturedError)

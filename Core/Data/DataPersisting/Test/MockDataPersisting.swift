@@ -15,12 +15,20 @@ class MockDataPersisting: DataPersisting {
         return stubItems as? T
     }
     
-    func fetch<T>(with parameters: [String : String], fetchResult: @escaping (T?, ServiceError?) -> Void) {
-        fetchResult(stubItems as? T, stubError)
+    func fetch<T>(with parameters: [String : String], fetchResult: @escaping (Result<T,ServiceError>) -> Void) {
+        guard let items = stubItems as? T else {
+            fetchResult(.failure(stubError!))
+            return
+        }
+        fetchResult(.success(items))
     }
     
-    func notifyChanges<T>(with parameters: [String : String], fetchResult: @escaping (T?, ServiceError?) -> Void) {
-        fetchResult(stubItems as? T, stubError)
+    func notifyChanges<T>(with parameters: [String : String], fetchResult: @escaping (Result<T,ServiceError>) -> Void) {
+        guard let items = stubItems as? T else {
+            fetchResult(.failure(stubError!))
+            return
+        }
+        fetchResult(.success(items))
     }
     
     func invalidateUpdates() { }

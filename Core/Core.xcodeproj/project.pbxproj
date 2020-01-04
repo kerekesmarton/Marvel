@@ -12,14 +12,12 @@
 		101C7C3B23A4D18400F177A6 /* Additions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A7199213835E900DE8A6A /* Additions.framework */; };
 		101C7C3C23A4D18400F177A6 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A70AE213830D700DE8A6A /* Domain.framework */; };
 		101C7C3D23A4D18400F177A6 /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A71622138312B00DE8A6A /* Presentation.framework */; };
-		101C7C4623A4EF7A00F177A6 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4023A4EF7A00F177A6 /* Apollo.framework */; };
-		101C7C4723A4EF7A00F177A6 /* Apollo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4023A4EF7A00F177A6 /* Apollo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		101C7C4823A4EF7A00F177A6 /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4123A4EF7A00F177A6 /* JWTDecode.framework */; };
-		101C7C4923A4EF7A00F177A6 /* JWTDecode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4123A4EF7A00F177A6 /* JWTDecode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		101C7C4923A4EF7A00F177A6 /* JWTDecode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4123A4EF7A00F177A6 /* JWTDecode.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		101C7C4C23A4EF7A00F177A6 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4323A4EF7A00F177A6 /* KeychainSwift.framework */; };
-		101C7C4D23A4EF7A00F177A6 /* KeychainSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4323A4EF7A00F177A6 /* KeychainSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		101C7C4D23A4EF7A00F177A6 /* KeychainSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4323A4EF7A00F177A6 /* KeychainSwift.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		101C7C4E23A4EF7A00F177A6 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4423A4EF7A00F177A6 /* RealmSwift.framework */; };
-		101C7C4F23A4EF7A00F177A6 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4423A4EF7A00F177A6 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		101C7C4F23A4EF7A00F177A6 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4423A4EF7A00F177A6 /* RealmSwift.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		101C7C5323A4EFB200F177A6 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A70F62138310700DE8A6A /* Data.framework */; };
 		101C7C5723A4EFC600F177A6 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4023A4EF7A00F177A6 /* Apollo.framework */; };
 		101C7C5823A4EFC600F177A6 /* Apollo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4023A4EF7A00F177A6 /* Apollo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -38,7 +36,7 @@
 		101C7C7123A4EFC700F177A6 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C6823A4EFC700F177A6 /* Kingfisher.framework */; };
 		101C7C7223A4EFC700F177A6 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C6823A4EFC700F177A6 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		101C7C7823A4F81A00F177A6 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4523A4EF7A00F177A6 /* Realm.framework */; };
-		101C7C7923A4F81A00F177A6 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4523A4EF7A00F177A6 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		101C7C7923A4F81A00F177A6 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4523A4EF7A00F177A6 /* Realm.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		10206E3C2244EE0300B81CD1 /* RowHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10206E3B2244EE0300B81CD1 /* RowHeight.swift */; };
 		102A67E622FD5FE5002A45A5 /* CoreTestHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 102A67E422FD5FE5002A45A5 /* CoreTestHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		102A67EE22FD63E0002A45A5 /* LogoutProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102A67ED22FD63E0002A45A5 /* LogoutProtocols.swift */; };
@@ -91,6 +89,7 @@
 		105026BD23C0908C00340F9C /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026BA23C0908C00340F9C /* APIs.swift */; };
 		105026BF23C0914600340F9C /* CharacterDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026BE23C0914600340F9C /* CharacterDataWrapper.swift */; };
 		105026C123C0918300340F9C /* CharacterDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026C023C0918300340F9C /* CharacterDataContainer.swift */; };
+		105026F423C09AF800340F9C /* CharactersFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026F323C09AF800340F9C /* CharactersFetcher.swift */; };
 		10542937213EACD90031A78F /* MockErrorRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A71792138314D00DE8A6A /* MockErrorRouting.swift */; };
 		10542941213EAF920031A78F /* MockDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A71202138311F00DE8A6A /* MockDataParser.swift */; };
 		10542942213EAFEF0031A78F /* MockErrorRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A71792138314D00DE8A6A /* MockErrorRouting.swift */; };
@@ -367,7 +366,6 @@
 				101C7C4F23A4EF7A00F177A6 /* RealmSwift.framework in Embed Frameworks */,
 				101C7C4D23A4EF7A00F177A6 /* KeychainSwift.framework in Embed Frameworks */,
 				101C7C4923A4EF7A00F177A6 /* JWTDecode.framework in Embed Frameworks */,
-				101C7C4723A4EF7A00F177A6 /* Apollo.framework in Embed Frameworks */,
 				101C7C7923A4F81A00F177A6 /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -469,6 +467,7 @@
 		105026BA23C0908C00340F9C /* APIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIs.swift; sourceTree = "<group>"; };
 		105026BE23C0914600340F9C /* CharacterDataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDataWrapper.swift; sourceTree = "<group>"; };
 		105026C023C0918300340F9C /* CharacterDataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDataContainer.swift; sourceTree = "<group>"; };
+		105026F323C09AF800340F9C /* CharactersFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersFetcher.swift; sourceTree = "<group>"; };
 		105E9D8E220AF8D6001C44CF /* FontCalculating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontCalculating.swift; sourceTree = "<group>"; };
 		105E9D90220B33E2001C44CF /* DictionaryCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryCoder.swift; sourceTree = "<group>"; };
 		106CFC5822843AEE008D8E0B /* TokenParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenParser.swift; sourceTree = "<group>"; };
@@ -683,7 +682,6 @@
 				101C7C4C23A4EF7A00F177A6 /* KeychainSwift.framework in Frameworks */,
 				101C7C4823A4EF7A00F177A6 /* JWTDecode.framework in Frameworks */,
 				101C7C4E23A4EF7A00F177A6 /* RealmSwift.framework in Frameworks */,
-				101C7C4623A4EF7A00F177A6 /* Apollo.framework in Frameworks */,
 				101C7C7823A4F81A00F177A6 /* Realm.framework in Frameworks */,
 				104A71C9213836A900DE8A6A /* Additions.framework in Frameworks */,
 				104A71CA213836A900DE8A6A /* Domain.framework in Frameworks */,
@@ -774,7 +772,7 @@
 		104A70AF213830D700DE8A6A /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				105026B623C0900400340F9C /* Entities.swift */,
+				105026F223C09AD500340F9C /* Marvel */,
 				105026B423C08C3800340F9C /* Media.swift */,
 				104A70D2213830F400DE8A6A /* InAppMessage.swift */,
 				10EE856F230D3CC00009B6E0 /* Environment.swift */,
@@ -1020,6 +1018,15 @@
 				105026BE23C0914600340F9C /* CharacterDataWrapper.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		105026F223C09AD500340F9C /* Marvel */ = {
+			isa = PBXGroup;
+			children = (
+				105026B623C0900400340F9C /* Entities.swift */,
+				105026F323C09AF800340F9C /* CharactersFetcher.swift */,
+			);
+			path = Marvel;
 			sourceTree = "<group>";
 		};
 		105427E5213D969D0031A78F /* AppPresenter */ = {
@@ -1936,7 +1943,6 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/../Carthage/Build/iOS/Realm.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -1968,6 +1974,7 @@
 				10EE8572230EE1BC0009B6E0 /* Settings.swift in Sources */,
 				1073064B22A6B57600DF8DAA /* SettingsConfiguration.swift in Sources */,
 				1073064D22A6B5E000DF8DAA /* AppSession.swift in Sources */,
+				105026F423C09AF800340F9C /* CharactersFetcher.swift in Sources */,
 				10AC3FBC22E0737A008DAA66 /* MockDataService.swift in Sources */,
 				10EE8570230D3CC00009B6E0 /* Environment.swift in Sources */,
 				107D2E0A2333DCD4008C086B /* HTTPStatusCode.swift in Sources */,

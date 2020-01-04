@@ -26,7 +26,7 @@ class NetworkDataService: SpecialisedDataService {
         self.dataEncoder = dataEncoder
     }
     
-    func getData<T>(from url: URL, parameters: [String : String], completion: @escaping (T?, ServiceError?) -> Void) {
+    func getData<T>(from url: URL, parameters: [String : String], completion: @escaping (Result<T, ServiceError>) -> Void) {
         do {
             var request = try requestBuilder.request(with: parameters)
             if url.scheme == "http" {
@@ -36,13 +36,13 @@ class NetworkDataService: SpecialisedDataService {
             }
             sendData(with: request, completion: completion)
         } catch ServiceError.parsing(let string){
-            completion(nil, ServiceError.parsing(string))
+            completion(.failure(ServiceError.parsing(string)))
         } catch {
-            completion(nil, ServiceError.parsing(error.localizedDescription))
+            completion(.failure(ServiceError.parsing(error.localizedDescription)))
         }
     }
     
-    public func getData<T>(from url: URL, completion: @escaping (T?, ServiceError?) -> Void) {
+    public func getData<T>(from url: URL, completion: @escaping (Result<T, ServiceError>) -> Void) {
         do {
             var request = try requestBuilder.request()
             if url.scheme == "http" {
@@ -52,42 +52,42 @@ class NetworkDataService: SpecialisedDataService {
             }            
             sendData(with: request, completion: completion)
         } catch ServiceError.parsing(let string){
-            completion(nil, ServiceError.parsing(string))
+            completion(.failure(ServiceError.parsing(string)))
         } catch {
-            completion(nil, ServiceError.parsing(error.localizedDescription))
+            completion(.failure(ServiceError.parsing(error.localizedDescription)))
         }
     }
     
-    public func getData<T>(fetchResult completion: @escaping (T?, ServiceError?) -> Void) {
+    public func getData<T>(fetchResult completion: @escaping (Result<T, ServiceError>) -> Void) {
         do {
             let request = try requestBuilder.request()
             fetchFromPersistence(request, [:], completion)
             sendData(with: request, completion: completion)
         } catch {
-            completion(nil, ServiceError(from: error))
+            completion(.failure(ServiceError(from: error)))
         }
     }
     
-    func getData<T>(parameters: [String], completion: @escaping (T?, ServiceError?) -> Void) {
+    func getData<T>(parameters: [String], completion: @escaping (Result<T, ServiceError>) -> Void) {
         do {
             let request = try requestBuilder.request(with: parameters)
             sendData(with: request, completion: completion)
         } catch {
-            completion(nil, ServiceError(from: error))
+            completion(.failure(ServiceError(from: error)))
         }
     }
     
-    public func getData<T>(parameters: [String : String], completion: @escaping (T?, ServiceError?) -> Void) {
+    public func getData<T>(parameters: [String : String], completion: @escaping (Result<T, ServiceError>) -> Void) {
         do {
             let request = try requestBuilder.request(with: parameters)
             fetchFromPersistence(request, parameters, completion)
             sendData(with: request, completion: completion)
         } catch {
-            completion(nil, ServiceError(from: error))
+            completion(.failure(ServiceError(from: error)))
         }
     }
     
-    func getData<T, U>(parameters: [String], payload: U?, completion: @escaping (T?, ServiceError?) -> Void) {
+    func getData<T, U>(parameters: [String], payload: U?, completion: @escaping (Result<T, ServiceError>) -> Void) {
         guard let payload = payload, let dataEncoder = dataEncoder else {
             getData(fetchResult: completion)
             return
@@ -95,7 +95,7 @@ class NetworkDataService: SpecialisedDataService {
         encode(dataEncoder, payload, completion: completion)
     }
     
-    func getData<T, U>(payload: U?, completion: @escaping (T?, ServiceError?) -> Void) {
+    func getData<T, U>(payload: U?, completion: @escaping (Result<T, ServiceError>) -> Void) {
         guard let payload = payload, let dataEncoder = dataEncoder else {
             getData(fetchResult: completion)
             return
@@ -103,29 +103,30 @@ class NetworkDataService: SpecialisedDataService {
         encode(dataEncoder, payload, completion: completion)
     }
     
-    func getData<T, U>(parameters: [String : String], payload: U?, completion: @escaping (T?, ServiceError?) -> Void) {
+    func getData<T, U>(parameters: [String : String], payload: U?, completion: @escaping (Result<T, ServiceError>) -> Void) {
         guard let payload = payload, let dataEncoder = dataEncoder else {
             getData(parameters: parameters, completion: completion)
             return
         }
         encode(dataEncoder, payload, parameters, completion: completion)
     }
-    func upload<T, U>(data: Data, parameters: [String : String], payload: U, completion: @escaping (T?, ServiceError?) -> Void) {
+    
+    func upload<T, U>(data: Data, parameters: [String : String], payload: U, completion: @escaping (Result<T, ServiceError>) -> Void) {
         
         do {
             guard let metaData = try dataEncoder?.parse(from: payload) else {
-                completion(nil, nil)
+                completion(.failure(ServiceError.unknown))
                 return
             }
             _upload(data: data, parameters: parameters, metaData: metaData, completion: completion)
         }
         catch {
-            completion(nil, ServiceError(from: error))
+            completion(.failure(ServiceError(from: error)))
         }
         
     }
     
-    func _upload<T>(data: Data, parameters: [String : String], metaData: Data, completion: @escaping (T?, ServiceError?) -> Void) {
+    func _upload<T>(data: Data, parameters: [String : String], metaData: Data, completion: @escaping (Result<T, ServiceError>) -> Void) {
         
         do {
 
@@ -149,16 +150,16 @@ class NetworkDataService: SpecialisedDataService {
 
         }
         catch {
-            completion(nil, ServiceError(from: error))
+            completion(.failure(ServiceError(from: error)))
         }
         
     }
     
-    public func subscribeToCache<T>(changes: @escaping (T?, ServiceError?) -> Void) {
+    public func subscribeToCache<T>(changes: @escaping (Result<T, ServiceError>) -> Void) {
         subscribeToCache(with: [:], changes: changes)
     }
     
-    func subscribeToCache<T>(with parameters: [String : String], changes: @escaping (T?, ServiceError?) -> Void) {
+    func subscribeToCache<T>(with parameters: [String : String], changes: @escaping (Result<T, ServiceError>) -> Void) {
         let request = try? requestBuilder.request(with: parameters) //on updates we don't want to push persistent request errors
         let persistenceRequest = requestBuilder.persistenceRequest(parameters: parameters)
         if persistenceRequest.count > 0 {
@@ -170,30 +171,32 @@ class NetworkDataService: SpecialisedDataService {
         }
     }
     
-    public func fetchCache<T>(parameters: [String : String], update: @escaping (T?, ServiceError?) -> Void) {
+    public func fetchCache<T>(parameters: [String : String], update: @escaping (Result<T, ServiceError>) -> Void) {
         let persistenceRequest = requestBuilder.persistenceRequest(parameters: parameters)
-        if persistenceRequest.count > 0 {
-            let result: T? = dataPersistence?.fetch(with: persistenceRequest)
-            update(result, nil)
-        } else {
-            update(nil, nil)
+        guard persistenceRequest.count > 0 else {
+            return
         }
+        guard let result: T = dataPersistence?.fetch(with: persistenceRequest) else {
+            return
+        }
+        update(.success(result))
+        
     }
     
-    func fetchCacheList<T>(parameters: [String : String], update: @escaping (T?, ServiceError?) -> Void) {
+    func fetchCacheList<T>(parameters: [String : String], update: @escaping (Result<T, ServiceError>) -> Void) {
         do {
             let request = try requestBuilder.request(with: parameters)
-            if let id = request.url?.absoluteString {
-                let result: T? = dataPersistence?.fetch(with: ["id": id])
-                update(result, nil)
-            } else {
-                update(nil, nil)
+            guard let id = request.url?.absoluteString else {
+                return
             }
+            guard let result: T = dataPersistence?.fetch(with: ["id": id]) else {
+                return
+            }
+            update(.success(result))
         } catch {
-            update(nil, ServiceError(from: error))
+            update(.failure(ServiceError(from: error)))
         }
     }
-    
     
     public func saveCache<T>(payload: T, parameters: [String : String], completion: @escaping (ServiceError?) -> Void) {
         dispatcher.dispatch(queue: DispatchQueue.global()) { [weak self] in
@@ -238,7 +241,7 @@ class NetworkDataService: SpecialisedDataService {
 
 extension NetworkDataService {
     
-    private func encode<T, U>(_ dataEncoder: DataEncoding, _ payload: U, completion: @escaping (T?, ServiceError?) -> Void) {
+    private func encode<T, U>(_ dataEncoder: DataEncoding, _ payload: U, completion: @escaping (Result<T, ServiceError>) -> Void) {
         do {
             let data = try dataEncoder.parse(from: payload)
             attachAndSend(data: data, error: nil, completion: completion)
@@ -247,7 +250,7 @@ extension NetworkDataService {
         }
     }
     
-    private func encode<T, U>(_ dataEncoder: DataEncoding, _ payload: U, _ parameters: [String : String], completion: @escaping (T?, ServiceError?) -> Void) {
+    private func encode<T, U>(_ dataEncoder: DataEncoding, _ payload: U, _ parameters: [String : String], completion: @escaping (Result<T, ServiceError>) -> Void) {
         do {
             let data = try dataEncoder.parse(from: payload)
             attachAndSend(parameters: parameters, data: data, error: nil, completion: completion)
@@ -256,43 +259,45 @@ extension NetworkDataService {
         }
     }
     
-    private func attachAndSend<T>(data: Data?, error: ServiceError?, completion: @escaping (T?, ServiceError?) -> Void) {
+    private func attachAndSend<T>(data: Data?, error: ServiceError?, completion: @escaping (Result<T, ServiceError>) -> Void) {
         if let data = data {
             requestBuilder.httpBody = data
             getData(fetchResult: completion)
         } else if let error = error {
-            completion(nil, error)
+            completion(.failure(error))
         }
     }
     
-    private func attachAndSend<T>(parameters: [String: String], data: Data?, error: ServiceError?, completion: @escaping (T?, ServiceError?) -> Void) {
+    private func attachAndSend<T>(parameters: [String: String], data: Data?, error: ServiceError?, completion: @escaping (Result<T, ServiceError>) -> Void) {
         if let data = data {
             requestBuilder.httpBody = data
             getData(parameters: parameters, completion: completion)
         } else if let error = error {
-            completion(nil, error)
+            completion(.failure(error))
         }
     }
     
-    private func dispatch<T>(results: T?, error: Error?, _ completion: @escaping (T?, ServiceError?) -> Void) {
+    private func dispatch<T>(results: T?, error: Error?, _ completion: @escaping (Result<T, ServiceError>) -> Void) {
         dispatcher.dispatchMain {
             if let results = results {
-                completion(results, nil)
+                completion(.success(results))
             } else if let error = error {
-                completion(nil, ServiceError(from: error))
+                completion(.failure(ServiceError(from: error)))
             } else {
-                completion(nil, nil)
+                completion(.failure(ServiceError.unknown))
             }
         }
     }
     
-    private func dispatch<T>(error: ServiceError?, completion: @escaping (T?, ServiceError?) -> Void) {
+    private func dispatch<T>(error: ServiceError?, completion: @escaping (Result<T, ServiceError>) -> Void) {
         dispatcher.dispatchMain {
-            completion(nil, error)
+            if let error = error {
+                completion(.failure(error))
+            }
         }
     }
     
-    private func parseSuccessResponse<T>(data: Data?, response: HTTPURLResponse, completion: @escaping (T?, ServiceError?) -> Void) {
+    private func parseSuccessResponse<T>(data: Data?, response: HTTPURLResponse, completion: @escaping (Result<T, ServiceError>) -> Void) {
         guard let data = data else {
             dispatch(results: nil, error: nil, completion)
             return
@@ -301,18 +306,11 @@ extension NetworkDataService {
             let results: T? = try dataParser.parse(data, source: response.url)
             dispatch(results: results, error: nil, completion)
         } catch {
-            guard let serviceError = ServiceError(from: error) else {
-                dispatch(error: ServiceError(from: error), completion: completion)
-                return
-            }
-            switch serviceError {
-            default:
-                dispatch(error: serviceError, completion: completion)
-            }
+            dispatch(error: ServiceError(from: error), completion: completion)
         }
     }
     
-    private func parseFailedResponse<T>(data: Data?, response: HTTPURLResponse, completion: @escaping (T?, ServiceError?) -> Void) {
+    private func parseFailedResponse<T>(data: Data?, response: HTTPURLResponse, completion: @escaping (Result<T, ServiceError>) -> Void) {
         guard let data = data, data.count > 0, response.statusCode < 500 else {
             dispatch(error: ServiceError(from: response), completion: completion)
             return
@@ -324,7 +322,7 @@ extension NetworkDataService {
         }
     }
     
-    private func sendData<T>(with request: URLRequest, completion: @escaping (T?, ServiceError?) -> Void) {
+    private func sendData<T>(with request: URLRequest, completion: @escaping (Result<T, ServiceError>) -> Void) {
         let task = session.dataTask(with: request) { [weak self] (data, response, error) in
             guard let response = response as? HTTPURLResponse else {
                 self?.dispatch(results: nil, error: error ?? ServiceError.network(error), completion)
@@ -339,7 +337,7 @@ extension NetworkDataService {
         task.resume()
     }
     
-    private func fetchFromPersistence<T>(_ request: URLRequest, _ params: [String: String], _ completion: @escaping (T?, ServiceError?) -> Void) {
+    private func fetchFromPersistence<T>(_ request: URLRequest, _ params: [String: String], _ completion: @escaping (Result<T, ServiceError>) -> Void) {
         guard requestBuilder.method == .get else {
             return
         }

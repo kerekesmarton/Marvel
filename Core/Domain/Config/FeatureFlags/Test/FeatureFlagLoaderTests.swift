@@ -11,12 +11,13 @@ class FeatureFlagLoaderTests: XCTestCase {
     
     func test_GivenNoFlagValues_WhenAppLaunching_ThenSearchDisabled() {
         let mockedDataService = MockDataService<FeatureFlags, Swift.Void>()
+        mockedDataService.stubResponse = FeatureFlags(uploadVideo: false, searchTabs: false, mention: false)
         let useCase = FeatureFlagLoader(service: mockedDataService)
         var capturedFeatureFlag: FeatureFlags!
         useCase.load() { featureFlag in
             capturedFeatureFlag = featureFlag
         }
-        XCTAssertNil(capturedFeatureFlag)
+        XCTAssertFalse(capturedFeatureFlag.searchTabs)
     }
     
 }

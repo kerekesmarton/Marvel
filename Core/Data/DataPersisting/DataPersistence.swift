@@ -20,9 +20,9 @@ public class RealmFactory {
 
 protocol DataPersisting {
     func fetch<T>(with parameters: [String: String]) -> T?
-    func fetch<T>(with parameters: [String: String], fetchResult: @escaping (T?, ServiceError?)-> Void)
+    func fetch<T>(with parameters: [String: String], fetchResult: @escaping (Result<T, ServiceError>)-> Void)
     
-    func notifyChanges<T>(with parameters: [String: String], fetchResult: @escaping (T?, ServiceError?)-> Void)
+    func notifyChanges<T>(with parameters: [String: String], fetchResult: @escaping (Result<T, ServiceError>)-> Void)
     func invalidateUpdates()
     
     func deleteAll(deleteResult: @escaping (ServiceError?)-> Void)
@@ -41,7 +41,7 @@ class DataPersistence<E, M: Model & Object>: DataPersisting {
 
     var notificationToken: NotificationToken?
     var objects: Results<M>?
-    var updateBlock: ((E?, ServiceError?)-> Void)?
+    var updateBlock: ((Result<E, ServiceError>) -> Void)?
     
     private func filterResults(with parameters: [String: String], from results: Results<M>, deletions: [Int]? = nil, insertions: [Int]? = nil, modifications: [Int]? = nil) -> E? {
 
@@ -57,13 +57,13 @@ class DataPersistence<E, M: Model & Object>: DataPersisting {
         return entity
     }
 
-    private func results<T>(with parameters: [String: String], changes:RealmCollectionChange<Results<M>>, fetchResult: @escaping (T?, ServiceError?) -> Void) {
+    private func results<T>(with parameters: [String: String], changes:RealmCollectionChange<Results<M>>, fetchResult: @escaping (Result<T, ServiceError>) -> Void) {
         guard case .update(let results, deletions: let deletions, insertions: let inserted, modifications: let modified) = changes else {
             return
         }
         guard let finalResults: E = filterResults(with: parameters, from: results, deletions:  deletions, insertions: inserted, modifications: modified) else { return }
         
-        updateBlock?(finalResults, nil)
+        updateBlock?(.success(finalResults))
     }
     
     private func convert(with parameters: [String : String], results: [M]) -> E? {
@@ -91,7 +91,7 @@ class DataPersistence<E, M: Model & Object>: DataPersisting {
         return model
     }
     
-    public func fetch<T>(with parameters: [String: String], fetchResult: @escaping (T?, ServiceError?) -> Void) {
+    public func fetch<T>(with parameters: [String: String], fetchResult: @escaping (Result<T, ServiceError>) -> Void) {
         guard let realm = realm else { return }
         let objects = realm.objects(M.self)
         let filteredResults = objects.filter {
@@ -99,15 +99,18 @@ class DataPersistence<E, M: Model & Object>: DataPersisting {
         }
         guard let model = filteredResults.first else { return }
         do {
-            let entity = try model.generateEntity() as? T
-            fetchResult(entity, nil)
+            guard let entity = try model.generateEntity() as? T else {
+                fetchResult(.failure(ServiceError.unknown))
+                return
+            }
+            fetchResult(.success(entity))
         } catch {
-            fetchResult(nil, ServiceError(from: error))
+            fetchResult(.failure(ServiceError(from: error)))
         }    
     }
     
-    public func notifyChanges<T>(with parameters: [String: String], fetchResult: @escaping (T?, ServiceError?) -> Void) {
-        updateBlock = fetchResult as? ((E?, ServiceError?) -> Void)
+    public func notifyChanges<T>(with parameters: [String: String], fetchResult: @escaping (Result<T, ServiceError>) -> Void) {
+        updateBlock = fetchResult as? (Result<E, ServiceError>) -> Void
         guard let realm = realm else { return }
         let objects = realm.objects(M.self)
         

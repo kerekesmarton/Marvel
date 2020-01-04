@@ -27,7 +27,7 @@ protocol DataParsing {
      - data: data to be transformed
      - source: where the data is coming from
      */
-    func decode<T>(from data: Data, source: URL?) throws -> T?
+    func decode<T>(from data: Data, source: URL?) throws -> T
 }
 
 struct ErrorModel: Codable, Model {
@@ -49,9 +49,9 @@ struct ErrorModel: Codable, Model {
 }
 
 extension DataParsing {
-    func parse<T>(_ data: Data, source: URL? = nil) throws -> T?{        
-        guard let result: T? = try decode(from: data, source: source) else {
-            return nil
+    func parse<T>(_ data: Data, source: URL? = nil) throws -> T {
+        guard let result: T = try decode(from: data, source: source) else {
+            throw ServiceError.parsing("failed to parse")
         }
         return result
     }
@@ -75,13 +75,6 @@ extension DataParsing {
     
     public var persisting: Bool {
         return false
-    }
-}
-
-struct ErrorDataParser: DataParsing {
-    func decode<T>(from data: Data, source: URL?) throws -> T? {
-        guard let error = findServiceError(data) else { return nil }
-        throw error
     }
 }
 

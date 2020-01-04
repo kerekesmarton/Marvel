@@ -25,22 +25,22 @@ class BundleLoaderDataService<Parser: DataParsing>: GenericDataService {
         return NSData(contentsOfFile: file)
     }
     
-    public func getData<T>(fetchResult: @escaping (T?, ServiceError?) -> Void) {
+    public func getData<T>(fetchResult: @escaping (Result<T, ServiceError>) -> Void) {
         guard let path = file.path else {
-            fetchResult(nil, ServiceError.parsing("File not found"))
+            fetchResult(.failure(ServiceError.parsing("File not found")))
             return
         }
         
         guard let data = data(from: path) as Data? else {
-            fetchResult(nil, ServiceError.parsing("Failed to load"))
+            fetchResult(.failure(ServiceError.parsing("Failed to load")))
             return
         }
         
         do {
-            let e: T? = try parser.parse(data)
-            fetchResult(e, nil)
+            let e: T = try parser.parse(data)
+            fetchResult(.success(e))
         } catch {
-            fetchResult(nil, ServiceError(from: error))
+            fetchResult(.failure(ServiceError(from: error)))
         }
     }
 }

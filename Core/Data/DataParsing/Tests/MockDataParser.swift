@@ -5,6 +5,7 @@
 //
 
 import Foundation
+import Domain
 #if TEST
 @testable import Data
 #endif
@@ -25,14 +26,14 @@ class MockDataParser<T>: DataParsing {
     var stubEntity: T?
     var stubError: Error?
     
-    func decode<T>(from data: Data, source: URL?) throws -> T? {
+    func decode<T>(from data: Data, source: URL?) throws -> T {
         spyData = data
         guard let stubEntity = stubEntity else {
             if let stubError = stubError {
                 throw stubError
             }
-            return nil
+            throw ServiceError.unknown
         }
-        return stubEntity as? T
+        return stubEntity as! T
     }
 }
