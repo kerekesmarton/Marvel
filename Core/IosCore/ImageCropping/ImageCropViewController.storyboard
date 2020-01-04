@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Edit Photo-->
+        <scene sceneID="YIL-EH-eZL">
+            <objects>
+                <viewController title="Edit Photo" id="ah9-LE-ki7" customClass="ImageCropViewController" customModule="UI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HN6-IM-psL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8EB-rh-OrG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <connections>
+                                    <segue destination="J8B-5x-5VG" kind="embed" id="8PE-FF-KfJ"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yw3-0I-mBF" customClass="PassThroughView" customModule="UI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8EB-rh-OrG" firstAttribute="width" secondItem="HN6-IM-psL" secondAttribute="width" id="80D-if-COc"/>
+                            <constraint firstItem="Yw3-0I-mBF" firstAttribute="width" secondItem="HN6-IM-psL" secondAttribute="width" id="DH2-Ry-ilV"/>
+                            <constraint firstItem="8EB-rh-OrG" firstAttribute="height" secondItem="HN6-IM-psL" secondAttribute="height" priority="250" id="Fhb-Og-wxN"/>
+                            <constraint firstItem="8EB-rh-OrG" firstAttribute="centerY" secondItem="M1v-db-CyV" secondAttribute="centerY" id="Jgz-at-236"/>
+                            <constraint firstItem="Yw3-0I-mBF" firstAttribute="centerX" secondItem="M1v-db-CyV" secondAttribute="centerX" id="P80-Os-DaU"/>
+                            <constraint firstItem="Yw3-0I-mBF" firstAttribute="centerY" secondItem="M1v-db-CyV" secondAttribute="centerY" id="g5z-vJ-hye"/>
+                            <constraint firstItem="Yw3-0I-mBF" firstAttribute="height" secondItem="HN6-IM-psL" secondAttribute="height" priority="250" id="gOy-Zi-m02"/>
+                            <constraint firstItem="8EB-rh-OrG" firstAttribute="centerX" secondItem="M1v-db-CyV" secondAttribute="centerX" id="jEo-b9-kfc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="M1v-db-CyV"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dGO-6S-aFg">
+                        <barButtonItem key="leftBarButtonItem" image="closeDelete" id="zJR-dF-hk0">
+                            <connections>
+                                <action selector="close:" destination="ah9-LE-ki7" id="ScK-A6-T4G"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="x5f-je-ET4">
+                            <connections>
+                                <action selector="save:" destination="ah9-LE-ki7" id="Ip2-Pe-RhE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="closeButton" destination="zJR-dF-hk0" id="ulh-cU-XIh"/>
+                        <outlet property="containerView" destination="8EB-rh-OrG" id="6cy-Nr-FXR"/>
+                        <outlet property="passThroughView" destination="Yw3-0I-mBF" id="ve2-2H-Z7F"/>
+                        <outlet property="saveButton" destination="x5f-je-ET4" id="iCy-Yl-y8F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O2r-Gg-Saw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="848.79999999999995" y="190.25487256371815"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0CH-Jw-0l1">
+            <objects>
+                <navigationController storyboardIdentifier="ImageCropViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RoP-tS-db5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="PMg-eU-8yz">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ah9-LE-ki7" kind="relationship" relationship="rootViewController" id="Kt9-I2-Y3w"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FNq-E2-GXF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130" y="190"/>
+        </scene>
+        <!--Image Editor View Controller-->
+        <scene sceneID="t8C-YF-pB0">
+            <objects>
+                <viewController id="J8B-5x-5VG" customClass="ImageEditorViewController" customModule="UI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ALd-s1-4q1" customClass="NonPassThroughView" customModule="UI" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="o22-cz-lYB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cyo-Ci-n8B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1599" y="190"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="closeDelete" width="24" height="24"/>
+    </resources>
+</document>

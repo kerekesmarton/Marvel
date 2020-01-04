@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextfieldCell" rowHeight="100" id="r9E-nf-2pC" customClass="TextFieldCell" customModule="IosCore">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r9E-nf-2pC" id="N9B-33-Poe">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsl-Ph-Ibn">
+                        <rect key="frame" x="24" y="73" width="343" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="1" green="0.12665280800000001" blue="0.1485244916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hag-Zb-ZQ6">
+                        <rect key="frame" x="20" y="15" width="335" height="54"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gh5-lC-bky">
+                                <rect key="frame" x="0.0" y="0.0" width="71" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Text goes here" textAlignment="right" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="3lR-ma-P1W">
+                                <rect key="frame" x="79" y="0.0" width="256" height="54"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="54" id="36M-h7-2Te"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="vsl-Ph-Ibn" firstAttribute="leading" secondItem="N9B-33-Poe" secondAttribute="leadingMargin" constant="8" id="Ag4-km-nOZ"/>
+                    <constraint firstItem="vsl-Ph-Ibn" firstAttribute="top" secondItem="hag-Zb-ZQ6" secondAttribute="bottom" constant="4" id="GoV-3y-88G"/>
+                    <constraint firstItem="hag-Zb-ZQ6" firstAttribute="leading" secondItem="N9B-33-Poe" secondAttribute="leadingMargin" constant="4" id="Icm-2C-EHb"/>
+                    <constraint firstItem="hag-Zb-ZQ6" firstAttribute="top" secondItem="N9B-33-Poe" secondAttribute="topMargin" constant="4" id="e5T-Oa-RC3"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="hag-Zb-ZQ6" secondAttribute="trailing" constant="4" id="r2B-Qn-3lv"/>
+                    <constraint firstItem="vsl-Ph-Ibn" firstAttribute="trailing" secondItem="N9B-33-Poe" secondAttribute="trailingMargin" constant="8" id="tBQ-lp-3F2"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="vsl-Ph-Ibn" secondAttribute="bottom" constant="4" id="xse-2v-MDj"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="inputErrorLabel" destination="vsl-Ph-Ibn" id="OUw-PJ-5Yz"/>
+                <outlet property="inputTextField" destination="3lR-ma-P1W" id="MI1-kQ-Ex3"/>
+                <outlet property="inputTitleLabel" destination="Gh5-lC-bky" id="VxE-ZO-vb6"/>
+            </connections>
+            <point key="canvasLocation" x="53.600000000000001" y="48.575712143928037"/>
+        </tableViewCell>
+    </objects>
+</document>

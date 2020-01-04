@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileSocialCell" rowHeight="65" id="kwZ-uU-Vyz" customClass="ProfileSocialCell" customModule="IosCore" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kwZ-uU-Vyz" id="0DV-C9-Cg2">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="05T-jL-QCx">
+                        <rect key="frame" x="32" y="5" width="311" height="49.5"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Jax-69-vlS">
+                                <rect key="frame" x="0.0" y="0.0" width="36" height="49.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0k" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyM-jw-PUc">
+                                        <rect key="frame" x="3" y="0.0" width="30.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUf-ue-h6v">
+                                        <rect key="frame" x="0.0" y="20.5" width="36" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="posts"/>
+                                        <connections>
+                                            <action selector="didTapPosts:" destination="kwZ-uU-Vyz" eventType="touchUpInside" id="m9r-D4-gJZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Q5O-VL-MTM">
+                                <rect key="frame" x="121" y="0.0" width="58" height="49.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="1.0k" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARF-aE-IqT">
+                                        <rect key="frame" x="14" y="0.0" width="30.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBY-iX-ZWt">
+                                        <rect key="frame" x="0.0" y="20.5" width="58" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="followers"/>
+                                        <connections>
+                                            <action selector="didTapFollowers:" destination="kwZ-uU-Vyz" eventType="touchUpInside" id="Cgh-fb-anH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Gvb-5R-MMr">
+                                <rect key="frame" x="253" y="0.0" width="58" height="49.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0k" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6V4-XT-mxa">
+                                        <rect key="frame" x="14" y="0.0" width="30.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxs-jx-qAR">
+                                        <rect key="frame" x="0.0" y="20.5" width="58" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="following"/>
+                                        <connections>
+                                            <action selector="didTapFollowing:" destination="kwZ-uU-Vyz" eventType="touchUpInside" id="PSK-sI-YEj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="05T-jL-QCx" firstAttribute="top" secondItem="0DV-C9-Cg2" secondAttribute="top" constant="5" id="F9S-5q-97M"/>
+                    <constraint firstAttribute="bottom" secondItem="05T-jL-QCx" secondAttribute="bottom" constant="5" id="LME-2Z-HUP"/>
+                    <constraint firstItem="05T-jL-QCx" firstAttribute="leading" secondItem="0DV-C9-Cg2" secondAttribute="leading" constant="32" id="jUj-vb-Z4F"/>
+                    <constraint firstAttribute="trailing" secondItem="05T-jL-QCx" secondAttribute="trailing" constant="32" id="q3w-sc-9GE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="followersButton" destination="yBY-iX-ZWt" id="XHj-xS-BGF"/>
+                <outlet property="followersValueLabel" destination="ARF-aE-IqT" id="zV0-gr-P6v"/>
+                <outlet property="followingButton" destination="vxs-jx-qAR" id="wB6-sb-s3x"/>
+                <outlet property="followingValueLabel" destination="6V4-XT-mxa" id="bQW-Jg-nxP"/>
+                <outlet property="postButton" destination="DUf-ue-h6v" id="7Ez-Ik-mNB"/>
+                <outlet property="postValueLabel" destination="iyM-jw-PUc" id="xz5-wG-J88"/>
+            </connections>
+            <point key="canvasLocation" x="4.5" y="28.5"/>
+        </tableViewCell>
+    </objects>
+</document>

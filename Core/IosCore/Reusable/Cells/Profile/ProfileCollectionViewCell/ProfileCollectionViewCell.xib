@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileCollectionViewCell" id="GaM-uF-8aS" customClass="ProfileCollectionViewCell" customModule="IosCore" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="258" height="223"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yEK-mL-uMR">
+                <rect key="frame" x="0.0" y="0.0" width="258" height="223"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xs4-Nb-BW9">
+                        <rect key="frame" x="8" y="72" width="240" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Profile label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fwu-fV-lWo" customClass="ProfileExtrasLabel" customModule="IosCore" customModuleProvider="target">
+                                <rect key="frame" x="66.333333333333343" y="0.0" width="107.33333333333334" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="tCS-dO-hdT"/>
+                        </constraints>
+                    </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MdL-bK-hOm">
+                        <rect key="frame" x="8" y="163" width="240" height="44"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="8fC-yl-Qn9"/>
+                            <constraint firstAttribute="width" constant="240" id="q90-71-Rgh"/>
+                        </constraints>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tjN-EH-0M1" customClass="RoundedImageView" customModule="IosCore" customModuleProvider="target">
+                        <rect key="frame" x="104" y="16" width="48" height="48"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="48" id="D4v-EI-EmP"/>
+                            <constraint firstAttribute="width" secondItem="tjN-EH-0M1" secondAttribute="height" multiplier="1:1" id="Zrh-6h-bVs"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="MdL-bK-hOm" firstAttribute="leading" secondItem="yEK-mL-uMR" secondAttribute="leading" constant="8" id="4MI-UF-7KN"/>
+                    <constraint firstItem="MdL-bK-hOm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xs4-Nb-BW9" secondAttribute="bottom" constant="8" id="ELr-Rr-Z22"/>
+                    <constraint firstItem="xs4-Nb-BW9" firstAttribute="top" secondItem="tjN-EH-0M1" secondAttribute="bottom" constant="8" id="Eee-VB-Oq1"/>
+                    <constraint firstAttribute="bottom" secondItem="MdL-bK-hOm" secondAttribute="bottom" constant="16" id="MI2-jh-46Z"/>
+                    <constraint firstItem="tjN-EH-0M1" firstAttribute="top" secondItem="yEK-mL-uMR" secondAttribute="top" constant="16" id="X2D-W6-xBV"/>
+                    <constraint firstAttribute="trailing" secondItem="xs4-Nb-BW9" secondAttribute="trailing" constant="8" id="ata-8m-p8C"/>
+                    <constraint firstAttribute="trailing" secondItem="MdL-bK-hOm" secondAttribute="trailing" constant="8" id="c1Z-b4-LCL"/>
+                    <constraint firstItem="tjN-EH-0M1" firstAttribute="centerX" secondItem="yEK-mL-uMR" secondAttribute="centerX" id="jN2-VL-zOg"/>
+                    <constraint firstItem="xs4-Nb-BW9" firstAttribute="leading" secondItem="yEK-mL-uMR" secondAttribute="leading" constant="8" id="qVQ-SG-1i7"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="258" height="223"/>
+            <connections>
+                <outlet property="accessoryView" destination="MdL-bK-hOm" id="KPc-1l-ZhQ"/>
+                <outlet property="profileImageView" destination="tjN-EH-0M1" id="YuN-vf-UKm"/>
+                <outlet property="profileLabel" destination="fwu-fV-lWo" id="xvg-OP-Quc"/>
+            </connections>
+            <point key="canvasLocation" x="239.13043478260872" y="264.53804347826087"/>
+        </collectionViewCell>
+    </objects>
+</document>

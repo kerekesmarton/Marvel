@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Title</key>
+		<string>Choose environment</string>
+		<key>Type</key>
+		<string>PSGroupSpecifier</string>
+		<key>FooterText</key>
+		<string>User will be logged out when any of these changes. </string>
+	</dict>
+	<dict>
+		<key>Type</key>
+		<string>PSMultiValueSpecifier</string>
+		<key>Title</key>
+		<string>Env</string>
+		<key>Key</key>
+		<string>Environment</string>
+		<key>DefaultValue</key>
+		<string>https://api.dev01.cloud</string>
+		<key>Values</key>
+		<array>
+			<string>https://api.dev01</string>
+			<string>https://api.network</string>
+			<string>https://api.stage01.cloud</string>
+		</array>
+		<key>Titles</key>
+		<array>
+			<string>Dev</string>
+			<string>Prod</string>
+			<string>Stage</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Type</key>
+		<string>PSTitleValueSpecifier</string>
+		<key>Title</key>
+		<string></string>
+		<key>Key</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>Type</key>
+		<string>PSToggleSwitchSpecifier</string>
+		<key>Title</key>
+		<string>Search Tabs Feature Flag</string>
+		<key>Key</key>
+		<string>FeatureFlags.SearchTabs</string>
+		<key>DefaultValue</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>Type</key>
+		<string>PSToggleSwitchSpecifier</string>
+		<key>Title</key>
+		<string>Mentions Feature Flag</string>
+		<key>Key</key>
+		<string>FeatureFlags.Mention</string>
+		<key>DefaultValue</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>Type</key>
+		<string>PSToggleSwitchSpecifier</string>
+		<key>Title</key>
+		<string>Video Uploading Feature Flag</string>
+		<key>Key</key>
+		<string>FeatureFlags.UploadVideo</string>
+		<key>DefaultValue</key>
+		<false/>
+	</dict>
+</array>
+</plist>
