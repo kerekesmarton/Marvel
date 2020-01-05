@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1050278F23C1F9BA00340F9C /* Characters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1050278E23C1F9BA00340F9C /* Characters.framework */; };
+		1050279023C1F9BA00340F9C /* Characters.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1050278E23C1F9BA00340F9C /* Characters.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10D94B1A23BF8FB900EE8B30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D94B1923BF8FB900EE8B30 /* AppDelegate.swift */; };
 		10D94B1C23BF8FB900EE8B30 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D94B1B23BF8FB900EE8B30 /* SceneDelegate.swift */; };
 		10D94B2323BF8FB900EE8B30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10D94B2123BF8FB900EE8B30 /* Main.storyboard */; };
@@ -47,6 +49,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1050279023C1F9BA00340F9C /* Characters.framework in Embed Frameworks */,
 				10D94B4123BF924300EE8B30 /* Domain.framework in Embed Frameworks */,
 				10D94B4323BF924300EE8B30 /* IosCore.framework in Embed Frameworks */,
 				10D94B3F23BF924300EE8B30 /* Data.framework in Embed Frameworks */,
@@ -59,6 +62,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1050278E23C1F9BA00340F9C /* Characters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Characters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10D94B1623BF8FB900EE8B30 /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10D94B1923BF8FB900EE8B30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10D94B1B23BF8FB900EE8B30 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1050278F23C1F9BA00340F9C /* Characters.framework in Frameworks */,
 				10D94B4023BF924300EE8B30 /* Domain.framework in Frameworks */,
 				10D94B4223BF924300EE8B30 /* IosCore.framework in Frameworks */,
 				10D94B3E23BF924300EE8B30 /* Data.framework in Frameworks */,
@@ -148,6 +153,7 @@
 		10D94B3623BF924300EE8B30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1050278E23C1F9BA00340F9C /* Characters.framework */,
 				10D94B3723BF924300EE8B30 /* Additions.framework */,
 				10D94B3823BF924300EE8B30 /* Data.framework */,
 				10D94B3923BF924300EE8B30 /* Domain.framework */,
@@ -192,10 +198,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 10D94B2C23BF8FBB00EE8B30 /* Build configuration list for PBXNativeTarget "Marvel" */;
 			buildPhases = (
-				10D94B8623BF953400EE8B30 /* ShellScript */,
 				10D94B1223BF8FB900EE8B30 /* Sources */,
 				10D94B1323BF8FB900EE8B30 /* Frameworks */,
 				10D94B1423BF8FB900EE8B30 /* Resources */,
+				10D94B8623BF953400EE8B30 /* ShellScript */,
 				10D94B4623BF924300EE8B30 /* Embed Frameworks */,
 			);
 			buildRules = (

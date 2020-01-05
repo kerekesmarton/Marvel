@@ -10,71 +10,37 @@ public class UserProfileStore: UserProfileStoring {
     
     public init() {}
     
-    private let tokenKey = "user.token"
-    public var token: String? {
+    private let _publicKeyHandle = "user.publicKey"
+    public var publicKey: String? {
         get {
-            guard let token = UserDefaults.standard.string(forKey: tokenKey) else {
+            guard let token = UserDefaults.standard.string(forKey: _publicKeyHandle) else {
                 return nil
             }
             return token
         }
         set {
             guard let newValue = newValue else {
-                UserDefaults.standard.removeObject(forKey: tokenKey)
+                UserDefaults.standard.removeObject(forKey: _publicKeyHandle)
                 return
             }
-            UserDefaults.standard.set(newValue, forKey: tokenKey)
+            UserDefaults.standard.set(newValue, forKey: _publicKeyHandle)
         }
     }
     
-    private let refreshKey = "user.refresh"
-    public var refresh: String? {
+    private let _privateKeyHandle = "user.privateKey"
+    public var privateKey: String? {
         get {
-            guard let token = UserDefaults.standard.string(forKey: refreshKey) else {
+            guard let token = UserDefaults.standard.string(forKey: _privateKeyHandle) else {
                 return nil
             }
             return token
         }
         set {
             guard let newValue = newValue else {
-                UserDefaults.standard.removeObject(forKey: refreshKey)
+                UserDefaults.standard.removeObject(forKey: _privateKeyHandle)
                 return
             }
-            UserDefaults.standard.set(newValue, forKey: refreshKey)
-        }
-    }
-    
-    private let chatTokenKey = "user.chatToken"
-    public var chatToken: String? {
-        get { return UserDefaults.standard.string(forKey: chatTokenKey) }
-        set { UserDefaults.standard.set(newValue, forKey: chatTokenKey) }
-    }
-    
-    private let idKey = "user.id"
-    public var id: String? {
-        get {
-            return UserDefaults.standard.string(forKey: idKey)
-        }
-        set {
-            guard let newValue = newValue else {
-                UserDefaults.standard.removeObject(forKey: idKey)
-                return
-            }
-            UserDefaults.standard.set(newValue, forKey: idKey)
-        }
-    }
-    
-    private let avatarKey = "user.avatar"
-    public var avatar: URL? {
-        get {
-            return URL(string: UserDefaults.standard.string(forKey: avatarKey) ?? "")
-        }
-        set {
-            guard let newValue = newValue?.absoluteString else {
-                UserDefaults.standard.removeObject(forKey: avatarKey)
-                return
-            }
-            UserDefaults.standard.set(newValue, forKey: avatarKey)
+            UserDefaults.standard.set(newValue, forKey: _privateKeyHandle)
         }
     }
     

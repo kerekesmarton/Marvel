@@ -104,7 +104,7 @@ public class AppPresenter: AppPresenting {
     var dispatcher: Dispatching = Dispatcher()
     
     private var sessionRequired: Bool {
-        return false
+        return true
     }
     
     //MARK: - Constructor

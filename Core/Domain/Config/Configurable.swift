@@ -44,11 +44,8 @@ public protocol Sessionable {
 }
 
 public protocol UserProfileStoring {
-    var token: String? { get set }
-    var refresh: String? { get set }
-    var chatToken: String? { get set }
-    var id: String? { get set }
-    var avatar: URL? { get set }
+    var publicKey: String? { get set }
+    var privateKey: String? { get set }
 }
 
 public protocol SessionCleaning {

@@ -14,11 +14,17 @@ public enum HTTPMethod: String {
     case put = "PUT"
 }
 
+public protocol Encryptable {
+    func md5Data(from string: String) -> Data
+    func md5Hex(from string: String) -> String
+    func md5Base64(from string: String) -> String
+}
+
 protocol RequestBuilding: class {
     var uri: URL { get set }
     var httpBody: Data? { get set }
     var method: HTTPMethod? { get set }
-    var token: String? { get }    
+    func hash(with ts: String) -> String?
     var cachePolicy: URLRequest.CachePolicy? { get }
     var parameters: [String:String] { get set }
     
@@ -38,17 +44,56 @@ protocol RequestBuilding: class {
 }
 
 public class BaseRequestBuilder {
-    lazy public var uri: URL = baseUrl
-    public var httpBody: Data?
-    public var method: HTTPMethod?
-    public var token: String?
-    public let baseUrl: URL
-    public var parameters = [String:String]()
-    func createUrl() throws -> URL {
-        return uri
+    var httpBody: Data?
+    var method: HTTPMethod? = HTTPMethod(rawValue: "GET")
+    var parameters = [String:String]()
+    lazy var uri: URL = {
+        return settings.environment.baseUrl
+    }()
+    private let store: UserProfileStoring
+    private let settings: SettingsConfigurable
+    private let crypto: Encryptable
+    init(store: UserProfileStoring, config: SettingsConfigurable, crypto: Encryptable) {
+        self.store = store
+        self.settings = config
+        self.crypto = crypto
     }
-    public init(config: SettingsConfigurable) {
-        baseUrl = URL(string: config.environment.rawValue)!
+    
+    func hash(with ts: String) -> String? {
+        guard let publicKey = store.publicKey else { return nil }
+        guard let privateKey = store.privateKey else { return nil }
+        return crypto.md5Hex(from: ts + privateKey + publicKey)
+    }
+    
+    func appendAuthParameters(to url: URL) throws -> URL {
+        /*
+         ts=1&apikey=1234&hash=ffd275c5130566a2916217b101f26150
+         */
+        let ts = UUID().uuidString
+        let tsQueryItem = URLQueryItem(name: "ts", value: ts)
+        let apiKey = store.publicKey
+        let apiKeyQueryItem = URLQueryItem(name: "apiKey", value: apiKey)
+        let hashValue = hash(with: ts)
+        let hashQueryItem = URLQueryItem(name: "hash", value: hashValue)
+        return try add(queryItems: [tsQueryItem,apiKeyQueryItem,hashQueryItem], to: url)
+    }
+    
+    func add(queryItems: [URLQueryItem], to url: URL) throws -> URL {
+        guard !queryItems.isEmpty else {
+            return url
+        }
+        
+        guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
+            throw ServiceError.parsing("could not generate request")
+        }
+        
+        components.queryItems = queryItems
+        
+        guard let url = components.url else {
+            throw ServiceError.parsing("could not generate request")
+        }
+        
+        return url
     }
 }
 
@@ -64,9 +109,6 @@ extension RequestBuilding {
             request.setValue(contentType, forHTTPHeaderField: acceptKey)
         }
         request.setValue(userAgent, forHTTPHeaderField: userAgentKey)
-        if let token = token {
-            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        }
         if let method = method {
             request.httpMethod = method.rawValue
         }
@@ -103,24 +145,6 @@ extension RequestBuilding {
         }        
         let request = URLRequest(url: uri)
         return decorated(request)
-    }
-    
-    func add(queryItems: [URLQueryItem], to url: URL) throws -> URL {
-        guard !queryItems.isEmpty else {
-            return url
-        }
-        
-        guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
-            throw ServiceError.parsing("could not generate request")
-        }
-        
-        components.queryItems = queryItems
-        
-        guard let url = components.url else {
-            throw ServiceError.parsing("could not generate request")
-        }
-        
-        return url
     }
     
     var contentTypeFieldKey: String {

@@ -109,7 +109,7 @@ class NetworkDataServiceTests: XCTestCase {
             }
         }        
         XCTAssertEqual(mockedSession.spyRequest?.url?.absoluteString, mockedRequestBuilder.request.url?.absoluteString)
-        XCTAssertNil(capturedError)
+        XCTAssertEqual(capturedError, ServiceError.unknown)
         XCTAssertNil(capturedEntity)
     }
     

@@ -13,11 +13,8 @@
 		101C7C3C23A4D18400F177A6 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A70AE213830D700DE8A6A /* Domain.framework */; };
 		101C7C3D23A4D18400F177A6 /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A71622138312B00DE8A6A /* Presentation.framework */; };
 		101C7C4823A4EF7A00F177A6 /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4123A4EF7A00F177A6 /* JWTDecode.framework */; };
-		101C7C4923A4EF7A00F177A6 /* JWTDecode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4123A4EF7A00F177A6 /* JWTDecode.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		101C7C4C23A4EF7A00F177A6 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4323A4EF7A00F177A6 /* KeychainSwift.framework */; };
-		101C7C4D23A4EF7A00F177A6 /* KeychainSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4323A4EF7A00F177A6 /* KeychainSwift.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		101C7C4E23A4EF7A00F177A6 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4423A4EF7A00F177A6 /* RealmSwift.framework */; };
-		101C7C4F23A4EF7A00F177A6 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4423A4EF7A00F177A6 /* RealmSwift.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		101C7C5323A4EFB200F177A6 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A70F62138310700DE8A6A /* Data.framework */; };
 		101C7C5723A4EFC600F177A6 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4023A4EF7A00F177A6 /* Apollo.framework */; };
 		101C7C5823A4EFC600F177A6 /* Apollo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4023A4EF7A00F177A6 /* Apollo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -36,7 +33,6 @@
 		101C7C7123A4EFC700F177A6 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C6823A4EFC700F177A6 /* Kingfisher.framework */; };
 		101C7C7223A4EFC700F177A6 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C6823A4EFC700F177A6 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		101C7C7823A4F81A00F177A6 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4523A4EF7A00F177A6 /* Realm.framework */; };
-		101C7C7923A4F81A00F177A6 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4523A4EF7A00F177A6 /* Realm.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		10206E3C2244EE0300B81CD1 /* RowHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10206E3B2244EE0300B81CD1 /* RowHeight.swift */; };
 		102A67E622FD5FE5002A45A5 /* CoreTestHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 102A67E422FD5FE5002A45A5 /* CoreTestHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		102A67EE22FD63E0002A45A5 /* LogoutProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102A67ED22FD63E0002A45A5 /* LogoutProtocols.swift */; };
@@ -86,7 +82,6 @@
 		105026B723C0900400340F9C /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026B623C0900400340F9C /* Entities.swift */; };
 		105026BB23C0908C00340F9C /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026B823C0908C00340F9C /* Models.swift */; };
 		105026BC23C0908C00340F9C /* Parsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026B923C0908C00340F9C /* Parsers.swift */; };
-		105026BD23C0908C00340F9C /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026BA23C0908C00340F9C /* APIs.swift */; };
 		105026BF23C0914600340F9C /* CharacterDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026BE23C0914600340F9C /* CharacterDataWrapper.swift */; };
 		105026C123C0918300340F9C /* CharacterDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026C023C0918300340F9C /* CharacterDataContainer.swift */; };
 		105026F423C09AF800340F9C /* CharactersFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026F323C09AF800340F9C /* CharactersFetcher.swift */; };
@@ -273,6 +268,9 @@
 		10EE856E230D3C540009B6E0 /* TenantDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EE856D230D3C540009B6E0 /* TenantDescription.swift */; };
 		10EE8570230D3CC00009B6E0 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EE856F230D3CC00009B6E0 /* Environment.swift */; };
 		10EE8572230EE1BC0009B6E0 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EE8571230EE1BC0009B6E0 /* Settings.swift */; };
+		10F84BEC23C2041200121E26 /* CustomCryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84BEB23C2041200121E26 /* CustomCryptoTests.swift */; };
+		10F84BED23C207D300121E26 /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026BA23C0908C00340F9C /* APIs.swift */; };
+		10F84BEE23C207D700121E26 /* CustomCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84BE823C2005400121E26 /* CustomCrypto.swift */; };
 		FD15E17522E594C100F5C070 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD15E17422E594C100F5C070 /* NSAttributedString.swift */; };
 /* End PBXBuildFile section */
 
@@ -357,20 +355,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		101C7C5223A4EF7A00F177A6 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				101C7C4F23A4EF7A00F177A6 /* RealmSwift.framework in Embed Frameworks */,
-				101C7C4D23A4EF7A00F177A6 /* KeychainSwift.framework in Embed Frameworks */,
-				101C7C4923A4EF7A00F177A6 /* JWTDecode.framework in Embed Frameworks */,
-				101C7C7923A4F81A00F177A6 /* Realm.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		101C7C6323A4EFC700F177A6 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -647,6 +631,8 @@
 		10EE856D230D3C540009B6E0 /* TenantDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenantDescription.swift; sourceTree = "<group>"; };
 		10EE856F230D3CC00009B6E0 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		10EE8571230EE1BC0009B6E0 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		10F84BE823C2005400121E26 /* CustomCrypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCrypto.swift; sourceTree = "<group>"; };
+		10F84BEB23C2041200121E26 /* CustomCryptoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCryptoTests.swift; sourceTree = "<group>"; };
 		29A439D821F87C4E008459B1 /* DateCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCoder.swift; sourceTree = "<group>"; };
 		FD15E17422E594C100F5C070 /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -755,6 +741,7 @@
 			children = (
 				104A71372138311F00DE8A6A /* NetworkDataService.swift */,
 				104A713B2138311F00DE8A6A /* RequestBuilding.swift */,
+				10F84BE823C2005400121E26 /* CustomCrypto.swift */,
 				104A71382138311F00DE8A6A /* Test */,
 			);
 			path = Network;
@@ -940,6 +927,7 @@
 			children = (
 				104A71392138311F00DE8A6A /* MockRequestBuilder.swift */,
 				104A713A2138311F00DE8A6A /* NetworkDataServiceTests.swift */,
+				10F84BEB23C2041200121E26 /* CustomCryptoTests.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -1634,7 +1622,6 @@
 				104A70F12138310700DE8A6A /* Sources */,
 				104A70F22138310700DE8A6A /* Frameworks */,
 				104A70F42138310700DE8A6A /* Resources */,
-				101C7C5223A4EF7A00F177A6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1943,6 +1930,10 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$(PROJECT_DIR)/../Carthage/Build/iOS/RealmSwift.framework",
+				"$(PROJECT_DIR)/../Carthage/Build/iOS/Realm.framework",
+				"$(PROJECT_DIR)/../Carthage/Build/iOS/KeychainSwift.framework",
+				"$(PROJECT_DIR)/../Carthage/Build/iOS/JWTDecode.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -2001,6 +1992,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				104A714F2138312000DE8A6A /* BundleLoaderDataService.swift in Sources */,
+				10F84BED23C207D300121E26 /* APIs.swift in Sources */,
 				105026BF23C0914600340F9C /* CharacterDataWrapper.swift in Sources */,
 				104A71502138312000DE8A6A /* DataPersistence.swift in Sources */,
 				10AC3FC022E099AD008DAA66 /* ErrorResponse.swift in Sources */,
@@ -2014,11 +2006,11 @@
 				10E6F7FE22D605DE00849080 /* DateCoder.swift in Sources */,
 				104A71532138312000DE8A6A /* KeyChainWrapper.swift in Sources */,
 				104A71542138312000DE8A6A /* MockKeychainWrapper.swift in Sources */,
+				10F84BEE23C207D700121E26 /* CustomCrypto.swift in Sources */,
 				105026BB23C0908C00340F9C /* Models.swift in Sources */,
 				104A714C2138312000DE8A6A /* DataParsing.swift in Sources */,
 				10C85A87222E7A4300FC6894 /* UserProfileStore.swift in Sources */,
 				10BD166A220DC87400E90411 /* RealmHelpers.swift in Sources */,
-				105026BD23C0908C00340F9C /* APIs.swift in Sources */,
 				10E6F7FF22D605DE00849080 /* DictionaryCoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2028,6 +2020,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				104A71902138319300DE8A6A /* MockDataPersisting.swift in Sources */,
+				10F84BEC23C2041200121E26 /* CustomCryptoTests.swift in Sources */,
 				104A718F2138319300DE8A6A /* DataPersistenceTests.swift in Sources */,
 				104A71872138319300DE8A6A /* BundleLoaderDataServiceTests.swift in Sources */,
 				106CFC622284431A008D8E0B /* TokenParserTests.swift in Sources */,
@@ -2485,7 +2478,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = ../Carthage/Build/iOS;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = Data/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
@@ -2517,7 +2510,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_BITCODE = YES;
-				FRAMEWORK_SEARCH_PATHS = ../Carthage/Build/iOS;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = Data/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
@@ -2838,7 +2831,7 @@
 				DEVELOPMENT_TEAM = HQQ63777MM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/../Carthage/Build/iOS/**",
+					"../Carthage/Build/iOS/**",
 				);
 				INFOPLIST_FILE = IosCore/IosCoreTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -2864,7 +2857,7 @@
 				DEVELOPMENT_TEAM = HQQ63777MM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/../Carthage/Build/iOS/**",
+					"../Carthage/Build/iOS/**",
 				);
 				INFOPLIST_FILE = IosCore/IosCoreTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -2889,7 +2882,7 @@
 				DEVELOPMENT_TEAM = HQQ63777MM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/../Carthage/Build/iOS/**",
+					"../Carthage/Build/iOS/**",
 				);
 				INFOPLIST_FILE = IosCore/IosCoreTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -3182,7 +3175,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = ../Carthage/Build/iOS;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = Data/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;

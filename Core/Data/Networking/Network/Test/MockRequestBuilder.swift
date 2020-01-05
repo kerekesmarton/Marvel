@@ -22,6 +22,31 @@ class MockRequestBuilder: BaseRequestBuilder, RequestBuilding {
     }
     
     init() {
-        super.init(config: MockSettingsConfigurable(defaults: UserDefaults(suiteName: nil)!))
+        super.init(store: MockUserProfileStore(), config: MockSettingsConfigurable(defaults: UserDefaults(suiteName: nil)!), crypto: MockEncryptable())
     }
+    
+    var stubURL = URL(string: "some.url")!
+    func createUrl() throws -> URL {
+        return stubURL
+    }
+}
+
+final class MockEncryptable: Encryptable{
+    
+    var stubData = Data()
+    func md5Data(from string: String) -> Data {
+        return Data()
+    }
+    
+    var stubHex = "8b1a9953c4611296a827abf8c47804d7"
+    func md5Hex(from string: String) -> String {
+        return stubHex
+    }
+    
+    var stubBase64 = "ixqZU8RhEpaoJ6v4xHgE1w=="
+    func md5Base64(from string: String) -> String {
+        return stubBase64
+    }
+    
+    
 }

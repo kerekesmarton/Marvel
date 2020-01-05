@@ -25,14 +25,12 @@ public class AppSession: AppSessionable {
     }
     
     public func userIsLoggedIn() -> Bool {
-        return userStore.id != nil
+        return userStore.privateKey != nil && userStore.publicKey != nil
     }
     
     public func logoutUser() {
-        userStore.id = nil
-        userStore.avatar = nil
-        userStore.token = nil
-        userStore.refresh = nil
+        userStore.publicKey = nil
+        userStore.privateKey = nil
     }
     
     public func refreshNeeded() -> Bool {
@@ -40,7 +38,7 @@ public class AppSession: AppSessionable {
             return false
         }
         
-        guard let tokenString = userStore.token else { return  false} // not signed in yet, can't get here
+        guard let tokenString = userStore.publicKey else { return  false} // not signed in yet, can't get here
         
         do {
             let token = try parser.parse(token: tokenString)
@@ -59,7 +57,7 @@ public class AppSession: AppSessionable {
     }
     
     public func refreshNeededForResume() -> Bool {
-        guard let tokenString = userStore.token else { return  false} // not signed in yet, can't get here
+        guard let tokenString = userStore.publicKey else { return  false} // not signed in yet, can't get here
         
         do {
             let token = try parser.parse(token: tokenString)

@@ -136,6 +136,8 @@ public func == (lhs: ServiceError, rhs: ServiceError) -> Bool {
         return (response1 == response2)
     case (.client(let response1, _), .client(let response2, _)):
         return response1 == response2
+    case (.unknown, .unknown):
+        return true
     default:
         return false
     }

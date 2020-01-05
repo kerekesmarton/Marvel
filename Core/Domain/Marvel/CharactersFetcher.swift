@@ -20,7 +20,9 @@ public class CharactersFetcherer: CharactersFetchering {
     }
     
     public func fetchCharacters(completion: (Result<Entities.CharacterDataWrapper, ServiceError>) -> Void) {
-        
+        service.getData() { (result: Result<Entities.CharacterDataWrapper, ServiceError>) in
+            
+        }
     }
 }
 

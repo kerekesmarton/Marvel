@@ -14,6 +14,16 @@
 		105026EE23C099A300340F9C /* CharacterListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026E923C099A300340F9C /* CharacterListPresenter.swift */; };
 		105026EF23C099A300340F9C /* CharacterListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026EA23C099A300340F9C /* CharacterListRouter.swift */; };
 		105026F023C099A300340F9C /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026EB23C099A300340F9C /* CharacterListViewController.swift */; };
+		1050278323C1F9A200340F9C /* Additions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1050277E23C1F9A200340F9C /* Additions.framework */; };
+		1050278423C1F9A200340F9C /* Additions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1050277E23C1F9A200340F9C /* Additions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1050278523C1F9A200340F9C /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1050277F23C1F9A200340F9C /* Data.framework */; };
+		1050278623C1F9A200340F9C /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1050277F23C1F9A200340F9C /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1050278723C1F9A200340F9C /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1050278023C1F9A200340F9C /* Domain.framework */; };
+		1050278823C1F9A200340F9C /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1050278023C1F9A200340F9C /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1050278923C1F9A200340F9C /* IosCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1050278123C1F9A200340F9C /* IosCore.framework */; };
+		1050278A23C1F9A200340F9C /* IosCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1050278123C1F9A200340F9C /* IosCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1050278B23C1F9A200340F9C /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1050278223C1F9A200340F9C /* Presentation.framework */; };
+		1050278C23C1F9A200340F9C /* Presentation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1050278223C1F9A200340F9C /* Presentation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +36,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1050278D23C1F9A200340F9C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1050278823C1F9A200340F9C /* Domain.framework in Embed Frameworks */,
+				1050278A23C1F9A200340F9C /* IosCore.framework in Embed Frameworks */,
+				1050278623C1F9A200340F9C /* Data.framework in Embed Frameworks */,
+				1050278C23C1F9A200340F9C /* Presentation.framework in Embed Frameworks */,
+				1050278423C1F9A200340F9C /* Additions.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		105026CE23C0998100340F9C /* Characters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Characters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		105026D123C0998100340F9C /* Characters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Characters.h; sourceTree = "<group>"; };
@@ -37,6 +65,11 @@
 		105026E923C099A300340F9C /* CharacterListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenter.swift; sourceTree = "<group>"; };
 		105026EA23C099A300340F9C /* CharacterListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListRouter.swift; sourceTree = "<group>"; };
 		105026EB23C099A300340F9C /* CharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
+		1050277E23C1F9A200340F9C /* Additions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Additions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1050277F23C1F9A200340F9C /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1050278023C1F9A200340F9C /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1050278123C1F9A200340F9C /* IosCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IosCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1050278223C1F9A200340F9C /* Presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +77,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1050278723C1F9A200340F9C /* Domain.framework in Frameworks */,
+				1050278923C1F9A200340F9C /* IosCore.framework in Frameworks */,
+				1050278523C1F9A200340F9C /* Data.framework in Frameworks */,
+				1050278B23C1F9A200340F9C /* Presentation.framework in Frameworks */,
+				1050278323C1F9A200340F9C /* Additions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +102,7 @@
 				105026D023C0998100340F9C /* Characters */,
 				105026DB23C0998100340F9C /* CharactersTests */,
 				105026CF23C0998100340F9C /* Products */,
+				1050277D23C1F9A200340F9C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,10 +120,7 @@
 			children = (
 				105026D123C0998100340F9C /* Characters.h */,
 				105026D223C0998100340F9C /* Info.plist */,
-				105026E823C099A300340F9C /* CharacterListModule.swift */,
-				105026E923C099A300340F9C /* CharacterListPresenter.swift */,
-				105026EA23C099A300340F9C /* CharacterListRouter.swift */,
-				105026EB23C099A300340F9C /* CharacterListViewController.swift */,
+				1050279123C1F9DD00340F9C /* List */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -96,6 +132,29 @@
 				105026DE23C0998100340F9C /* Info.plist */,
 			);
 			path = CharactersTests;
+			sourceTree = "<group>";
+		};
+		1050277D23C1F9A200340F9C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1050277E23C1F9A200340F9C /* Additions.framework */,
+				1050277F23C1F9A200340F9C /* Data.framework */,
+				1050278023C1F9A200340F9C /* Domain.framework */,
+				1050278123C1F9A200340F9C /* IosCore.framework */,
+				1050278223C1F9A200340F9C /* Presentation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1050279123C1F9DD00340F9C /* List */ = {
+			isa = PBXGroup;
+			children = (
+				105026E823C099A300340F9C /* CharacterListModule.swift */,
+				105026E923C099A300340F9C /* CharacterListPresenter.swift */,
+				105026EA23C099A300340F9C /* CharacterListRouter.swift */,
+				105026EB23C099A300340F9C /* CharacterListViewController.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +179,7 @@
 				105026CA23C0998100340F9C /* Sources */,
 				105026CB23C0998100340F9C /* Frameworks */,
 				105026CC23C0998100340F9C /* Resources */,
+				1050278D23C1F9A200340F9C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -364,6 +424,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Characters/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
