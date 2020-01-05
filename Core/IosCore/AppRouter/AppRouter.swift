@@ -11,21 +11,35 @@ public protocol ScrollableChildRouter {
     func scrollToTop()
 }
 
+public protocol WindowSourceable {
+    var window: UIWindow? { get }
+}
+
+public class WindowSource: WindowSourceable {
+    public init() {}
+    public var window: UIWindow? {
+        return UIApplication.shared.keyWindow
+    }
+}
+
 public class AppRouter: NSObject, Routing, AppRouting, ErrorRouting {
     private struct Constants {
         static let addPostButtonIndex = 2
         static let tabBarItemImageInset = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
     }
     
-    let window: UIWindow
+    var windowSource: WindowSourceable
+    private var window: UIWindow? {
+        return windowSource.window
+    }
     let style: StyleProviding
     public weak var delegate: AppRoutingDelegate?
     var tabs: TabBarController?
     var currentChildRouter: Routing?
     
-    public init(window: UIWindow, style: StyleProviding) {
-        self.window = window
+    public init(windowSource: WindowSourceable, style: StyleProviding) {
         self.style = style
+        self.windowSource = windowSource
         style.setup()
     }
     
@@ -34,14 +48,14 @@ public class AppRouter: NSObject, Routing, AppRouting, ErrorRouting {
         let tabBarController = TabBarController()
         
         tabBarController.delegate = self
-        window.rootViewController = tabBarController
+        window?.rootViewController = tabBarController
         
         return tabBarController
         
     }
     
     public func start() {
-        setupLoadingScreen()
+//        setupLoadingScreen()
     }
     
     fileprivate func findModule(_ moduleConfig: (NavigationConfiguration.Item), in appmodules: [TabModule]) -> TabModule? {
@@ -77,14 +91,9 @@ public class AppRouter: NSObject, Routing, AppRouting, ErrorRouting {
         let result = welcomeModule.setup(config: config) {[weak self] in
             self?.delegate?.didLogin()
         }
-        
-        window.rootViewController = result.controller
+        window?.rootViewController = result.controller
         addChild(router: result.router)
         result.router.start()
-    }
-    
-    public func setupLoadingScreen() {        
-        window.rootViewController = LaunchViewController.viewController
     }
     
     public func canHandle<T>(deepLink: DeepLinkOption<T>) -> Bool {

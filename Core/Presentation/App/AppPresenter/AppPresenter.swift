@@ -70,7 +70,6 @@ public protocol AppRouting {
     func start()
     func setupModules(navConfig: NavigationConfiguration) -> TabbedPresenentationOutput
     func setupWelcomeScreen()
-    func setupLoadingScreen()
     func route<T>(deepLink: DeepLinkOption<T>)
     func route(tab: AppRoutableTabs)
 }
@@ -160,12 +159,9 @@ public class AppPresenter: AppPresenting {
     
     //MARK: - Private methods
     private func setupNavigationConfig() {
-        let feed = NavigationConfiguration.Item(title: "", icon: "Tab-Home", moduleName: "network")
-        let explore = NavigationConfiguration.Item(title: "", icon: "Tab-Explore", moduleName: "explore")
-        let post = NavigationConfiguration.Item(title: "", icon: "Tab-Create-Post", moduleName: "create-post")
-        let notification = NavigationConfiguration.Item(title: "", icon: "Tab-Notification", moduleName: "notifications")
-        let profile = NavigationConfiguration.Item(title: "", icon: "Tab-Profile", moduleName: "profile")
-        navigationConfig = NavigationConfiguration(modules: [feed, explore, post, notification, profile])
+        let characters = NavigationConfiguration.Item(title: "", icon: "Tab-Home", moduleName: "character-list")
+        let profiles = NavigationConfiguration.Item(title: "", icon: "Tab-Profile", moduleName: "character-list")
+        navigationConfig = NavigationConfiguration(modules: [characters, profiles])
     }
     
     private func _loadApplication() {

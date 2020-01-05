@@ -21,7 +21,7 @@ public enum Color {
     public static let neutralTint       = #colorLiteral(red: 0.87, green: 0.91, blue: 0.99, alpha: 1) //#DFE7FD
     
     public static let base              = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) //#FFFFFF
-    public static let primary           = #colorLiteral(red: 0.368627451, green: 0.5294117647, blue: 0.968627451, alpha: 1) //#5E87F7
+    public static let primary           = #colorLiteral(red: 1, green: 0, blue: 0.02370405756, alpha: 1) //#5E87F7
     public static let success           = #colorLiteral(red: 0.4392156863, green: 0.7529411765, blue: 0.3137254902, alpha: 1) //#70C050
     public static let error             = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1) //FF0000
     

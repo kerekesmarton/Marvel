@@ -5,15 +5,14 @@
 import Foundation
 import UIKit
 
-
-class LaunchViewController: ViewController {
+public class LaunchViewController: ViewController {
     
-    static var viewController: LaunchViewController {
+    public static var viewController: LaunchViewController {
         //BUG HERE
         return UIStoryboard.viewController(with: "LaunchViewController", storyboard: "UI", bundle: Bundle(for: self)) as! LaunchViewController
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
      
         loader.isHidden = false

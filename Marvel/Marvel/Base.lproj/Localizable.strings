@@ -1,0 +1,13 @@
+/* 
+  File.strings
+  Marvel
+
+  Created by Marton Kerekes on 05/01/2020.
+  Copyright © 2020 Marton Kerekes. All rights reserved.
+*/
+
+"login_publicKey_placeholder" = "Public key";
+"login_privateKey_placeholder" = "Private key";
+"login_button_title" = "Save";
+"login_button_title_sign_up" = "Sign up at Marvel";
+"login_title_dont_have_an_account" = "Don't have an account?";

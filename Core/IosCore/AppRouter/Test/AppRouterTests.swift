@@ -12,19 +12,18 @@ class AppRouterTests: XCTestCase {
     let mockedWelcome: MockLoginModule = MockLoginModule()
     
     func test_GivenWindow_WhenStartingApp_ThenTabsLaunched() {
-        
-        let window = UIWindow()
         let mockedStyle = MockStyle()
-        let appRouter = AppRouter(window: window, style: mockedStyle)
+        let appRouter = AppRouter(windowSource: MockWindowSource(), style: mockedStyle)
         appRouter.start()
         
         XCTAssertTrue(mockedStyle.spySetup)
     }
     
     func test_GivenAppLoaded_WhenSetupModules_ThenTabsLaunched() {
-        let window = UIWindow()
+        let mockWindowSurce: MockWindowSource = MockWindowSource()
+        let window = mockWindowSurce.window!
         let mockedStyle = MockStyle()
-        let appRouter = AppRouter(window: window, style: mockedStyle)
+        let appRouter = AppRouter(windowSource: mockWindowSurce, style: mockedStyle)
         
         let feed = NavigationConfiguration.Item(title: "", icon: "Tab-Home", moduleName: "network")
         let explore = NavigationConfiguration.Item(title: "", icon: "Tab-Explore", moduleName: "channels")
@@ -38,9 +37,10 @@ class AppRouterTests: XCTestCase {
     }
     
     func test_GivenAppRequiresWelcom_ThenWelcomeStarted() {
-        let window = UIWindow()
+        let mockWindowSurce: MockWindowSource = MockWindowSource()
+        let window = mockWindowSurce.window!
         let mockedStyle = MockStyle()
-        let appRouter = AppRouter(window: window, style: mockedStyle)
+        let appRouter = AppRouter(windowSource: mockWindowSurce, style: mockedStyle)
         appRouter.config.appModules.add(mockedWelcome)
         appRouter.setupWelcomeScreen()
         
@@ -79,4 +79,8 @@ class MockStyle: StyleProviding {
     func setup() {
         spySetup = true
     }
+}
+
+class MockWindowSource: WindowSourceable {
+    var window: UIWindow? = UIWindow()
 }

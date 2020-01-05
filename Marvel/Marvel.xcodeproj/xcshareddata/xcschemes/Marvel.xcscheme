@@ -98,10 +98,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "105026CD23C0998100340F9C"
-               BuildableName = "Characters.framework"
-               BlueprintName = "Characters"
-               ReferencedContainer = "container:../Characters/Characters.xcodeproj">
+               BlueprintIdentifier = "10F84BF923C20C8E00121E26"
+               BuildableName = "MarvelAuth.framework"
+               BlueprintName = "MarvelAuth"
+               ReferencedContainer = "container:../MarvelAuth/MarvelAuth.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "10F84C1D23C236BC00121E26"
+               BuildableName = "MarvelCharacters.framework"
+               BlueprintName = "MarvelCharacters"
+               ReferencedContainer = "container:../MarvelCharacters/MarvelCharacters.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -168,10 +182,24 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "105026D623C0998100340F9C"
-               BuildableName = "CharactersTests.xctest"
-               BlueprintName = "CharactersTests"
-               ReferencedContainer = "container:../Characters/Characters.xcodeproj">
+               BlueprintIdentifier = "10F84C0223C20C8E00121E26"
+               BuildableName = "MarvelAuthTests.xctest"
+               BlueprintName = "MarvelAuthTests"
+               ReferencedContainer = "container:../MarvelAuth/MarvelAuth.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "10F84C2623C236BC00121E26"
+               BuildableName = "MarvelCharactersTests.xctest"
+               BlueprintName = "MarvelCharactersTests"
+               ReferencedContainer = "container:../MarvelCharacters/MarvelCharacters.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -196,6 +224,66 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "104A70FD2138310700DE8A6A"
+               BuildableName = "DataTests.xctest"
+               BlueprintName = "DataTests"
+               ReferencedContainer = "container:../Core/Core.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "104A70B5213830D700DE8A6A"
+               BuildableName = "DomainTests.xctest"
+               BlueprintName = "DomainTests"
+               ReferencedContainer = "container:../Core/Core.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "109D3C1B239BC78E00D6A4EF"
+               BuildableName = "IosCoreTests.xctest"
+               BlueprintName = "IosCoreTests"
+               ReferencedContainer = "container:../Core/Core.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "104A71692138312C00DE8A6A"
+               BuildableName = "PresentationTests.xctest"
+               BlueprintName = "PresentationTests"
+               ReferencedContainer = "container:../Core/Core.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "10F84C0223C20C8E00121E26"
+               BuildableName = "MarvelAuthTests.xctest"
+               BlueprintName = "MarvelAuthTests"
+               ReferencedContainer = "container:../MarvelAuth/MarvelAuth.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "10F84C2623C236BC00121E26"
+               BuildableName = "MarvelCharactersTests.xctest"
+               BlueprintName = "MarvelCharactersTests"
+               ReferencedContainer = "container:../MarvelCharacters/MarvelCharacters.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

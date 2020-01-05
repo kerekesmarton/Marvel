@@ -66,15 +66,10 @@ public class BaseRequestBuilder {
     }
     
     func appendAuthParameters(to url: URL) throws -> URL {
-        /*
-         ts=1&apikey=1234&hash=ffd275c5130566a2916217b101f26150
-         */
         let ts = UUID().uuidString
         let tsQueryItem = URLQueryItem(name: "ts", value: ts)
-        let apiKey = store.publicKey
-        let apiKeyQueryItem = URLQueryItem(name: "apiKey", value: apiKey)
-        let hashValue = hash(with: ts)
-        let hashQueryItem = URLQueryItem(name: "hash", value: hashValue)
+        let apiKeyQueryItem = URLQueryItem(name: "apiKey", value: store.publicKey)
+        let hashQueryItem = URLQueryItem(name: "hash", value: hash(with: ts))
         return try add(queryItems: [tsQueryItem,apiKeyQueryItem,hashQueryItem], to: url)
     }
     

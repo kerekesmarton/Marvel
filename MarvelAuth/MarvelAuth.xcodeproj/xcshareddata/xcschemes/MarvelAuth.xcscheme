@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "105026CD23C0998100340F9C"
-               BuildableName = "Characters.framework"
-               BlueprintName = "Characters"
-               ReferencedContainer = "container:Characters.xcodeproj">
+               BlueprintIdentifier = "10F84BF923C20C8E00121E26"
+               BuildableName = "MarvelAuth.framework"
+               BlueprintName = "MarvelAuth"
+               ReferencedContainer = "container:MarvelAuth.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "105026D623C0998100340F9C"
-               BuildableName = "CharactersTests.xctest"
-               BlueprintName = "CharactersTests"
-               ReferencedContainer = "container:Characters.xcodeproj">
+               BlueprintIdentifier = "10F84C0223C20C8E00121E26"
+               BuildableName = "MarvelAuthTests.xctest"
+               BlueprintName = "MarvelAuthTests"
+               ReferencedContainer = "container:MarvelAuth.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -60,10 +60,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "105026CD23C0998100340F9C"
-            BuildableName = "Characters.framework"
-            BlueprintName = "Characters"
-            ReferencedContainer = "container:Characters.xcodeproj">
+            BlueprintIdentifier = "10F84BF923C20C8E00121E26"
+            BuildableName = "MarvelAuth.framework"
+            BlueprintName = "MarvelAuth"
+            ReferencedContainer = "container:MarvelAuth.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
