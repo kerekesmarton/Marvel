@@ -7,6 +7,7 @@ import Domain
 import Data
 import Additions
 import Photos
+import Reqres
 
 public class Configuration: Configurable {
     
@@ -97,7 +98,9 @@ public class Configuration: Configurable {
     
     //MARK: - Private methods
     private func setupServices() {
-        
+        #if DEBUG
+        Reqres.register()
+        #endif
     }
 }
 

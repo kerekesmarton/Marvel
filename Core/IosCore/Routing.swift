@@ -17,7 +17,7 @@ public protocol TabModule: Module {
 public extension TabModule {
     
     func createNavigation(with title: String, imageResource: String?, tag: Int) -> UINavigationController {
-        let nav = ClearNavigationController()
+        let nav = NavigationController()
         
         if let imageResource = imageResource {
             let item: UITabBarItem = UITabBarItem(title: title, image: UIImage(named: imageResource), tag: tag)

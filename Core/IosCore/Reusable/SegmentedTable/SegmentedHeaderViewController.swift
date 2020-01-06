@@ -16,7 +16,7 @@ open class SegmentedHeaderViewController: ViewController, SegmentsRouterDelegate
     
     // Constants
     public var stickyheaderContainerViewHeight: CGFloat {
-        return self.enableCoverView ? 125 : .zero
+        return self.enableCoverView ? 125 : 44
     }
     
     let bouncingThreshold: CGFloat = 100
@@ -30,6 +30,7 @@ open class SegmentedHeaderViewController: ViewController, SegmentsRouterDelegate
             mainScrollView.bounces = enableCoverView
         }
     }
+    
     open var contentViewHeight: CGFloat = 160 {
         didSet { view.setNeedsLayout() }
     }

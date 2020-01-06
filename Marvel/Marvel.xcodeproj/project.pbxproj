@@ -101,6 +101,7 @@
 		10F84C6023C24A3600121E26 /* MarvelCharacters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelCharacters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F84C6623C2618800121E26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		10F84C6923C26CF700121E26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		10F84C7523C332E200121E26 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Cartfile; path = ../../Cartfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +154,7 @@
 				10D94B2923BF8FBB00EE8B30 /* Info.plist */,
 				10F84C6823C26CF700121E26 /* Localizable.strings */,
 				10D94B8723BF9ED100EE8B30 /* README.md */,
+				10F84C7523C332E200121E26 /* Cartfile */,
 				10D94B8423BF94F400EE8B30 /* Settings.bundle */,
 				10D94B8323BF947000EE8B30 /* Extra Settings */,
 			);

@@ -22,7 +22,8 @@ extension NetworkDataServiceFactory {
 class GetCharacterListRequestBuilder: BaseRequestBuilder, RequestBuilding {
     func createUrl() throws -> URL {
         let path = "/v1/public/characters"
-        return try appendAuthParameters(to: uri.appendingPathComponent(path))
+        let url = uri.appendingPathComponent(path)
+        return try url.add(queryItems: makeQueryItems())
     }
 
     func preprocess(parameters: inout [String:String]) -> [String:String] {
@@ -57,7 +58,8 @@ class GetCharacterRequestBuilder: BaseRequestBuilder, RequestBuilding {
         let profileIdPreEscape = "\(characterId)"
         let profileIdPostEscape = profileIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{characterId}", with: profileIdPostEscape, options: .literal, range: nil)
-        return try appendAuthParameters(to: uri.appendingPathComponent(path))
+        let url = uri.appendingPathComponent(path)
+        return try url.add(queryItems: makeQueryItems())
     }
 
     func preprocess(parameters: inout [String:String]) -> [String:String] {

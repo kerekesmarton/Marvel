@@ -15,6 +15,20 @@
 		10F84C6D23C273BA00121E26 /* CharacterListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84C3A23C236CA00121E26 /* CharacterListRouter.swift */; };
 		10F84C6E23C273BA00121E26 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84C3B23C236CA00121E26 /* CharacterListViewController.swift */; };
 		10F84C7023C2782C00121E26 /* Characters.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10F84C6F23C2782C00121E26 /* Characters.storyboard */; };
+		10F84C7F23C334EF00121E26 /* Additions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84C7A23C334EF00121E26 /* Additions.framework */; };
+		10F84C8023C334EF00121E26 /* Additions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84C7A23C334EF00121E26 /* Additions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		10F84C8123C334EF00121E26 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84C7B23C334EF00121E26 /* Data.framework */; };
+		10F84C8223C334EF00121E26 /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84C7B23C334EF00121E26 /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		10F84C8323C334EF00121E26 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84C7C23C334EF00121E26 /* Domain.framework */; };
+		10F84C8423C334EF00121E26 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84C7C23C334EF00121E26 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		10F84C8523C334EF00121E26 /* IosCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84C7D23C334EF00121E26 /* IosCore.framework */; };
+		10F84C8623C334EF00121E26 /* IosCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84C7D23C334EF00121E26 /* IosCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		10F84C8723C334EF00121E26 /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84C7E23C334EF00121E26 /* Presentation.framework */; };
+		10F84C8823C334EF00121E26 /* Presentation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84C7E23C334EF00121E26 /* Presentation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		10F84C9123C39D7A00121E26 /* CharacterModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84C8C23C39D7A00121E26 /* CharacterModule.swift */; };
+		10F84C9223C39D7A00121E26 /* CharacterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84C8D23C39D7A00121E26 /* CharacterPresenter.swift */; };
+		10F84C9323C39D7A00121E26 /* CharacterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84C8E23C39D7A00121E26 /* CharacterRouter.swift */; };
+		10F84C9423C39D7A00121E26 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84C8F23C39D7A00121E26 /* CharacterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +40,24 @@
 			remoteInfo = MarvelCharacters;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		10F84C8923C334EF00121E26 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				10F84C8423C334EF00121E26 /* Domain.framework in Embed Frameworks */,
+				10F84C8623C334EF00121E26 /* IosCore.framework in Embed Frameworks */,
+				10F84C8223C334EF00121E26 /* Data.framework in Embed Frameworks */,
+				10F84C8823C334EF00121E26 /* Presentation.framework in Embed Frameworks */,
+				10F84C8023C334EF00121E26 /* Additions.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		10F84C1E23C236BC00121E26 /* MarvelCharacters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarvelCharacters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,6 +71,15 @@
 		10F84C3A23C236CA00121E26 /* CharacterListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListRouter.swift; sourceTree = "<group>"; };
 		10F84C3B23C236CA00121E26 /* CharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
 		10F84C6F23C2782C00121E26 /* Characters.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Characters.storyboard; sourceTree = "<group>"; };
+		10F84C7A23C334EF00121E26 /* Additions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Additions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		10F84C7B23C334EF00121E26 /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		10F84C7C23C334EF00121E26 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		10F84C7D23C334EF00121E26 /* IosCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IosCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		10F84C7E23C334EF00121E26 /* Presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		10F84C8C23C39D7A00121E26 /* CharacterModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModule.swift; sourceTree = "<group>"; };
+		10F84C8D23C39D7A00121E26 /* CharacterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPresenter.swift; sourceTree = "<group>"; };
+		10F84C8E23C39D7A00121E26 /* CharacterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRouter.swift; sourceTree = "<group>"; };
+		10F84C8F23C39D7A00121E26 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +87,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10F84C8323C334EF00121E26 /* Domain.framework in Frameworks */,
+				10F84C8523C334EF00121E26 /* IosCore.framework in Frameworks */,
+				10F84C8123C334EF00121E26 /* Data.framework in Frameworks */,
+				10F84C8723C334EF00121E26 /* Presentation.framework in Frameworks */,
+				10F84C7F23C334EF00121E26 /* Additions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +112,7 @@
 				10F84C2023C236BC00121E26 /* MarvelCharacters */,
 				10F84C2B23C236BC00121E26 /* MarvelCharactersTests */,
 				10F84C1F23C236BC00121E26 /* Products */,
+				10F84C7923C334EF00121E26 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +131,7 @@
 				10F84C6F23C2782C00121E26 /* Characters.storyboard */,
 				10F84C3C23C236CA00121E26 /* List */,
 				10F84C2123C236BC00121E26 /* MarvelCharacters.h */,
+				10F84C9C23C3C83000121E26 /* Character */,
 				10F84C2223C236BC00121E26 /* Info.plist */,
 			);
 			path = MarvelCharacters;
@@ -101,12 +149,35 @@
 		10F84C3C23C236CA00121E26 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				10F84C3823C236CA00121E26 /* CharacterListModule.swift */,
 				10F84C3923C236CA00121E26 /* CharacterListPresenter.swift */,
-				10F84C3A23C236CA00121E26 /* CharacterListRouter.swift */,
 				10F84C3B23C236CA00121E26 /* CharacterListViewController.swift */,
+				10F84C3A23C236CA00121E26 /* CharacterListRouter.swift */,
+				10F84C3823C236CA00121E26 /* CharacterListModule.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		10F84C7923C334EF00121E26 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10F84C7A23C334EF00121E26 /* Additions.framework */,
+				10F84C7B23C334EF00121E26 /* Data.framework */,
+				10F84C7C23C334EF00121E26 /* Domain.framework */,
+				10F84C7D23C334EF00121E26 /* IosCore.framework */,
+				10F84C7E23C334EF00121E26 /* Presentation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		10F84C9C23C3C83000121E26 /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				10F84C8C23C39D7A00121E26 /* CharacterModule.swift */,
+				10F84C8D23C39D7A00121E26 /* CharacterPresenter.swift */,
+				10F84C8E23C39D7A00121E26 /* CharacterRouter.swift */,
+				10F84C8F23C39D7A00121E26 /* CharacterViewController.swift */,
+			);
+			path = Character;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +202,7 @@
 				10F84C1A23C236BC00121E26 /* Sources */,
 				10F84C1B23C236BC00121E26 /* Frameworks */,
 				10F84C1C23C236BC00121E26 /* Resources */,
+				10F84C8923C334EF00121E26 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -219,7 +291,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10F84C9223C39D7A00121E26 /* CharacterPresenter.swift in Sources */,
+				10F84C9123C39D7A00121E26 /* CharacterModule.swift in Sources */,
 				10F84C6E23C273BA00121E26 /* CharacterListViewController.swift in Sources */,
+				10F84C9323C39D7A00121E26 /* CharacterRouter.swift in Sources */,
+				10F84C9423C39D7A00121E26 /* CharacterViewController.swift in Sources */,
 				10F84C6D23C273BA00121E26 /* CharacterListRouter.swift in Sources */,
 				10F84C6C23C273B500121E26 /* CharacterListPresenter.swift in Sources */,
 				10F84C6B23C273B100121E26 /* CharacterListModule.swift in Sources */,

@@ -9,6 +9,7 @@
 import Foundation
 import IosCore
 import UIKit
+import Domain
 
 class CharacterListRouter: Routing, CharacterListRouting {
     
@@ -30,7 +31,14 @@ class CharacterListRouter: Routing, CharacterListRouting {
         })
     }
     
-    weak var context: UIViewController?
     weak var host: UINavigationController?
+    
+    func route(character: Entities.Character) {
+        guard let nav = host else { return }
+        let module: CharacterModule = config.appModules.module()
+        let result = module.setup(character: character, host: nav, config: config)
+        addChild(router: result.router)
+        result.router.start()
+    }
     
 }

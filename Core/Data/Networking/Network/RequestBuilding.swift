@@ -24,7 +24,6 @@ protocol RequestBuilding: class {
     var uri: URL { get set }
     var httpBody: Data? { get set }
     var method: HTTPMethod? { get set }
-    func hash(with ts: String) -> String?
     var cachePolicy: URLRequest.CachePolicy? { get }
     var parameters: [String:String] { get set }
     
@@ -59,43 +58,31 @@ public class BaseRequestBuilder {
         self.crypto = crypto
     }
     
-    func hash(with ts: String) -> String? {
+    private func makeAuthParameters() -> [URLQueryItem] {
+        let ts = UUID().uuidString
+        let tsQueryItem = URLQueryItem(name: "ts", value: ts)
+        let apiKeyQueryItem = URLQueryItem(name: "apikey", value: store.publicKey)
+        let hashQueryItem = URLQueryItem(name: "hash", value: hash(with: ts))
+        return [tsQueryItem, apiKeyQueryItem, hashQueryItem]
+    }
+    
+    private func hash(with ts: String) -> String? {
         guard let publicKey = store.publicKey else { return nil }
         guard let privateKey = store.privateKey else { return nil }
         return crypto.md5Hex(from: ts + privateKey + publicKey)
     }
     
-    func appendAuthParameters(to url: URL) throws -> URL {
-        let ts = UUID().uuidString
-        let tsQueryItem = URLQueryItem(name: "ts", value: ts)
-        let apiKeyQueryItem = URLQueryItem(name: "apiKey", value: store.publicKey)
-        let hashQueryItem = URLQueryItem(name: "hash", value: hash(with: ts))
-        return try add(queryItems: [tsQueryItem,apiKeyQueryItem,hashQueryItem], to: url)
-    }
-    
-    func add(queryItems: [URLQueryItem], to url: URL) throws -> URL {
-        guard !queryItems.isEmpty else {
-            return url
-        }
-        
-        guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
-            throw ServiceError.parsing("could not generate request")
-        }
-        
-        components.queryItems = queryItems
-        
-        guard let url = components.url else {
-            throw ServiceError.parsing("could not generate request")
-        }
-        
-        return url
+    func makeQueryItems() -> [URLQueryItem] {
+        var queryItems = parameters.compactMap { URLQueryItem(name: $0.key, value: $0.value) }
+        queryItems.append(contentsOf: makeAuthParameters())
+        return queryItems
     }
 }
 
 extension RequestBuilding {
     
-    private func decorated(_ requestToDecorate: URLRequest) -> URLRequest {
-        var request = requestToDecorate
+    private func decorated(url: URL) throws -> URLRequest {
+        var request: URLRequest = URLRequest(url: url)
         if let body = httpBody {
             request.httpBody = body
         }
@@ -115,7 +102,7 @@ extension RequestBuilding {
     }
     
     func request() throws -> URLRequest {
-        return try decorated(URLRequest(url: createUrl()))
+        return try decorated(url: createUrl())
     }
     
     func request(with parameters: [String:String]) throws -> URLRequest {
@@ -124,9 +111,9 @@ extension RequestBuilding {
         guard self.parameters.count > 0 else {
             return try self.request()
         }
-        let components = try URLComponents(url: createUrl(), resolvingAgainstBaseURL: false)!
-        let request = URLRequest(url: components.url!)
-        return decorated(request)
+        let components = try URLComponents(url: createUrl(), resolvingAgainstBaseURL: false)
+        guard let url = components?.url else { throw ServiceError.parsing("request cannot be made with params \(parameters)") }
+        return try decorated(url: url)
     }
     
     func preprocess(parameters: inout [String : String]) -> [String : String] {
@@ -134,12 +121,11 @@ extension RequestBuilding {
     }
     
     func request(with parameters: [String]) throws -> URLRequest {
-        var uri = try createUrl()
+        var url = try createUrl()
         parameters.forEach { (component) in
-            uri = uri.appendingPathComponent(component)
+            url = url.appendingPathComponent(component)
         }        
-        let request = URLRequest(url: uri)
-        return decorated(request)
+        return try decorated(url: url)
     }
     
     var contentTypeFieldKey: String {
@@ -217,4 +203,24 @@ extension RequestBuilding {
         return [:]
     }
     
+}
+
+extension URL {
+    func add(queryItems: [URLQueryItem]) throws -> URL {
+        guard !queryItems.isEmpty else {
+            return self
+        }
+        
+        guard var components = URLComponents(url: self, resolvingAgainstBaseURL: false) else {
+            throw ServiceError.parsing("could not generate request")
+        }
+        
+        components.queryItems = queryItems
+        
+        guard let url = components.url else {
+            throw ServiceError.parsing("could not generate request")
+        }
+        
+        return url
+    }
 }

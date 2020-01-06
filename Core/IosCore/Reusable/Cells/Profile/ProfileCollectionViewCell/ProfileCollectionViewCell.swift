@@ -11,7 +11,7 @@ import SnapKit
 
 final public class ProfileCollectionViewCell: UICollectionViewCell, Styleable {
     
-    @IBOutlet weak var profileImageView: RoundedImageView!
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel?
     @IBOutlet weak var profileLabel: ProfileExtrasLabel!
     
@@ -60,6 +60,23 @@ final public class ProfileCollectionViewCell: UICollectionViewCell, Styleable {
         didSet {
             guard tapClosure != nil else { return }
             accessoryButton.isHidden = false
+        }
+    }
+    
+    override public var isHighlighted: Bool{
+        didSet {
+            UIView.animate(withDuration: 0.27,
+                           delay: 0.0,
+                           usingSpringWithDamping: 1,
+                           initialSpringVelocity: 1.0,
+                           options: [.curveEaseOut, .beginFromCurrentState],
+                           animations: {
+                            
+                            self.transform = self.isHighlighted ? self.transform.scaledBy(x: 0.96, y: 0.96) : .identity
+                            self.titleLabel?.alpha = self.isHighlighted ? 0.35 : 1
+                            self.accessoryView?.alpha = self.isHighlighted ? 0.35 : 1
+                            
+            })
         }
     }
     
@@ -130,8 +147,8 @@ final public class ProfileCollectionViewCell: UICollectionViewCell, Styleable {
         profileLabel.applyStyle()
         
         if let style = styleProvider?.cells {
-            titleLabel?.textColor = style.collectionCell.header.infoLabel.color
-            titleLabel?.font = style.collectionCell.header.infoLabel.font
+            titleLabel?.textColor = style.collectionCell.titleBigLabel.color
+            titleLabel?.font = style.collectionCell.titleBigLabel.font
             profileImageView.clipsToBounds = true
             layer.cornerRadius = style.collectionCell.cornerRadius
             layer.borderWidth = style.collectionCell.borderWidth
@@ -145,21 +162,26 @@ final public class ProfileCollectionViewCell: UICollectionViewCell, Styleable {
         case .buttonWithOptions:
             accessoryView?.subviews.forEach { $0.removeFromSuperview() }
             accessoryView?.addSubview(buttonsStackView)
+            accessoryView?.isHidden = false
             view = buttonsStackView
         case .button:
             accessoryView?.subviews.forEach { $0.removeFromSuperview() }
             accessoryView?.addSubview(accessoryButton)
+            accessoryView?.isHidden = false
             view = accessoryButton
         case .selection:
             accessoryView?.subviews.forEach { $0.removeFromSuperview() }
             accessoryView?.addSubview(checkButton)
+            accessoryView?.isHidden = false
             view = checkButton
         case .options:
             accessoryView?.subviews.forEach { $0.removeFromSuperview() }
             accessoryView?.addSubview(optionButton)
+            accessoryView?.isHidden = false
             view = optionButton
         case .none:
             accessoryView?.subviews.forEach { $0.removeFromSuperview() }
+            accessoryView?.isHidden = true
             view = nil
         }
         
@@ -169,34 +191,14 @@ final public class ProfileCollectionViewCell: UICollectionViewCell, Styleable {
             builder.center.equalToSuperview()
         }
     }
-    
-    //MARK: - Properties
-    override public var isHighlighted: Bool{
-        didSet {
-            UIView.animate(withDuration: 0.27,
-                           delay: 0.0,
-                           usingSpringWithDamping: 1,
-                           initialSpringVelocity: 1.0,
-                           options: [.curveEaseOut, .beginFromCurrentState],
-                           animations: {
-                            
-                            self.transform = self.isHighlighted ? self.transform.scaledBy(x: 0.96, y: 0.96) : .identity
-                            self.titleLabel?.alpha = self.isHighlighted ? 0.35 : 1
-                            self.accessoryView?.alpha = self.isHighlighted ? 0.35 : 1
-                            self.profileLabel.alpha = self.isHighlighted ? 0.35 : 1
-            })
-        }
-    }
-    
 }
 
 
 extension ProfileCollectionViewCell {
     
-    
-    public func setup(info: PresentableInfo, title: String?, imageURL: URL?, type: ListType) {
-        
-        dataModel = DataModel(headerData: ProfileExtrasLabel.DataModel(with: info, size: .small), firstTitle: title, imageURL: imageURL, type: type)
+    public func setup(info: PresentableInfo, title: String?, imageURL: URL?, type: ListType) {        
+        let headerData: ProfileExtrasLabel.DataModel = ProfileExtrasLabel.DataModel(with: info, size: .small)
+        dataModel = DataModel(headerData: headerData, firstTitle: title, imageURL: imageURL, type: type)
     }
     
     public func setup(action: @escaping ((IndexPath) -> Void)) {

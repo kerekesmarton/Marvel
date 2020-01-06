@@ -15,10 +15,8 @@ public class Label: UILabel, Styleable {
         }
     }
     
-    
     public func applyStyle() {
-        font  = style?.font ?? UIFont.systemFont(ofSize: 17, weight: .regular)
+        font = style?.font ?? UIFont.systemFont(ofSize: 17, weight: .regular)
         textColor = style?.color
     }
-    
 }

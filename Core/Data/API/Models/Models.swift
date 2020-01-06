@@ -69,7 +69,7 @@ class Character: Object, Codable, Model {
     var id: Int? // The unique ID of the character resource.,
     var name: String? // The name of the character.,
     var desc: String? // A short bio or description of the character.,
-    var modified: Date? // The date the resource was most recently modified.,
+    var modified: String? // The date the resource was most recently modified.,
     var resourceURI: String? // The canonical URL identifier for this resource.,
     var urls: [Url]? // A set of public web site URLs for the resource.,
     var thumbnail: Image? //The representative image for this character.,

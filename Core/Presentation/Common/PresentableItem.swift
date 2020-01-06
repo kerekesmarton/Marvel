@@ -9,8 +9,12 @@ import Foundation
 public struct BasicInfo {
     var displayableText: [FontCalculable]
     var tick: Bool
+    
+    public init(displayableText: [FontCalculable], tick: Bool) {
+        self.displayableText = displayableText
+        self.tick = tick
+    }
 }
-
 
 public struct PresentableInfo {
     public let name: NSAttributedString

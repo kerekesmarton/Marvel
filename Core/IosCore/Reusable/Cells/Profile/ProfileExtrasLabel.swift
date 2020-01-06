@@ -25,14 +25,14 @@ public class ProfileExtrasLabel: UILabel, Styleable, NibViewLoadable {
                 let attachment = ImageAttachment(image: styleProvider?.cells?.listCell.verifiedTick.image)
                 string.append(NSAttributedString(attachment: attachment))
             }
-
+            
             if let details = dataModel.details {
                 string.append(NSAttributedString(string: " "))
                 string.append(details)
             }
             
             attributedText = string
-
+            
             applyStyle()
         }
     }
@@ -57,7 +57,7 @@ public class ProfileExtrasLabel: UILabel, Styleable, NibViewLoadable {
             model.nameTap?()
         }
     }
-
+    
     private func checkTapOnLinks(with tap: UITapGestureRecognizer) -> String? {
         guard let model = dataModel else { return nil }
         
@@ -69,8 +69,10 @@ public class ProfileExtrasLabel: UILabel, Styleable, NibViewLoadable {
         })
         return string
     }
-
-    public func applyStyle() {}
+    
+    public func applyStyle() {
+        
+    }
     
     private func refreshTapGesture() {
         if let tap = tap {

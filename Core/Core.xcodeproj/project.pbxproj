@@ -84,7 +84,7 @@
 		105026BC23C0908C00340F9C /* Parsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026B923C0908C00340F9C /* Parsers.swift */; };
 		105026BF23C0914600340F9C /* CharacterDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026BE23C0914600340F9C /* CharacterDataWrapper.swift */; };
 		105026C123C0918300340F9C /* CharacterDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026C023C0918300340F9C /* CharacterDataContainer.swift */; };
-		105026F423C09AF800340F9C /* CharactersFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026F323C09AF800340F9C /* CharactersFetcher.swift */; };
+		105026F423C09AF800340F9C /* CharacterListFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026F323C09AF800340F9C /* CharacterListFetcher.swift */; };
 		10542937213EACD90031A78F /* MockErrorRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A71792138314D00DE8A6A /* MockErrorRouting.swift */; };
 		10542941213EAF920031A78F /* MockDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A71202138311F00DE8A6A /* MockDataParser.swift */; };
 		10542942213EAFEF0031A78F /* MockErrorRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A71792138314D00DE8A6A /* MockErrorRouting.swift */; };
@@ -271,6 +271,11 @@
 		10F84BEC23C2041200121E26 /* CustomCryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84BEB23C2041200121E26 /* CustomCryptoTests.swift */; };
 		10F84BED23C207D300121E26 /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026BA23C0908C00340F9C /* APIs.swift */; };
 		10F84BEE23C207D700121E26 /* CustomCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84BE823C2005400121E26 /* CustomCrypto.swift */; };
+		10F84C7423C285F500121E26 /* ImageURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84C7323C285F500121E26 /* ImageURLBuilder.swift */; };
+		10F84C7723C3349600121E26 /* Reqres.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84C7623C3349600121E26 /* Reqres.framework */; };
+		10F84C7823C3349600121E26 /* Reqres.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84C7623C3349600121E26 /* Reqres.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		10F84C9923C3AD6C00121E26 /* CharacterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84C9823C3AD6C00121E26 /* CharacterHeaderView.swift */; };
+		10F84C9B23C3ADD400121E26 /* CharacterHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10F84C9A23C3ADD400121E26 /* CharacterHeaderView.xib */; };
 		FD15E17522E594C100F5C070 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD15E17422E594C100F5C070 /* NSAttributedString.swift */; };
 /* End PBXBuildFile section */
 
@@ -363,6 +368,7 @@
 			files = (
 				101C7C5E23A4EFC600F177A6 /* KeychainSwift.framework in Embed Frameworks */,
 				101C7C5C23A4EFC600F177A6 /* JWTDecode.framework in Embed Frameworks */,
+				10F84C7823C3349600121E26 /* Reqres.framework in Embed Frameworks */,
 				101C7C6223A4EFC600F177A6 /* RealmSwift.framework in Embed Frameworks */,
 				101C7C6C23A4EFC700F177A6 /* TLPhotoPicker.framework in Embed Frameworks */,
 				101C7C6A23A4EFC700F177A6 /* SnapKit.framework in Embed Frameworks */,
@@ -451,7 +457,7 @@
 		105026BA23C0908C00340F9C /* APIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIs.swift; sourceTree = "<group>"; };
 		105026BE23C0914600340F9C /* CharacterDataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDataWrapper.swift; sourceTree = "<group>"; };
 		105026C023C0918300340F9C /* CharacterDataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDataContainer.swift; sourceTree = "<group>"; };
-		105026F323C09AF800340F9C /* CharactersFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersFetcher.swift; sourceTree = "<group>"; };
+		105026F323C09AF800340F9C /* CharacterListFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListFetcher.swift; sourceTree = "<group>"; };
 		105E9D8E220AF8D6001C44CF /* FontCalculating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontCalculating.swift; sourceTree = "<group>"; };
 		105E9D90220B33E2001C44CF /* DictionaryCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryCoder.swift; sourceTree = "<group>"; };
 		106CFC5822843AEE008D8E0B /* TokenParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenParser.swift; sourceTree = "<group>"; };
@@ -633,6 +639,10 @@
 		10EE8571230EE1BC0009B6E0 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		10F84BE823C2005400121E26 /* CustomCrypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCrypto.swift; sourceTree = "<group>"; };
 		10F84BEB23C2041200121E26 /* CustomCryptoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCryptoTests.swift; sourceTree = "<group>"; };
+		10F84C7323C285F500121E26 /* ImageURLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageURLBuilder.swift; sourceTree = "<group>"; };
+		10F84C7623C3349600121E26 /* Reqres.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reqres.framework; path = ../Carthage/Build/iOS/Reqres.framework; sourceTree = "<group>"; };
+		10F84C9823C3AD6C00121E26 /* CharacterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterHeaderView.swift; sourceTree = "<group>"; };
+		10F84C9A23C3ADD400121E26 /* CharacterHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterHeaderView.xib; sourceTree = "<group>"; };
 		29A439D821F87C4E008459B1 /* DateCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCoder.swift; sourceTree = "<group>"; };
 		FD15E17422E594C100F5C070 /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -715,6 +725,7 @@
 				101C7C3B23A4D18400F177A6 /* Additions.framework in Frameworks */,
 				101C7C6B23A4EFC700F177A6 /* TLPhotoPicker.framework in Frameworks */,
 				101C7C5B23A4EFC600F177A6 /* JWTDecode.framework in Frameworks */,
+				10F84C7723C3349600121E26 /* Reqres.framework in Frameworks */,
 				101C7C3C23A4D18400F177A6 /* Domain.framework in Frameworks */,
 				101C7C5D23A4EFC600F177A6 /* KeychainSwift.framework in Frameworks */,
 				101C7C6123A4EFC600F177A6 /* RealmSwift.framework in Frameworks */,
@@ -1012,7 +1023,7 @@
 			isa = PBXGroup;
 			children = (
 				105026B623C0900400340F9C /* Entities.swift */,
-				105026F323C09AF800340F9C /* CharactersFetcher.swift */,
+				105026F323C09AF800340F9C /* CharacterListFetcher.swift */,
 			);
 			path = Marvel;
 			sourceTree = "<group>";
@@ -1296,6 +1307,8 @@
 				109D3CB1239BC7AA00D6A4EF /* SegmentedTabsView.xib */,
 				109D3CB2239BC7AA00D6A4EF /* TitleView.swift */,
 				109D3CB3239BC7AA00D6A4EF /* Label.swift */,
+				10F84C9823C3AD6C00121E26 /* CharacterHeaderView.swift */,
+				10F84C9A23C3ADD400121E26 /* CharacterHeaderView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1434,6 +1447,7 @@
 				102A67ED22FD63E0002A45A5 /* LogoutProtocols.swift */,
 				109D3C042397EFCB00D6A4EF /* PresentationOutputState.swift */,
 				109D3C0D239BB96900D6A4EF /* PresentableItem.swift */,
+				10F84C7323C285F500121E26 /* ImageURLBuilder.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1491,6 +1505,7 @@
 		FF2911FC5CAE330151613ECA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				10F84C7623C3349600121E26 /* Reqres.framework */,
 				101C7C6623A4EFC700F177A6 /* ApolloSQLite.framework */,
 				101C7C6823A4EFC700F177A6 /* Kingfisher.framework */,
 				101C7C6423A4EFC700F177A6 /* SnapKit.framework */,
@@ -1895,6 +1910,7 @@
 				109D3D44239BC86300D6A4EF /* NewPostCell.xib in Resources */,
 				109D3D28239BC85600D6A4EF /* ExpandingTextFieldCell.xib in Resources */,
 				109D3D3A239BC85600D6A4EF /* ImageDescriptionCell.xib in Resources */,
+				10F84C9B23C3ADD400121E26 /* CharacterHeaderView.xib in Resources */,
 				109D3D40239BC86300D6A4EF /* ProfileCollectionViewCell.xib in Resources */,
 				109D3D23239BC85000D6A4EF /* CommentInputCell.xib in Resources */,
 				109D3D42239BC86300D6A4EF /* ProfileInfoCell.xib in Resources */,
@@ -1965,7 +1981,7 @@
 				10EE8572230EE1BC0009B6E0 /* Settings.swift in Sources */,
 				1073064B22A6B57600DF8DAA /* SettingsConfiguration.swift in Sources */,
 				1073064D22A6B5E000DF8DAA /* AppSession.swift in Sources */,
-				105026F423C09AF800340F9C /* CharactersFetcher.swift in Sources */,
+				105026F423C09AF800340F9C /* CharacterListFetcher.swift in Sources */,
 				10AC3FBC22E0737A008DAA66 /* MockDataService.swift in Sources */,
 				10EE8570230D3CC00009B6E0 /* Environment.swift in Sources */,
 				107D2E0A2333DCD4008C086B /* HTTPStatusCode.swift in Sources */,
@@ -2039,6 +2055,7 @@
 				104A71832138314E00DE8A6A /* AppPresenter.swift in Sources */,
 				109D3C0E239BB96900D6A4EF /* PresentableItem.swift in Sources */,
 				1003A10F2209A15700395809 /* DeepLinkOption.swift in Sources */,
+				10F84C7423C285F500121E26 /* ImageURLBuilder.swift in Sources */,
 				102A67EE22FD63E0002A45A5 /* LogoutProtocols.swift in Sources */,
 				109D3C052397EFCB00D6A4EF /* PresentationOutputState.swift in Sources */,
 				104A71842138314E00DE8A6A /* ActionSheetOption.swift in Sources */,
@@ -2149,6 +2166,7 @@
 				109D3D1B239BC83F00D6A4EF /* ImageEditorViewController.swift in Sources */,
 				109D3D4A239BC86A00D6A4EF /* TouchRespondScrollView.swift in Sources */,
 				109D3D55239BC87100D6A4EF /* LabelledModule.swift in Sources */,
+				10F84C9923C3AD6C00121E26 /* CharacterHeaderView.swift in Sources */,
 				109D3D2A239BC85600D6A4EF /* SwitchFieldCell.swift in Sources */,
 				109D3CE5239BC7AC00D6A4EF /* CameraRouting.swift in Sources */,
 				109D3D39239BC85600D6A4EF /* ImageDescriptionCell.swift in Sources */,

@@ -1,5 +1,11 @@
 ## High level architecture & contribution guide
 
+
+### Install notes
+
+    carthage bootstrap --platform ios --no-use-binaries --cache-builds
+
+
 ![High level architecture](App Architecure.png)
 
 ### SOLID, Protocols, TDD, VIPER 
@@ -66,7 +72,8 @@ Syntax sugar
         App Presentation for startup and app lifecycle
 
         
-### IosCore
+- IosCore
+        
         Routing implementation, App Router
         Default Error and Dialog presentation
         UIKit extensions
@@ -101,6 +108,10 @@ Syntax sugar
 - parsing JWT Tokens
 
         github "auth0/JWTDecode.swift"
+        
+- Network logging in DEBUG Reqres
+
+        github "AckeeCZ/Reqres"
                 
 ### Feature frameworks
 

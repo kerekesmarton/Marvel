@@ -29,7 +29,8 @@ public class CharacterListModule: TabModule {
                                              bundle: Bundle(for: CharacterListViewController.self)) as! CharacterListViewController
         let navigation = createNavigation(with: title, imageResource: image, tag: tab)
         let router = CharacterListRouter(host: navigation, context: vc)
-        let presenter = CharacterListPresenter(router: router)
+        let fetcher = CharacterListFetcher(service: NetworkDataServiceFactory.GetCharacterListDataService(config))
+        let presenter = CharacterListPresenter(charecterListFetcher: fetcher, router: router)
         
         presenter.output = vc
         vc.presenter = presenter
@@ -44,7 +45,8 @@ public class CharacterListModule: TabModule {
                                              storyboard: "Profile",
                                              bundle: Bundle(for: CharacterListViewController.self)) as! CharacterListViewController
         let router = CharacterListRouter(host: host, context: vc)
-        let presenter = CharacterListPresenter(router: router)
+        let fetcher = CharacterListFetcher(service: NetworkDataServiceFactory.GetCharacterListDataService(config))
+        let presenter = CharacterListPresenter(charecterListFetcher: fetcher, router: router)
         
         presenter.output = vc
         vc.presenter = presenter

@@ -161,7 +161,8 @@ public class ProfileListCell: UITableViewCell, Styleable {
 extension ProfileListCell: PresentableItem {
     
     public func setup(profileInfo: PresentableInfo, title: String?, imageURL: URL?, type: ListType) {
-        dataModel = DataModel(headerData: ProfileExtrasLabel.DataModel(with: profileInfo, size: .small), firstTitle: title, imageURL: imageURL, type: type)
+        let headerData: ProfileExtrasLabel.DataModel = ProfileExtrasLabel.DataModel(with: profileInfo, size: .small)
+        dataModel = DataModel(headerData: headerData, firstTitle: title, imageURL: imageURL, type: type)
     }
     
     public func setup(action: @escaping (IndexPath) -> Void) {
