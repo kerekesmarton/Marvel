@@ -27,14 +27,6 @@ class CharacterViewController: SegmentedHeaderViewController, CharacterPresentat
         return contentView as? CharacterHeaderViewProtocol
     }
     
-    func showProfileImage(url: URL) {
-        headerView?.setProfileImage(url: url)
-    }
-    
-    func setHeader(_ data: ProfileExtrasLabel.DataModel, description: String?) {
-        headerView?.setHeaderData(HeaderDataModel(header: data, description: description))
-    }
-    
     override func setupContentView(_ _mainScrollView: UIScrollView) {
         let nib = UINib(nibName: String(describing: CharacterHeaderView.self), bundle: Bundle(for: CharacterHeaderView.self))
         let views = nib.instantiate(withOwner: self, options: nil)
@@ -54,14 +46,12 @@ class CharacterViewController: SegmentedHeaderViewController, CharacterPresentat
         self.title = title
     }
     
-    func setup(info: PresentableInfo, title: String?, imageURL: URL?, type: ListType) {
-        
-        let data = ProfileExtrasLabel.DataModel(with: info, size: .large)
-        headerView?.setHeaderData(HeaderDataModel(header: data, description: title))
-        
-        if let url = imageURL {
-            headerView?.setProfileImage(url: url)
-        }
+    func setImage(url: URL) {
+        headerView?.setProfileImage(url: url)
+    }
+    
+    func setHeader(description: String) {
+        headerView?.setText(description)
     }
     
 }

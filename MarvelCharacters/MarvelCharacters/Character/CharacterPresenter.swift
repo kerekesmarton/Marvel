@@ -15,9 +15,11 @@ protocol CharacterPresenting {
     func didTapProfileImage(referenceViewable: ImageReferenceCalculating?)
 }
 
-protocol CharacterPresentationOutput: FontCalculating, CharacterPresentingItem {
+protocol CharacterPresentationOutput: FontCalculating {
     func reload()
     func setTitle(_ title: String)
+    func setHeader(description: String)
+    func setImage(url: URL)
 }
 
 protocol CharacterRouting: CameraRouting {
@@ -38,19 +40,15 @@ class CharacterPresenter: CharacterPresenting {
         output.reload()
         if let name = character.name {
             output.setTitle(name)
-            
-            var text = [FontCalculable(text: name, style: .largeAuthor), ]
-            if let desc = character.description {
-                text.append(FontCalculable(text: desc, style: .normal))
-            }
-            let info = BasicInfo(displayableText: text, tick: false)
-            let profileInfo = PresentableInfo(info: info, helper: output)
-            
-            let url = character.thumbnail?.createURL(size: .full)
-            
-            output.setup(info: profileInfo, title: character.description, imageURL: url, type: .none)
         }
         
+        if let desc = character.description {
+            output.setHeader(description: desc)
+        }
+        
+        if let url = character.thumbnail?.createURL(size: .full) {
+            output.setImage(url: url)
+        }        
     }
     
     func didTapProfileImage(referenceViewable: ImageReferenceCalculating?) {

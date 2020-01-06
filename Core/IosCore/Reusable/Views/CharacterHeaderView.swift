@@ -10,45 +10,24 @@ import UIKit
 import Kingfisher
 import Presentation
 
-public struct HeaderDataModel {
-    
-    let header: ProfileExtrasLabel.DataModel
-    let description: String?
-    
-    public init(header: ProfileExtrasLabel.DataModel, description: String?) {
-        self.header = header
-        self.description = description
-    }
-}
-
 public protocol CharacterHeaderViewProtocol: ImageReferenceCalculating {
     var profileTapClosure: (() -> Void)?  { get set }
     func setProfileImage(url: URL)
-    func setHeaderData(_ data: HeaderDataModel?)
+    func setText(_ text: String?)
 }
 
 public class CharacterHeaderView: UIView, CharacterHeaderViewProtocol {
     
     //MARK: - Properties
-    public func setHeaderData(_ data: HeaderDataModel?) {
-        headerDataModel = data
-    }
-    
-    private var headerDataModel: HeaderDataModel? {
-        didSet{
-            profileLabel.dataModel = headerDataModel?.header
-            profileLabel.isHidden = false
-            descriptionLabel.text = headerDataModel?.description
-            descriptionLabel.isHidden = headerDataModel?.description?.count == 0
-        }
+    public func setText(_ text: String?) {
+        descriptionTextView.text = text
+        descriptionTextView.isHidden = false
     }
     
     //MARK: - IBOutlets
     @IBOutlet private weak var imageView: UIImageView!
     
-    @IBOutlet private weak var profileTitleStack: UIStackView!
-    @IBOutlet private weak var profileLabel: ProfileExtrasLabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var descriptionTextView: UITextView!
     
     //MARK: - Lifecycle methods
     override public func awakeFromNib() {
@@ -58,13 +37,15 @@ public class CharacterHeaderView: UIView, CharacterHeaderViewProtocol {
     }
     
     override public func sizeThatFits(_ size: CGSize) -> CGSize {
-        if descriptionLabel.text ?? "" == ""{
-            profileTitleStack.spacing = 0
-            return .init(width: size.width, height: 503)
+        if descriptionTextView.text ?? "" == ""{
+            return .init(width: size.width, height: 300)
         }
         
-        profileTitleStack.spacing = 10
-        return .init(width: size.width, height: 503)
+        let remainderSize = CGSize(width: descriptionTextView.frame.width, height: size.height - 300)
+        
+        let totalSize = descriptionTextView.sizeThatFits(remainderSize)
+        
+        return .init(width: size.width, height: 300 + totalSize.height)
     }
     
     //MARK: - Private methods
@@ -73,9 +54,7 @@ public class CharacterHeaderView: UIView, CharacterHeaderViewProtocol {
     }
     
     private func clearAllLabels() {
-        
-        profileLabel.text = nil
-        descriptionLabel.text = nil
+        descriptionTextView.text = nil
     }
     
     public var profileTapClosure: (() -> Void)? {
@@ -107,9 +86,8 @@ extension CharacterHeaderView: Styleable{
         imageView.layer.borderWidth = 1
         imageView.layer.cornerRadius = 0
         
-        profileLabel.applyStyle()
-        descriptionLabel.textColor = styleProvider?.list?.header.titleOneLabel.color
-        descriptionLabel.font = styleProvider?.list?.header.titleOneLabel.font
+        descriptionTextView.textColor = styleProvider?.list?.header.titleOneLabel.color
+        descriptionTextView.font = styleProvider?.list?.header.titleOneLabel.font
     }
 }
 
