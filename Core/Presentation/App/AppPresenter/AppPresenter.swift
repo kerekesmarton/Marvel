@@ -160,8 +160,8 @@ public class AppPresenter: AppPresenting {
     //MARK: - Private methods
     private func setupNavigationConfig() {
         let characters = NavigationConfiguration.Item(title: "", icon: "Tab-Home", moduleName: "character-list")
-        let profiles = NavigationConfiguration.Item(title: "", icon: "Tab-Profile", moduleName: "character-list")
-        navigationConfig = NavigationConfiguration(modules: [characters, profiles])
+        let stories = NavigationConfiguration.Item(title: "", icon: "Tab-Profile", moduleName: "series-list")
+        navigationConfig = NavigationConfiguration(modules: [characters, stories])
     }
     
     private func _loadApplication() {

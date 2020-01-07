@@ -7,7 +7,7 @@
 import Foundation
 import Additions
 
-public enum InAppMessage{
+public enum InAppMessage {
     case error(ServiceError?)
     case message(String)
     case link(String?, URL?)

@@ -11,6 +11,9 @@
       location = "group:MarvelCharacters/MarvelCharacters.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:MarvelSeries/MarvelSeries.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Marvel/Marvel.xcodeproj">
    </FileRef>
 </Workspace>

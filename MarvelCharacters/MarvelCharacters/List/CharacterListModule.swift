@@ -14,9 +14,7 @@ import IosCore
 
 public class CharacterListModule: TabModule {
     public var tabIdentifier: String
-    
     public var tab: Int
-    
     public init(id: String, tab: Int) {
         tabIdentifier = id
         self.tab = tab

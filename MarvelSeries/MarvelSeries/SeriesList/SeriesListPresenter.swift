@@ -1,8 +1,5 @@
 //
-//  CharacterListPresenter.swift
-//  Characters
-//
-//  Created by Marton Kerekes on 04/01/2020.
+//  Created by Marton Kerekes on 07/01/2020.
 //  Copyright © 2020 Marton Kerekes. All rights reserved.
 //
 
@@ -10,16 +7,16 @@ import Foundation
 import Domain
 import Presentation
 
-protocol CharacterPresentingItem {
+protocol SeriesPresentingItem {
     func setup(info: PresentableInfo, title: String?, imageURL: URL?, type: ListType)
 }
 
-protocol CharacterListPresenting {
+protocol SeriesListPresenting {
     func viewReady()
     func viewDidReachEnd()
     var itemCount: Int { get }
-    func setup(cell: CharacterPresentingItem, at index: Int)
-    func didSelect(cell: CharacterPresentingItem, at index: Int)
+    func setup(cell: SeriesPresentingItem, at index: Int)
+    func didSelect(cell: SeriesPresentingItem, at index: Int)
     func didTapEmptyStateButton()
     var emptyStateTitle: NSAttributedString { get }
     var emptyStateTitleDetail: NSAttributedString? { get }
@@ -27,40 +24,44 @@ protocol CharacterListPresenting {
     var emptyStateShouldShow: Bool { get }
 }
 
-protocol CharacterListPresentationOutput: FontCalculating {
+protocol SeriesListPresentationOutput: FontCalculating {
     func reload()
 }
 
-protocol CharacterListRouting: ErrorRouting {
-    func route(character: Entities.Character)
+protocol SeriesListRouting: ErrorRouting {
+    func routeSeries(_ story: Entities.Series)
 }
 
-class CharacterListPresenter: CharacterListPresenting {
-    weak var output: CharacterListPresentationOutput!
-    let router: CharacterListRouting
-    let charecterListFetcher: CharacterListFetching
-
-    init(charecterListFetcher: CharacterListFetching, router: CharacterListRouting) {
-        self.charecterListFetcher = charecterListFetcher
+class SeriesListPresenter: SeriesListPresenting {
+    weak var output: SeriesListPresentationOutput!
+    let router: SeriesListRouting
+    let fetcher: SeriesListFetching
+    let type: SeriesListType
+    
+    init(type: SeriesListType, fetcher: SeriesListFetching, router: SeriesListRouting) {
+        self.type = type
+        self.fetcher = fetcher
         self.router = router
     }
     
-    private var results: Entities.CharacterDataWrapper? {
+    var results: Entities.SeriesDataWrapper? {
         didSet {
             output.reload()
         }
     }
     
-    private var unwrappedItems: [Entities.Character]? {
+    var unwrappedItems: [Entities.Series]? {
         return results?.data?.results
     }
     
     func viewReady() {
-        charecterListFetcher.fetchCharacters { [weak self] (result) in
+        output.reload()
+        
+        fetcher.fetchStories(type: type) { [weak self] (result) in
             do {
                 self?.results = try result.get()
             } catch {
-                self?.router.show(error: ServiceError(from: error))
+                self?.router.route(message: .error(ServiceError(from: error)))
             }
         }
     }
@@ -69,7 +70,7 @@ class CharacterListPresenter: CharacterListPresenting {
     func viewDidReachEnd() {
         guard let results = results, lastLoaded != results.etag else { return }
         lastLoaded = results.etag
-        charecterListFetcher.fetchNext(result: results) { [weak self] (result) in
+        fetcher.fetchNext(result: results) { [weak self] (result) in
             do {
                 self?.results = try result.get()
             } catch {
@@ -82,8 +83,8 @@ class CharacterListPresenter: CharacterListPresenting {
         return results?.data?.results?.count ?? 0
     }
     
-    func setup(cell: CharacterPresentingItem, at index: Int) {
-        guard let item = unwrappedItems?[index], let name = item.name else { return }
+    func setup(cell: SeriesPresentingItem, at index: Int) {
+        guard let item = unwrappedItems?[index], let name = item.title else { return }
         
         var text = [FontCalculable(text: name, style: .largeAuthor), ]
         if let desc = item.description {
@@ -97,11 +98,11 @@ class CharacterListPresenter: CharacterListPresenting {
         cell.setup(info: profileInfo, title: item.description, imageURL: url, type: .none)
     }
     
-    func didSelect(cell: CharacterPresentingItem, at index: Int) {
-        guard let item = unwrappedItems?[index] else { return }
-        router.route(character: item)
-    }
     
+    func didSelect(cell: SeriesPresentingItem, at index: Int) {
+        guard let item = unwrappedItems?[index] else { return }
+        router.routeSeries(item)
+    }
     
     func didTapEmptyStateButton() {
         viewReady()
@@ -125,6 +126,4 @@ class CharacterListPresenter: CharacterListPresenting {
         guard let results = unwrappedItems else { return false }
         return results.count == 0
     }
-    
-    
 }

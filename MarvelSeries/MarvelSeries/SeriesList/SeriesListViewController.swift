@@ -1,18 +1,16 @@
 //
-//  CharacterListViewController.swift
-//  Characters
-//
-//  Created by Marton Kerekes on 04/01/2020.
+//  Created by Marton Kerekes on 07/01/2020.
 //  Copyright © 2020 Marton Kerekes. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import IosCore
 import Presentation
 
-class CharacterListViewController: CollectionViewController, CharacterListPresentationOutput {
+
+class SeriesListViewController: CollectionViewController, SeriesListPresentationOutput {
     
-    var presenter: CharacterListPresenting!
+    var presenter: SeriesListPresenting!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +20,9 @@ class CharacterListViewController: CollectionViewController, CharacterListPresen
         registerCell(cellClass: ProfileCollectionViewCell.self, with: collectionView)
         emptyStateDelegate = self
         emptyStateDataSource = self
-        if let image = UIImage(named: "General-logo") { //not using image literal for testability purposes
-            setLogoInNavigation(image: image)
-        }
+        setLogoInNavigation(image: #imageLiteral(resourceName: "General-logo"))
         
-        presenter.viewReady()        
+        presenter.viewReady()
     }
     
     override func applyStyle() {
@@ -37,6 +33,7 @@ class CharacterListViewController: CollectionViewController, CharacterListPresen
         collectionView.reloadData()
     }
     
+        
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return presenter?.itemCount ?? 0
     }
@@ -53,14 +50,14 @@ class CharacterListViewController: CollectionViewController, CharacterListPresen
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? CharacterPresentingItem else {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? SeriesPresentingItem else {
             return
         }
         presenter.didSelect(cell: cell, at: indexPath.row)
     }
 }
 
-extension CharacterListViewController: UICollectionViewDelegateFlowLayout {
+extension SeriesListViewController: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemWidth = collectionView.bounds.width * 0.45
@@ -80,7 +77,7 @@ extension CharacterListViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension CharacterListViewController: EmptyStateDataSource, EmptyStateDelegate {
+extension SeriesListViewController: EmptyStateDataSource, EmptyStateDelegate {
     
     func emptyStateViewShouldShow(for collectionView: UICollectionView) -> Bool {
         return presenter.emptyStateShouldShow
@@ -108,4 +105,4 @@ extension CharacterListViewController: EmptyStateDataSource, EmptyStateDelegate 
     }
 }
 
-extension ProfileCollectionViewCell: CharacterPresentingItem {}
+extension ProfileCollectionViewCell: SeriesPresentingItem {}

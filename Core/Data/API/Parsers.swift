@@ -43,3 +43,17 @@ class CharacterDataEncoder: DataEncoding {
         return m
     }
 }
+
+class SeriesDataParser: DataParsing {
+    func decode<T>(from data: Data, source: URL?) throws -> T {
+        do {
+            let result = try JSONDecoder().decode(SeriesDataWrapper.self, from: data)
+            guard let entity = try result.generateEntity() as? T else {
+                throw ServiceError.parsing("Entities.SeriesDataWrapper")
+            }
+            return entity
+        } catch {
+            throw findServiceError(data) ?? error
+        }
+    }
+}

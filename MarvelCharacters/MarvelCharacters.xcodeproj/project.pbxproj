@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10E75F4D23C4E69D00C5F562 /* CharacterListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F4B23C4E55900C5F562 /* CharacterListPresenterTests.swift */; };
+		10E75F5123C4FEF800C5F562 /* CharacterListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F5023C4FEF800C5F562 /* CharacterListViewControllerTests.swift */; };
 		10F84C2823C236BC00121E26 /* MarvelCharacters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84C1E23C236BC00121E26 /* MarvelCharacters.framework */; };
-		10F84C2D23C236BC00121E26 /* MarvelCharactersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84C2C23C236BC00121E26 /* MarvelCharactersTests.swift */; };
 		10F84C2F23C236BC00121E26 /* MarvelCharacters.h in Headers */ = {isa = PBXBuildFile; fileRef = 10F84C2123C236BC00121E26 /* MarvelCharacters.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		10F84C6B23C273B100121E26 /* CharacterListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84C3823C236CA00121E26 /* CharacterListModule.swift */; };
 		10F84C6C23C273B500121E26 /* CharacterListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84C3923C236CA00121E26 /* CharacterListPresenter.swift */; };
@@ -60,11 +61,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		10E75F4B23C4E55900C5F562 /* CharacterListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterTests.swift; sourceTree = "<group>"; };
+		10E75F5023C4FEF800C5F562 /* CharacterListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewControllerTests.swift; sourceTree = "<group>"; };
 		10F84C1E23C236BC00121E26 /* MarvelCharacters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarvelCharacters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F84C2123C236BC00121E26 /* MarvelCharacters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarvelCharacters.h; sourceTree = "<group>"; };
 		10F84C2223C236BC00121E26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10F84C2723C236BC00121E26 /* MarvelCharactersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelCharactersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		10F84C2C23C236BC00121E26 /* MarvelCharactersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharactersTests.swift; sourceTree = "<group>"; };
 		10F84C2E23C236BC00121E26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10F84C3823C236CA00121E26 /* CharacterListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListModule.swift; sourceTree = "<group>"; };
 		10F84C3923C236CA00121E26 /* CharacterListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenter.swift; sourceTree = "<group>"; };
@@ -140,7 +142,8 @@
 		10F84C2B23C236BC00121E26 /* MarvelCharactersTests */ = {
 			isa = PBXGroup;
 			children = (
-				10F84C2C23C236BC00121E26 /* MarvelCharactersTests.swift */,
+				10E75F4B23C4E55900C5F562 /* CharacterListPresenterTests.swift */,
+				10E75F5023C4FEF800C5F562 /* CharacterListViewControllerTests.swift */,
 				10F84C2E23C236BC00121E26 /* Info.plist */,
 			);
 			path = MarvelCharactersTests;
@@ -306,7 +309,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10F84C2D23C236BC00121E26 /* MarvelCharactersTests.swift in Sources */,
+				10E75F5123C4FEF800C5F562 /* CharacterListViewControllerTests.swift in Sources */,
+				10E75F4D23C4E69D00C5F562 /* CharacterListPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -120,6 +120,20 @@
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "10E9837423C4D301008721B1"
+               BuildableName = "MarvelSeries.framework"
+               BlueprintName = "MarvelSeries"
+               ReferencedContainer = "container:../MarvelSeries/MarvelSeries.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
             buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
@@ -200,6 +214,20 @@
                BuildableName = "MarvelCharactersTests.xctest"
                BlueprintName = "MarvelCharactersTests"
                ReferencedContainer = "container:../MarvelCharacters/MarvelCharacters.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "10E9837D23C4D301008721B1"
+               BuildableName = "MarvelSeriesTests.xctest"
+               BlueprintName = "MarvelSeriesTests"
+               ReferencedContainer = "container:../MarvelSeries/MarvelSeries.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -282,6 +310,16 @@
                BuildableName = "MarvelCharactersTests.xctest"
                BlueprintName = "MarvelCharactersTests"
                ReferencedContainer = "container:../MarvelCharacters/MarvelCharacters.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "10E9837D23C4D301008721B1"
+               BuildableName = "MarvelSeriesTests.xctest"
+               BlueprintName = "MarvelSeriesTests"
+               ReferencedContainer = "container:../MarvelSeries/MarvelSeries.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

@@ -37,6 +37,8 @@
 		10D94B8123BF93D200EE8B30 /* SF-Pro-Text-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 10D94B7423BF93D200EE8B30 /* SF-Pro-Text-HeavyItalic.otf */; };
 		10D94B8223BF93D200EE8B30 /* DemoComponentsStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D94B7523BF93D200EE8B30 /* DemoComponentsStyle.swift */; };
 		10D94B8523BF94F400EE8B30 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 10D94B8423BF94F400EE8B30 /* Settings.bundle */; };
+		10E983A623C4D421008721B1 /* MarvelSeries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E983A523C4D421008721B1 /* MarvelSeries.framework */; };
+		10E983A723C4D421008721B1 /* MarvelSeries.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10E983A523C4D421008721B1 /* MarvelSeries.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10F84C5E23C24A2B00121E26 /* MarvelAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84C5D23C24A2B00121E26 /* MarvelAuth.framework */; };
 		10F84C5F23C24A2B00121E26 /* MarvelAuth.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84C5D23C24A2B00121E26 /* MarvelAuth.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10F84C6123C24A3600121E26 /* MarvelCharacters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84C6023C24A3600121E26 /* MarvelCharacters.framework */; };
@@ -58,6 +60,7 @@
 				10D94B4523BF924300EE8B30 /* Presentation.framework in Embed Frameworks */,
 				10D94B4323BF924300EE8B30 /* IosCore.framework in Embed Frameworks */,
 				10F84C5F23C24A2B00121E26 /* MarvelAuth.framework in Embed Frameworks */,
+				10E983A723C4D421008721B1 /* MarvelSeries.framework in Embed Frameworks */,
 				10F84C6223C24A3600121E26 /* MarvelCharacters.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -97,6 +100,7 @@
 		10D94B8323BF947000EE8B30 /* Extra Settings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Extra Settings"; sourceTree = "<group>"; };
 		10D94B8423BF94F400EE8B30 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		10D94B8723BF9ED100EE8B30 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		10E983A523C4D421008721B1 /* MarvelSeries.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelSeries.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F84C5D23C24A2B00121E26 /* MarvelAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F84C6023C24A3600121E26 /* MarvelCharacters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelCharacters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F84C6623C2618800121E26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 				10F84C6123C24A3600121E26 /* MarvelCharacters.framework in Frameworks */,
 				10D94B3E23BF924300EE8B30 /* Data.framework in Frameworks */,
 				10D94B4423BF924300EE8B30 /* Presentation.framework in Frameworks */,
+				10E983A623C4D421008721B1 /* MarvelSeries.framework in Frameworks */,
 				10D94B3C23BF924300EE8B30 /* Additions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -164,6 +169,7 @@
 		10D94B3623BF924300EE8B30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				10E983A523C4D421008721B1 /* MarvelSeries.framework */,
 				10F84C6023C24A3600121E26 /* MarvelCharacters.framework */,
 				10F84C5D23C24A2B00121E26 /* MarvelAuth.framework */,
 				1050278E23C1F9BA00340F9C /* Characters.framework */,

@@ -11,6 +11,11 @@ import SafariServices
 public protocol TabModule: Module {
     var tabIdentifier: String { get }
     var tab: Int { get }
+    /// Support for presenting in the Tab Bar of the app
+    /// - Parameters:
+    ///   - title: a title, if used, in the tab bar
+    ///   - image: image for TabBarItem
+    ///   - config: Config object
     func setup(title: String, image: String?, config: Configurable) -> (controller: UIViewController, router: Routing)
 }
 
