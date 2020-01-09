@@ -459,7 +459,7 @@ extension SegmentedHeaderViewController: UIScrollViewDelegate {
                 let maxVisiblePoint1 = CGPoint(x: x1, y: mainScrollView.contentOffset.y + mainScrollView.frame.height)
                 let x2 = x1 * 3
                 let maxVisiblePoint2 = CGPoint(x: x2, y: mainScrollView.contentOffset.y + mainScrollView.frame.height)
-                
+             
                 if let visibleIndex = collectionView.indexPathForItem(at: maxVisiblePoint2) {
                     child.didScroll(to: visibleIndex)
                 } else if let visibleIndex = collectionView.indexPathForItem(at: maxVisiblePoint1){

@@ -18,10 +18,10 @@ public class SeriesListModule: SeriesListModuleable, TabModule {
     }
     
     
-    public func setup(type: SeriesListType, host: UINavigationController, config: Configurable) -> (router: Routing, viewController: UIViewController) {
+    public func setup(type: SeriesListType, config: Configurable) -> (router: Routing, viewController: UIViewController) {
     
         let vc = viewController()
-        let router = SeriesListRouter(host: host, context: vc)
+        let router = SeriesListRouter(host: nil, context: vc)
         let fetcher = SeriesListFetcher(service: NetworkDataServiceFactory.GetSeriesListDataService(config))
         let presenter = SeriesListPresenter(type: type, fetcher: fetcher, router: router)
         

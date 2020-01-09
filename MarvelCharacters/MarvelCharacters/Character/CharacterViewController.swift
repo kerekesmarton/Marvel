@@ -40,6 +40,11 @@ class CharacterViewController: SegmentedHeaderViewController, CharacterPresentat
         headerView?.profileTapClosure = { [weak self] in
             self?.presenter.didTapProfileImage(referenceViewable: self?.headerView)
         }
+        
+        let newSegments = presenter.segments()
+        if newSegments != segments as? [CharacterSegmentedContent] {
+            segments = newSegments
+        }
     }
     
     func setTitle(_ title: String) {

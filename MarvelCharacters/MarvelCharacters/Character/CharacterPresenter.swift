@@ -13,6 +13,7 @@ import Presentation
 protocol CharacterPresenting {
     func viewReady()
     func didTapProfileImage(referenceViewable: ImageReferenceCalculating?)
+    func segments() -> [CharacterSegmentedContent]
 }
 
 protocol CharacterPresentationOutput: FontCalculating {
@@ -42,10 +43,6 @@ class CharacterPresenter: CharacterPresenting {
             output.setTitle(name)
         }
         
-        if let desc = character.description {
-            output.setHeader(description: desc)
-        }
-        
         if let url = character.thumbnail?.createURL(size: .full) {
             output.setImage(url: url)
         }        
@@ -56,6 +53,11 @@ class CharacterPresenter: CharacterPresenting {
         let firstLine = [FontCalculable(text: name, style: FontStyle.author)]
         let assets = [RemoteAsset(url: url, caption: firstLine, secondCaption: [])]
         router.showViewer(for: assets, startIndex: 0, reference: referenceViewable)
+    }
+    
+    func segments() -> [CharacterSegmentedContent] {
+        let bio = [FontCalculable(text: character.description ?? "", style: .normal)]
+        return [.series(character: character), .bio(text: bio)]
     }
     
 }

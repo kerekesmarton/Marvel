@@ -10,5 +10,5 @@ import UIKit
 import Domain
 
 public protocol SeriesListModuleable: Module {
-    func setup(type: SeriesListType, host: UINavigationController, config: Configurable) -> (router: Routing, viewController: UIViewController)
+    func setup(type: SeriesListType, config: Configurable) -> (router: Routing, viewController: UIViewController)
 }

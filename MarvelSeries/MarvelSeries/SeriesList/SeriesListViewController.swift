@@ -23,6 +23,13 @@ class SeriesListViewController: CollectionViewController, SeriesListPresentation
         setLogoInNavigation(image: #imageLiteral(resourceName: "General-logo"))
         
         presenter.viewReady()
+        updateSegmentDelegate()
+    }
+    
+    private func updateSegmentDelegate() {
+        DispatchQueue.main.async {
+            self.delegate?.didUpdate(self.collectionView)
+        }
     }
     
     override func applyStyle() {
@@ -55,14 +62,18 @@ class SeriesListViewController: CollectionViewController, SeriesListPresentation
         }
         presenter.didSelect(cell: cell, at: indexPath.row)
     }
+    
+    weak var delegate: SegmentsRoutableChildDelegate?
+    var lastVisibleIndex: IndexPath?
 }
 
 extension SeriesListViewController: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemWidth = collectionView.bounds.width * 0.45
-        let itemHeight = collectionView.bounds.height * 0.45
-        return CGSize(width: itemWidth, height: itemHeight)
+        
+        let w = traitCollection.horizontalSizeClass == .compact ? collectionView.bounds.width * 0.45 : collectionView.bounds.width * 0.2        
+        let h = w * 4 / 3
+        return CGSize(width: w, height: h)
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
@@ -102,6 +113,19 @@ extension SeriesListViewController: EmptyStateDataSource, EmptyStateDelegate {
     
     func emptyStatebuttonWasTapped(button: UIButton) {
         presenter.didTapEmptyStateButton()
+    }
+}
+
+extension SeriesListViewController: SegmentsRoutableChild {
+    var routableScrollView: UIScrollView? {
+        get { return collectionView }
+    }
+    
+    func didScroll(to index: IndexPath) {
+        if index != lastVisibleIndex {
+            lastVisibleIndex = index
+            presenter.viewDidReachEnd()
+        }
     }
 }
 

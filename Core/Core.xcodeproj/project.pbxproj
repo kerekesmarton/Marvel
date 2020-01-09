@@ -264,6 +264,10 @@
 		10E6F7FF22D605DE00849080 /* DictionaryCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105E9D90220B33E2001C44CF /* DictionaryCoder.swift */; };
 		10E75F4A23C4E11400C5F562 /* SeriesListFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9835D23C49F61008721B1 /* SeriesListFetcher.swift */; };
 		10E75F4F23C4EB3C00C5F562 /* EntitiesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F4E23C4EB3C00C5F562 /* EntitiesFactory.swift */; };
+		10E75F5723C5F10900C5F562 /* TextModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F5223C5F10900C5F562 /* TextModule.swift */; };
+		10E75F5823C5F10900C5F562 /* TextPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F5323C5F10900C5F562 /* TextPresenter.swift */; };
+		10E75F5D23C5F2F700C5F562 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F5523C5F10900C5F562 /* TextViewController.swift */; };
+		10E75F5E23C5F2FA00C5F562 /* TextRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F5423C5F10900C5F562 /* TextRouter.swift */; };
 		10E9834923C493F8008721B1 /* Entities+Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9834823C493F8008721B1 /* Entities+Character.swift */; };
 		10E9834B23C49497008721B1 /* Models+Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9834A23C49497008721B1 /* Models+Character.swift */; };
 		10E9836023C4A091008721B1 /* ModuleDeclarations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9835F23C4A091008721B1 /* ModuleDeclarations.swift */; };
@@ -636,6 +640,10 @@
 		10D2E86321B80E24001FEFC4 /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		10E591B72153C58D00350879 /* ModuleTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleTable.swift; sourceTree = "<group>"; };
 		10E75F4E23C4EB3C00C5F562 /* EntitiesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntitiesFactory.swift; sourceTree = "<group>"; };
+		10E75F5223C5F10900C5F562 /* TextModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModule.swift; sourceTree = "<group>"; };
+		10E75F5323C5F10900C5F562 /* TextPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPresenter.swift; sourceTree = "<group>"; };
+		10E75F5423C5F10900C5F562 /* TextRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRouter.swift; sourceTree = "<group>"; };
+		10E75F5523C5F10900C5F562 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		10E9834823C493F8008721B1 /* Entities+Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entities+Character.swift"; sourceTree = "<group>"; };
 		10E9834A23C49497008721B1 /* Models+Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models+Character.swift"; sourceTree = "<group>"; };
 		10E9835D23C49F61008721B1 /* SeriesListFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesListFetcher.swift; sourceTree = "<group>"; };
@@ -1057,6 +1065,7 @@
 				109D3C33239BC7A600D6A4EF /* ErrorRouting.swift */,
 				109D3C3A239BC7A700D6A4EF /* CameraRouting.swift */,
 				109D3C2D239BC7A600D6A4EF /* NibViewLoadable.swift */,
+				10E75F5C23C5F13600C5F562 /* TextSegment */,
 				109D3CBA239BC7AA00D6A4EF /* AppRouter */,
 				109D3C3F239BC7A700D6A4EF /* Configuration */,
 				109D3CC8239BC7AB00D6A4EF /* ImageGallery */,
@@ -1493,6 +1502,17 @@
 				109D3C1C239BC78E00D6A4EF /* IosCoreTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		10E75F5C23C5F13600C5F562 /* TextSegment */ = {
+			isa = PBXGroup;
+			children = (
+				10E75F5223C5F10900C5F562 /* TextModule.swift */,
+				10E75F5323C5F10900C5F562 /* TextPresenter.swift */,
+				10E75F5423C5F10900C5F562 /* TextRouter.swift */,
+				10E75F5523C5F10900C5F562 /* TextViewController.swift */,
+			);
+			path = TextSegment;
 			sourceTree = "<group>";
 		};
 		10EE8573230EE2370009B6E0 /* Settings */ = {
@@ -2165,6 +2185,7 @@
 				109D3CFC239BC82100D6A4EF /* UIVIew+INSPhotoViewer.swift in Sources */,
 				109D3D76239BC88600D6A4EF /* NotificationServicesHelper.swift in Sources */,
 				109D3CFB239BC82100D6A4EF /* INSPhoto.swift in Sources */,
+				10E75F5823C5F10900C5F562 /* TextPresenter.swift in Sources */,
 				109D3D41239BC86300D6A4EF /* ProfileCollectionViewCell.swift in Sources */,
 				109D3D0E239BC82F00D6A4EF /* UIViewController.swift in Sources */,
 				109D3D70239BC87C00D6A4EF /* Label.swift in Sources */,
@@ -2181,6 +2202,7 @@
 				109D3D1B239BC83F00D6A4EF /* ImageEditorViewController.swift in Sources */,
 				109D3D4A239BC86A00D6A4EF /* TouchRespondScrollView.swift in Sources */,
 				10E9836023C4A091008721B1 /* ModuleDeclarations.swift in Sources */,
+				10E75F5D23C5F2F700C5F562 /* TextViewController.swift in Sources */,
 				109D3D55239BC87100D6A4EF /* LabelledModule.swift in Sources */,
 				10F84C9923C3AD6C00121E26 /* CharacterHeaderView.swift in Sources */,
 				109D3D2A239BC85600D6A4EF /* SwitchFieldCell.swift in Sources */,
@@ -2220,7 +2242,9 @@
 				109D3D0A239BC82F00D6A4EF /* UIStackView.swift in Sources */,
 				109D3D26239BC85600D6A4EF /* SingleButtonCell.swift in Sources */,
 				109D3D81239BC89400D6A4EF /* SettingsViewController.swift in Sources */,
+				10E75F5723C5F10900C5F562 /* TextModule.swift in Sources */,
 				109D3D62239BC87C00D6A4EF /* ActionRoundedButton.swift in Sources */,
+				10E75F5E23C5F2FA00C5F562 /* TextRouter.swift in Sources */,
 				109D3D29239BC85600D6A4EF /* TableFooter.swift in Sources */,
 				109D3D05239BC82F00D6A4EF /* UILabel+Gesture.swift in Sources */,
 				109D3D31239BC85600D6A4EF /* DropdownCell.swift in Sources */,

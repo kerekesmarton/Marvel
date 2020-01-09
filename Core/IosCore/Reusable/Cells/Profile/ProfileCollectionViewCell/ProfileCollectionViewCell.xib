@@ -36,7 +36,7 @@
                             <constraint firstAttribute="height" constant="74" id="rQk-pm-RGL"/>
                         </constraints>
                     </stackView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tjN-EH-0M1" customClass="EdgeDetectImageView" customModule="IosCore" customModuleProvider="target">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tjN-EH-0M1">
                         <rect key="frame" x="0.0" y="0.0" width="258" height="114"/>
                     </imageView>
                 </subviews>

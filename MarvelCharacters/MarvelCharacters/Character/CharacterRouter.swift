@@ -53,26 +53,17 @@ class CharacterRouter: SegmentsRouter, ErrorRouting, CameraRouting, CharacterRou
     }
     
     override func setup(segment: SegmentedDisplayable) -> (router: Routing, controller: UIViewController) {
-//        guard let segment = segment as? ProfileSegmentedContent else { fatalError() }
-//        switch segment {
-//        case .wall(profile: let profile):
-//            let module: PostsListModulable = config.appModules.module()
-//            return module.setup(feature: PostsListingType.profile(profile), config: config)
-//        case .network(profile: let profile):
-//            let module: ChannelListModulable = config.appModules.module()
-//            return module.setup(type: .member(profile), cellPresenterType: .channelList, config: config)
-//        case .blockProfile(profile: let profile):
-//            let module: ProfileUnblockingModule = config.appModules.module()
-//            return module.setup(profile: profile, config: config)
-//        case .other:
-//            let module: LabelledModule = config.appModules.module()
-//            return module.setup(text: segment.title, config: config)
-//        case .photos:
-//            let module: LabelledModule = config.appModules.module()
-//            return module.setup(text: segment.title, config: config)
-//        }
-        
-        return (self, context!)
+        guard let segment = segment as? CharacterSegmentedContent else { fatalError() }
+        switch segment {
+        case .series(character: let character):
+            let module: SeriesListModuleable = config.appModules.module()
+            let result = module.setup(type: .character(character), config: config)
+            return (router: result.router, controller: result.viewController)
+        case .bio(text: let text):
+            let module: TextModule = config.appModules.module()
+            let result = module.setup(text: text, config: config)
+            return (router: result.router, controller: result.viewController)
+        }
     }
     
     override func present(controller: UIViewController) {

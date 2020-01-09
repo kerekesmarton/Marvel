@@ -28,12 +28,7 @@ class NetworkDataService: SpecialisedDataService {
     
     func getData<T>(from url: URL, parameters: [String : String], completion: @escaping (Result<T, ServiceError>) -> Void) {
         do {
-            var request = try requestBuilder.request(with: parameters)
-            if url.scheme == "http" {
-                request.url = URL(string: url.absoluteString.replacingOccurrences(of: "http", with: "https"))!
-            } else {
-                request.url = url
-            }
+            let request = try requestBuilder.request(with: parameters)
             sendData(with: request, completion: completion)
         } catch ServiceError.parsing(let string){
             completion(.failure(ServiceError.parsing(string)))
@@ -44,12 +39,7 @@ class NetworkDataService: SpecialisedDataService {
     
     public func getData<T>(from url: URL, completion: @escaping (Result<T, ServiceError>) -> Void) {
         do {
-            var request = try requestBuilder.request()
-            if url.scheme == "http" {
-                request.url = URL(string: url.absoluteString.replacingOccurrences(of: "http", with: "https"))!
-            } else {
-                request.url = url
-            }            
+            let request = try requestBuilder.request()
             sendData(with: request, completion: completion)
         } catch ServiceError.parsing(let string){
             completion(.failure(ServiceError.parsing(string)))

@@ -80,7 +80,7 @@ class SeriesListPresenter: SeriesListPresenting {
     }
     
     var itemCount: Int {
-        return results?.data?.results?.count ?? 0
+        return unwrappedItems?.count ?? 0
     }
     
     func setup(cell: SeriesPresentingItem, at index: Int) {

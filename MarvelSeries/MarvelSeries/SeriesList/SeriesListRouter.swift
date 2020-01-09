@@ -9,7 +9,7 @@ import Domain
 
 class SeriesListRouter: Routing, SeriesListRouting {
     
-    init(host: UINavigationController, context: UIViewController) {
+    init(host: UINavigationController?, context: UIViewController) {
         self.context = context
         self.host = host
     }
@@ -19,19 +19,18 @@ class SeriesListRouter: Routing, SeriesListRouting {
         host?.pushViewController(context, animated: true)
     }
     
-    var parent: Routing?
-    
-    func present(controller: UIViewController) {
-        context?.present(controller, animated: true, completion: {
-            
-        })
-    }
-    
     func routeSeries(_ story: Entities.Series) {
         
     }
     
-    weak var context: UIViewController?
     weak var host: UINavigationController?
-    
 }
+
+extension SeriesListRouter: ScrollableChildRouter {
+    func scrollToTop() {
+        if let scrollView = context?.view as? UICollectionView, scrollView.contentSize.height > 0 {
+            scrollView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        }
+    }
+}
+

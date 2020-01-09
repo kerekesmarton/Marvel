@@ -63,9 +63,9 @@ class CharacterListViewController: CollectionViewController, CharacterListPresen
 extension CharacterListViewController: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemWidth = collectionView.bounds.width * 0.45
-        let itemHeight = collectionView.bounds.height * 0.45
-        return CGSize(width: itemWidth, height: itemHeight)
+        let w = traitCollection.horizontalSizeClass == .compact ? collectionView.bounds.width * 0.45 : collectionView.bounds.width * 0.2
+        let h = w * 4 / 3
+        return CGSize(width: w, height: h)
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
