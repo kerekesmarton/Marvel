@@ -38,7 +38,7 @@ class NetworkDataServiceTests: XCTestCase {
         mockedSession.stubStatus = 400
         let mockedParser = MockDataParser<StubEntity>()
         let mockedRequestBuilder = MockRequestBuilder()
-        mockedRequestBuilder.stubRequest = URLRequest(url: URL(string: "a@a.com")!)
+        mockedRequestBuilder.stubURL = URL(string: "a@a.com")!
         let service = givenService(with: mockedRequestBuilder, mockedParser, mockedSession)
         
         var capturedError: ServiceError?
@@ -68,7 +68,7 @@ class NetworkDataServiceTests: XCTestCase {
         let urlResponse: HTTPURLResponse = HTTPURLResponse(url: stubURL, mimeType: nil, expectedContentLength: 100, textEncodingName: nil)
         mockedParser.stubError = ServiceError.server(urlResponse, nil)
         let mockedRequestBuilder = MockRequestBuilder()
-        mockedRequestBuilder.stubRequest = URLRequest(url: URL(string: "a@a.com")!)
+        mockedRequestBuilder.stubURL = URL(string: "a@a.com")!
         let service = givenService(with: mockedRequestBuilder, mockedParser, mockedSession)
         
         var capturedError: ServiceError?
@@ -96,7 +96,7 @@ class NetworkDataServiceTests: XCTestCase {
         mockedSession.stubData = "error".data(using: .utf8)
         let mockedParser = MockDataParser<StubEntity>()
         let mockedRequestBuilder = MockRequestBuilder()
-        mockedRequestBuilder.stubRequest = URLRequest(url: URL(string: "a@a.com")!)
+        mockedRequestBuilder.stubURL = URL(string: "a@a.com")!
         let service = givenService(with: mockedRequestBuilder, mockedParser, mockedSession)
         
         var capturedError: ServiceError?
@@ -114,13 +114,12 @@ class NetworkDataServiceTests: XCTestCase {
     }
     
     func test_GivenGettingData_WhenWrongData_ThenErrorReturned() {
-        let url: URL = URL(string: "a@a.com")!
         let mockedSession = MockSession()
         mockedSession.stubStatus = 400
         let mockedParser = MockDataParser<StubEntity>()
         let mockedRequestBuilder = MockRequestBuilder()
         
-        mockedRequestBuilder.stubRequest = URLRequest(url: url)
+        mockedRequestBuilder.stubURL = URL(string: "a@a.com")!
         let service = givenService(with: mockedRequestBuilder, mockedParser, mockedSession)
         
         var capturedError: ServiceError?
@@ -148,7 +147,7 @@ class NetworkDataServiceTests: XCTestCase {
         let entity = StubEntity(field: "test")
         mockedParser.stubEntity = entity
         let mockedRequestBuilder = MockRequestBuilder()
-        mockedRequestBuilder.stubRequest = URLRequest(url: URL(string: "a@a.com")!)
+        mockedRequestBuilder.stubURL = URL(string: "a@a.com")!
         let service = givenService(with: mockedRequestBuilder, mockedParser, mockedSession)
         
     
@@ -174,7 +173,7 @@ class NetworkDataServiceTests: XCTestCase {
         
         mockedParser.stubEntity = entity
         let mockedRequestBuilder = MockRequestBuilder()
-        mockedRequestBuilder.stubRequest = URLRequest(url: URL(string: "a@a.com")!)
+        mockedRequestBuilder.stubURL = URL(string: "a@a.com")!
         let mockedPersistence: MockDataPersisting = MockDataPersisting()
         mockedPersistence.stubItems = entity
         let service = givenService(with: mockedRequestBuilder, mockedParser, mockedSession, mockedPersistence)

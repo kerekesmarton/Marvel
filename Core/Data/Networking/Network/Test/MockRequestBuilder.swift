@@ -12,7 +12,7 @@ class MockRequestBuilder: BaseRequestBuilder, RequestBuilding {
   
     var stubRequest: URLRequest?
     var request: URLRequest {
-        return stubRequest!
+        return stubRequest ?? URLRequest(url: stubURL)
     }
     
     var spyParams: [String: String]?
