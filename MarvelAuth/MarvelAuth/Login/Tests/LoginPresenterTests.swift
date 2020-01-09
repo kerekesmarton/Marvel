@@ -25,7 +25,7 @@ final class LoginPresenterTests: XCTestCase {
         mockedRouter = MockLoginRouter()
         mockedView = MockLoginView()
         
-        loginPresenter = LoginPresenter(userRepository: MockUserProfileStore(),
+        loginPresenter = LoginPresenter(userRepository: MockUserProfileStore(defaults: MockDefaultSettings()),
                                         router: mockedRouter, config: mockConfig)
         loginPresenter.view = mockedView
     }

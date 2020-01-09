@@ -28,7 +28,7 @@ class AppPresenterTests: XCTestCase {
         mockedRouter.stubOutput = MockAppPresentingOutput()
         mockedNotificationServices = MockNotificationServices()
         mockedSettingsConfig = MockSettingsConfigurable(defaults: MockDefaultSettings())
-        mockUserProfileStore = MockUserProfileStore()
+        mockUserProfileStore = MockUserProfileStore(defaults: MockDefaultSettings())
         
         appPresenter = AppPresenter(router: mockedRouter,
                                     config: mockedConfig,
@@ -193,18 +193,4 @@ class MockNotificationServices: NotificationServices {
     func launch(with presenter: AppPresenting) {
         spyPresenter = presenter
     }
-}
-
-final class MockDefaultSettings: DefaultSettings {
-    func bool(forKey defaultName: String) -> Bool {
-        return true
-    }
-    
-    func string(forKey defaultName: String) -> String? {
-        return ""
-    }
-    
-    func set(_ value: Any?, forKey defaultName: String) {}
-    
-    func synchronize() -> Bool { return true }
 }

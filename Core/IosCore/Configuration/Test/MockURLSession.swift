@@ -4,6 +4,8 @@
 
 import Foundation
 import Domain
+import Additions
+import Data
 
 class MockURLSession: Sessionable {
     static var shared =  MockURLSession.init()
@@ -46,7 +48,8 @@ class MockURLSession: Sessionable {
                     
                     storedPair.response = data
                 }
-                let query = Environment.dev.baseUrl.absoluteString + q
+                let authString = MockCyptoHelper().makeAuthString()
+                let query = Environment.prod.baseUrl.absoluteString + q + authString
                 var stored = storedData[query] ?? []
                 stored.append(storedPair)
                 storedData[query] = stored
@@ -108,8 +111,7 @@ class MockURLSession: Sessionable {
     }
     
     func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-        
-        guard let query = request.url?.absoluteString, let storedInfo = storedData[query] else {
+        guard let query = request.url?.absoluteString , let storedInfo = storedData[query] else {
             handleImageFetch(completionHandler, request)
             return StubDataTask()
         }
@@ -196,5 +198,44 @@ private final class TestHelpers {
         }
         
         return data
+    }
+}
+
+import var CommonCrypto.CC_MD5_DIGEST_LENGTH
+import func CommonCrypto.CC_MD5
+import typealias CommonCrypto.CC_LONG
+
+class MockCyptoHelper {
+    func md5(from string: String) -> Data {
+        let length = Int(CC_MD5_DIGEST_LENGTH)
+        let messageData = string.data(using:.utf8)!
+        var digestData = Data(count: length)
+        
+        _ = digestData.withUnsafeMutableBytes { digestBytes -> UInt8 in
+            messageData.withUnsafeBytes { messageBytes -> UInt8 in
+                if let messageBytesBaseAddress = messageBytes.baseAddress, let digestBytesBlindMemory = digestBytes.bindMemory(to: UInt8.self).baseAddress {
+                    let messageLength = CC_LONG(messageData.count)
+                    CC_MD5(messageBytesBaseAddress, messageLength, digestBytesBlindMemory)
+                }
+                return 0
+            }
+        }
+        return digestData
+    }
+    
+    func md5Hex(from string: String) -> String {
+        return md5(from: string).map { String(format: "%02hhx", $0) }.joined()
+    }
+    
+    private func hash(with ts: String) -> String? {
+        let publicKey = ProcessInfo().publicKey!
+        let privateKey = ProcessInfo().privateKey!
+        return md5Hex(from: ts + privateKey + publicKey)
+    }
+    
+    func makeAuthString() -> String {
+        let publicKey = ProcessInfo().publicKey!
+        let ts = ProcessInfo().ts!
+        return "?ts=\(ts)&apikey=\(publicKey)&hash=\(hash(with: ts)!)"
     }
 }

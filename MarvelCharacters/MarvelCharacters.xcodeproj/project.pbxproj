@@ -132,8 +132,8 @@
 			children = (
 				10F84C6F23C2782C00121E26 /* Characters.storyboard */,
 				10F84C3C23C236CA00121E26 /* List */,
-				10F84C2123C236BC00121E26 /* MarvelCharacters.h */,
 				10F84C9C23C3C83000121E26 /* Character */,
+				10F84C2123C236BC00121E26 /* MarvelCharacters.h */,
 				10F84C2223C236BC00121E26 /* Info.plist */,
 			);
 			path = MarvelCharacters;

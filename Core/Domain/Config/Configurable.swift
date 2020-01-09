@@ -84,6 +84,10 @@ public protocol PhotosDataFetching {
     func video(for asset: PHAsset, completionHandler: @escaping VideoFetchingCompletion, progressHandler: UpdateBlock?)
 }
 
+public protocol UniqueStringProviding {
+    var uniqueString: String { get }
+}
+
 public protocol Configurable {
     var appModules: ApplicationModules { get }
     var settings: SettingsConfigurable { get }
@@ -91,6 +95,7 @@ public protocol Configurable {
     var notificationServices: NotificationServiceable & NotificationRefreshable { get set }
     var userProfileStore: UserProfileStoring { get }
     var photosFetching: PhotosDataFetching { get }
+    var uniqueStringProviding: UniqueStringProviding { get }
     func loadConfiguration(didFinish: @escaping ()-> Void)
     func addToLoad(block: @escaping ()-> Void)
 }

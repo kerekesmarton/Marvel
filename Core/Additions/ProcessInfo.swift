@@ -23,4 +23,17 @@ public extension ProcessInfo {
             return false
         }
     }
+    
+    var ts: String? {
+        return environment["ts"]
+    }
+    
+    var publicKey: String? {
+        return environment["publicKey"]
+    }
+    
+    var privateKey: String? {
+        return environment["privateKey"]
+    }
+    
 }

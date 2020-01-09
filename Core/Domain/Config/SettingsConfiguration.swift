@@ -102,6 +102,6 @@ public class MockSettingsConfigurable: SettingsConfigurable {
     }
     
     public var environment: Environment {
-        return Environment.dev
+        return Environment.prod
     }
 }

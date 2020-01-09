@@ -268,6 +268,8 @@
 		10E75F5823C5F10900C5F562 /* TextPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F5323C5F10900C5F562 /* TextPresenter.swift */; };
 		10E75F5D23C5F2F700C5F562 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F5523C5F10900C5F562 /* TextViewController.swift */; };
 		10E75F5E23C5F2FA00C5F562 /* TextRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F5423C5F10900C5F562 /* TextRouter.swift */; };
+		10E75F8723C7709E00C5F562 /* CustomCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84BE823C2005400121E26 /* CustomCrypto.swift */; };
+		10E75F8923C7DF0600C5F562 /* UniqueStringProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F8823C7DF0600C5F562 /* UniqueStringProvider.swift */; };
 		10E9834923C493F8008721B1 /* Entities+Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9834823C493F8008721B1 /* Entities+Character.swift */; };
 		10E9834B23C49497008721B1 /* Models+Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9834A23C49497008721B1 /* Models+Character.swift */; };
 		10E9836023C4A091008721B1 /* ModuleDeclarations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9835F23C4A091008721B1 /* ModuleDeclarations.swift */; };
@@ -278,7 +280,6 @@
 		10EE8572230EE1BC0009B6E0 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EE8571230EE1BC0009B6E0 /* Settings.swift */; };
 		10F84BEC23C2041200121E26 /* CustomCryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84BEB23C2041200121E26 /* CustomCryptoTests.swift */; };
 		10F84BED23C207D300121E26 /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105026BA23C0908C00340F9C /* APIs.swift */; };
-		10F84BEE23C207D700121E26 /* CustomCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84BE823C2005400121E26 /* CustomCrypto.swift */; };
 		10F84C7423C285F500121E26 /* ImageURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84C7323C285F500121E26 /* ImageURLBuilder.swift */; };
 		10F84C7723C3349600121E26 /* Reqres.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84C7623C3349600121E26 /* Reqres.framework */; };
 		10F84C7823C3349600121E26 /* Reqres.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84C7623C3349600121E26 /* Reqres.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -644,6 +645,7 @@
 		10E75F5323C5F10900C5F562 /* TextPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPresenter.swift; sourceTree = "<group>"; };
 		10E75F5423C5F10900C5F562 /* TextRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRouter.swift; sourceTree = "<group>"; };
 		10E75F5523C5F10900C5F562 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		10E75F8823C7DF0600C5F562 /* UniqueStringProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueStringProvider.swift; sourceTree = "<group>"; };
 		10E9834823C493F8008721B1 /* Entities+Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entities+Character.swift"; sourceTree = "<group>"; };
 		10E9834A23C49497008721B1 /* Models+Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models+Character.swift"; sourceTree = "<group>"; };
 		10E9835D23C49F61008721B1 /* SeriesListFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesListFetcher.swift; sourceTree = "<group>"; };
@@ -769,6 +771,7 @@
 				104A71372138311F00DE8A6A /* NetworkDataService.swift */,
 				104A713B2138311F00DE8A6A /* RequestBuilding.swift */,
 				10F84BE823C2005400121E26 /* CustomCrypto.swift */,
+				10E75F8823C7DF0600C5F562 /* UniqueStringProvider.swift */,
 				104A71382138311F00DE8A6A /* Test */,
 			);
 			path = Network;
@@ -2056,11 +2059,12 @@
 				10E6F7FE22D605DE00849080 /* DateCoder.swift in Sources */,
 				104A71532138312000DE8A6A /* KeyChainWrapper.swift in Sources */,
 				104A71542138312000DE8A6A /* MockKeychainWrapper.swift in Sources */,
-				10F84BEE23C207D700121E26 /* CustomCrypto.swift in Sources */,
 				105026BB23C0908C00340F9C /* Models+Common.swift in Sources */,
+				10E75F8723C7709E00C5F562 /* CustomCrypto.swift in Sources */,
 				104A714C2138312000DE8A6A /* DataParsing.swift in Sources */,
 				10C85A87222E7A4300FC6894 /* UserProfileStore.swift in Sources */,
 				10E983AB23C4D730008721B1 /* Models+Series.swift in Sources */,
+				10E75F8923C7DF0600C5F562 /* UniqueStringProvider.swift in Sources */,
 				10BD166A220DC87400E90411 /* RealmHelpers.swift in Sources */,
 				10E6F7FF22D605DE00849080 /* DictionaryCoder.swift in Sources */,
 			);

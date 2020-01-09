@@ -27,7 +27,7 @@ public class SeriesListFetcher: SeriesListFetching {
     
     public func fetchStories(type: SeriesListType, completion: @escaping (Result<Entities.SeriesDataWrapper, ServiceError>) -> Void) {
         
-        let parameters = ["limit": "\(40)"]
+        let parameters = [String:String]()
         switch type {
         case .all:
             service.getData(parameters: parameters) { (result: Result<Entities.SeriesDataWrapper, ServiceError>) in
@@ -51,7 +51,7 @@ public class SeriesListFetcher: SeriesListFetching {
         guard total > newOffset else {
             return
         }
-        let parameters = ["offset": String(newOffset), "limit": "\(40)"]
+        let parameters = ["offset": String(newOffset)]
         service.getData(parameters: parameters) { (returnedData: Result<Entities.SeriesDataWrapper, ServiceError>) in
             do {
                 let returnedResults = try returnedData.get()

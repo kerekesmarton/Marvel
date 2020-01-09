@@ -60,13 +60,21 @@ public class Configuration: Configurable {
     
     public var userProfileStore: UserProfileStoring {
         if ProcessInfo().isUITesting {
-            return MockUserProfileStore()
+            return MockUserProfileStore(defaults: ProcessInfo())
         } else {
             return UserProfileStore()
         }
     }
 
     public var photosFetching: PhotosDataFetching = PhotosDataStore(imageManager: PHImageManager())
+    
+    public var uniqueStringProviding: UniqueStringProviding {
+        if ProcessInfo().isUITesting {
+            return MockUniqueStringProviding(defaults: ProcessInfo())
+        } else {
+            return UniqueStringProvider()
+        }
+    }
     
     public func loadConfiguration(didFinish: @escaping ()-> Void) {
         let didFinishOperation = BlockOperation(block: {

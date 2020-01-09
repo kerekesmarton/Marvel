@@ -50,25 +50,5 @@
 		<key>DefaultValue</key>
 		<false/>
 	</dict>
-	<dict>
-		<key>Type</key>
-		<string>PSToggleSwitchSpecifier</string>
-		<key>Title</key>
-		<string>Mentions Feature Flag</string>
-		<key>Key</key>
-		<string>FeatureFlags.Mention</string>
-		<key>DefaultValue</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>Type</key>
-		<string>PSToggleSwitchSpecifier</string>
-		<key>Title</key>
-		<string>Video Uploading Feature Flag</string>
-		<key>Key</key>
-		<string>FeatureFlags.UploadVideo</string>
-		<key>DefaultValue</key>
-		<false/>
-	</dict>
 </array>
 </plist>

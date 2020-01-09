@@ -37,6 +37,17 @@
 		10D94B8123BF93D200EE8B30 /* SF-Pro-Text-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 10D94B7423BF93D200EE8B30 /* SF-Pro-Text-HeavyItalic.otf */; };
 		10D94B8223BF93D200EE8B30 /* DemoComponentsStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D94B7523BF93D200EE8B30 /* DemoComponentsStyle.swift */; };
 		10D94B8523BF94F400EE8B30 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 10D94B8423BF94F400EE8B30 /* Settings.bundle */; };
+		10E75F6623C74F5E00C5F562 /* MarvelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F6523C74F5E00C5F562 /* MarvelUITests.swift */; };
+		10E75F6E23C74FAB00C5F562 /* BaseFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F6D23C74FAB00C5F562 /* BaseFeature.swift */; };
+		10E75F7023C74FB600C5F562 /* RequestResponsePair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F6F23C74FB600C5F562 /* RequestResponsePair.swift */; };
+		10E75F7423C74FF200C5F562 /* AppSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F7223C74FF200C5F562 /* AppSteps.swift */; };
+		10E75F7523C74FF200C5F562 /* BaseSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F7323C74FF200C5F562 /* BaseSteps.swift */; };
+		10E75F7923C7501500C5F562 /* photo-test.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 10E75F7723C7501500C5F562 /* photo-test.jpeg */; };
+		10E75F7A23C7501500C5F562 /* XCUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F7823C7501500C5F562 /* XCUIElement.swift */; };
+		10E75F7C23C7502300C5F562 /* BaseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F7B23C7502300C5F562 /* BaseScreen.swift */; };
+		10E75F8023C7515400C5F562 /* CharacterListSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F7F23C7515400C5F562 /* CharacterListSteps.swift */; };
+		10E75F8223C7517400C5F562 /* CharacterSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F8123C7517400C5F562 /* CharacterSteps.swift */; };
+		10E75F8423C7518900C5F562 /* SeriesListSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F8323C7518900C5F562 /* SeriesListSteps.swift */; };
 		10E983A623C4D421008721B1 /* MarvelSeries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E983A523C4D421008721B1 /* MarvelSeries.framework */; };
 		10E983A723C4D421008721B1 /* MarvelSeries.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10E983A523C4D421008721B1 /* MarvelSeries.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10F84C5E23C24A2B00121E26 /* MarvelAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84C5D23C24A2B00121E26 /* MarvelAuth.framework */; };
@@ -46,6 +57,16 @@
 		10F84C6723C2618800121E26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10F84C6523C2618800121E26 /* Main.storyboard */; };
 		10F84C6A23C26CF700121E26 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10F84C6823C26CF700121E26 /* Localizable.strings */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		10E75F6823C74F5E00C5F562 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10D94B0E23BF8FB900EE8B30 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 10D94B1523BF8FB900EE8B30;
+			remoteInfo = Marvel;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		10D94B4623BF924300EE8B30 /* Embed Frameworks */ = {
@@ -100,6 +121,19 @@
 		10D94B8323BF947000EE8B30 /* Extra Settings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Extra Settings"; sourceTree = "<group>"; };
 		10D94B8423BF94F400EE8B30 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		10D94B8723BF9ED100EE8B30 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		10E75F6323C74F5E00C5F562 /* MarvelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		10E75F6523C74F5E00C5F562 /* MarvelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MarvelUITests.swift; path = ../MarvelUITests.swift; sourceTree = "<group>"; };
+		10E75F6723C74F5E00C5F562 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10E75F6D23C74FAB00C5F562 /* BaseFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseFeature.swift; path = ../BaseFeature.swift; sourceTree = "<group>"; };
+		10E75F6F23C74FB600C5F562 /* RequestResponsePair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestResponsePair.swift; path = ../RequestResponsePair.swift; sourceTree = "<group>"; };
+		10E75F7223C74FF200C5F562 /* AppSteps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppSteps.swift; path = ../AppSteps.swift; sourceTree = "<group>"; };
+		10E75F7323C74FF200C5F562 /* BaseSteps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseSteps.swift; path = ../BaseSteps.swift; sourceTree = "<group>"; };
+		10E75F7723C7501500C5F562 /* photo-test.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "photo-test.jpeg"; sourceTree = "<group>"; };
+		10E75F7823C7501500C5F562 /* XCUIElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCUIElement.swift; sourceTree = "<group>"; };
+		10E75F7B23C7502300C5F562 /* BaseScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseScreen.swift; path = ../BaseScreen.swift; sourceTree = "<group>"; };
+		10E75F7F23C7515400C5F562 /* CharacterListSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListSteps.swift; sourceTree = "<group>"; };
+		10E75F8123C7517400C5F562 /* CharacterSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSteps.swift; sourceTree = "<group>"; };
+		10E75F8323C7518900C5F562 /* SeriesListSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesListSteps.swift; sourceTree = "<group>"; };
 		10E983A523C4D421008721B1 /* MarvelSeries.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelSeries.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F84C5D23C24A2B00121E26 /* MarvelAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F84C6023C24A3600121E26 /* MarvelCharacters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelCharacters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +158,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		10E75F6023C74F5E00C5F562 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -131,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				10D94B1823BF8FB900EE8B30 /* Marvel */,
+				10E75F6423C74F5E00C5F562 /* MarvelUITests */,
 				10D94B1723BF8FB900EE8B30 /* Products */,
 				10D94B3623BF924300EE8B30 /* Frameworks */,
 			);
@@ -140,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				10D94B1623BF8FB900EE8B30 /* Marvel.app */,
+				10E75F6323C74F5E00C5F562 /* MarvelUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -210,6 +253,57 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		10E75F6423C74F5E00C5F562 /* MarvelUITests */ = {
+			isa = PBXGroup;
+			children = (
+				10E75F7D23C7502700C5F562 /* Screens */,
+				10E75F7623C74FF500C5F562 /* Steps */,
+				10E75F7123C74FE100C5F562 /* Tests */,
+				10E75F7E23C7503E00C5F562 /* Helpers */,
+				10E75F7823C7501500C5F562 /* XCUIElement.swift */,
+				10E75F6723C74F5E00C5F562 /* Info.plist */,
+				10E75F7723C7501500C5F562 /* photo-test.jpeg */,
+			);
+			path = MarvelUITests;
+			sourceTree = "<group>";
+		};
+		10E75F7123C74FE100C5F562 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				10E75F6D23C74FAB00C5F562 /* BaseFeature.swift */,
+				10E75F6523C74F5E00C5F562 /* MarvelUITests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		10E75F7623C74FF500C5F562 /* Steps */ = {
+			isa = PBXGroup;
+			children = (
+				10E75F7223C74FF200C5F562 /* AppSteps.swift */,
+				10E75F7323C74FF200C5F562 /* BaseSteps.swift */,
+				10E75F7F23C7515400C5F562 /* CharacterListSteps.swift */,
+				10E75F8123C7517400C5F562 /* CharacterSteps.swift */,
+				10E75F8323C7518900C5F562 /* SeriesListSteps.swift */,
+			);
+			path = Steps;
+			sourceTree = "<group>";
+		};
+		10E75F7D23C7502700C5F562 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				10E75F7B23C7502300C5F562 /* BaseScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		10E75F7E23C7503E00C5F562 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				10E75F6F23C74FB600C5F562 /* RequestResponsePair.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -232,6 +326,25 @@
 			productReference = 10D94B1623BF8FB900EE8B30 /* Marvel.app */;
 			productType = "com.apple.product-type.application";
 		};
+		10E75F6223C74F5E00C5F562 /* MarvelUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10E75F6C23C74F5E00C5F562 /* Build configuration list for PBXNativeTarget "MarvelUITests" */;
+			buildPhases = (
+				10E75F5F23C74F5E00C5F562 /* Sources */,
+				10E75F6023C74F5E00C5F562 /* Frameworks */,
+				10E75F6123C74F5E00C5F562 /* Resources */,
+				10E75F8523C7521E00C5F562 /* Carthage */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10E75F6923C74F5E00C5F562 /* PBXTargetDependency */,
+			);
+			name = MarvelUITests;
+			productName = MarvelUITests;
+			productReference = 10E75F6323C74F5E00C5F562 /* MarvelUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -244,6 +357,10 @@
 				TargetAttributes = {
 					10D94B1523BF8FB900EE8B30 = {
 						CreatedOnToolsVersion = 11.3;
+					};
+					10E75F6223C74F5E00C5F562 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 10D94B1523BF8FB900EE8B30;
 					};
 				};
 			};
@@ -261,6 +378,7 @@
 			projectRoot = "";
 			targets = (
 				10D94B1523BF8FB900EE8B30 /* Marvel */,
+				10E75F6223C74F5E00C5F562 /* MarvelUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -284,6 +402,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		10E75F6123C74F5E00C5F562 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10E75F7923C7501500C5F562 /* photo-test.jpeg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -303,6 +429,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "pwd \nsh Marvel/Extra\\ Settings/AddExtraSettingsToCompiledSettingsBundleForNonAppStoreBuilds.sh\n";
+		};
+		10E75F8523C7521E00C5F562 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(PROJECT_DIR)/../Carthage/Build/iOS/KeychainSwift.framework",
+				"$(PROJECT_DIR)/../Carthage/Build/iOS/JWTDecode.framework",
+				"$(PROJECT_DIR)/../Carthage/Build/iOS/Realm.framework",
+				"$(PROJECT_DIR)/../Carthage/Build/iOS/RealmSwift.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -325,7 +473,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		10E75F5F23C74F5E00C5F562 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10E75F6623C74F5E00C5F562 /* MarvelUITests.swift in Sources */,
+				10E75F7A23C7501500C5F562 /* XCUIElement.swift in Sources */,
+				10E75F8423C7518900C5F562 /* SeriesListSteps.swift in Sources */,
+				10E75F7C23C7502300C5F562 /* BaseScreen.swift in Sources */,
+				10E75F8023C7515400C5F562 /* CharacterListSteps.swift in Sources */,
+				10E75F7423C74FF200C5F562 /* AppSteps.swift in Sources */,
+				10E75F8223C7517400C5F562 /* CharacterSteps.swift in Sources */,
+				10E75F6E23C74FAB00C5F562 /* BaseFeature.swift in Sources */,
+				10E75F7023C74FB600C5F562 /* RequestResponsePair.swift in Sources */,
+				10E75F7523C74FF200C5F562 /* BaseSteps.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		10E75F6923C74F5E00C5F562 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 10D94B1523BF8FB900EE8B30 /* Marvel */;
+			targetProxy = 10E75F6823C74F5E00C5F562 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		10D94B2623BF8FBB00EE8B30 /* LaunchScreen.storyboard */ = {
@@ -509,6 +682,44 @@
 			};
 			name = Release;
 		};
+		10E75F6A23C74F5E00C5F562 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HQQ63777MM;
+				INFOPLIST_FILE = MarvelUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mkerekes.MarvelUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Marvel;
+			};
+			name = Debug;
+		};
+		10E75F6B23C74F5E00C5F562 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HQQ63777MM;
+				INFOPLIST_FILE = MarvelUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mkerekes.MarvelUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Marvel;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -526,6 +737,15 @@
 			buildConfigurations = (
 				10D94B2D23BF8FBB00EE8B30 /* Debug */,
 				10D94B2E23BF8FBB00EE8B30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		10E75F6C23C74F5E00C5F562 /* Build configuration list for PBXNativeTarget "MarvelUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10E75F6A23C74F5E00C5F562 /* Debug */,
+				10E75F6B23C74F5E00C5F562 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

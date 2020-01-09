@@ -8,8 +8,6 @@ import Foundation
 
 public enum Environment: String {
     case prod = "https://gateway.marvel.com"
-    case dev = "https://dev.gateway.marvel.com"
-    case stage = "https://stage.gateway.marvel.com"
     
     static let key = "Environment"
     public var baseUrl: URL {

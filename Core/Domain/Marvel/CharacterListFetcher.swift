@@ -21,7 +21,7 @@ public class CharacterListFetcher: CharacterListFetching {
     }
     
     public func fetchCharacters(completion: @escaping (Result<Entities.CharacterDataWrapper, ServiceError>) -> Void) {
-        let parameters = ["limit": "\(40)"]
+        let parameters = [String:String]()
         service.getData(parameters: parameters) { (result: Result<Entities.CharacterDataWrapper, ServiceError>) in
             completion(result)
         }
@@ -37,7 +37,7 @@ public class CharacterListFetcher: CharacterListFetching {
         guard total > newOffset else {
             return
         }
-        let parameters = ["offset": String(newOffset), "limit": "\(40)"]
+        let parameters = ["offset": String(newOffset)]
         service.getData(parameters: parameters) { (returnedData: Result<Entities.CharacterDataWrapper, ServiceError>) in
             do {
                 let returnedResults = try returnedData.get()

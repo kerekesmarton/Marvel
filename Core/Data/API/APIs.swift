@@ -13,7 +13,7 @@ extension NetworkDataServiceFactory {
 
     public static func GetCharacterListDataService(_ config: Configurable) -> SpecialisedDataService {
         let crypto: CustomCrypto = CustomCrypto()
-        let requestBuilder = GetCharacterListRequestBuilder(store: config.userProfileStore, config: config.settings, crypto: crypto)
+        let requestBuilder = GetCharacterListRequestBuilder(store: config.userProfileStore, config: config.settings, crypto: crypto, uniqueStringProviding: config.uniqueStringProviding)
         let parser = CharacterDataParser()
         return NetworkDataService(requestBuilder: requestBuilder, dataParser: parser, dataEncoder: GenericDataEncoder(), session: config.session, dataPersistence: DataPersistence<Entities.CharacterDataWrapper, CharacterDataWrapper>())
     }
@@ -39,7 +39,7 @@ extension NetworkDataServiceFactory {
 
     public static func GetSeriesListDataService(_ config: Configurable) -> SpecialisedDataService {
         let crypto: CustomCrypto = CustomCrypto()
-        let requestBuilder = GetSeriesListRequestBuilder(store: config.userProfileStore, config: config.settings, crypto: crypto)
+        let requestBuilder = GetSeriesListRequestBuilder(store: config.userProfileStore, config: config.settings, crypto: crypto, uniqueStringProviding: config.uniqueStringProviding)
         let parser = SeriesDataParser()
         return NetworkDataService(requestBuilder: requestBuilder, dataParser: parser, dataEncoder: GenericDataEncoder(), session: config.session, dataPersistence: DataPersistence<Entities.SeriesDataWrapper, SeriesDataWrapper>())
     }

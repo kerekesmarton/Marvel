@@ -52,14 +52,16 @@ public class BaseRequestBuilder {
     private let store: UserProfileStoring
     private let settings: SettingsConfigurable
     private let crypto: Encryptable
-    init(store: UserProfileStoring, config: SettingsConfigurable, crypto: Encryptable) {
+    private let uniqueStringProvider: UniqueStringProviding
+    public init(store: UserProfileStoring, config: SettingsConfigurable, crypto: Encryptable, uniqueStringProviding: UniqueStringProviding) {
         self.store = store
         self.settings = config
         self.crypto = crypto
+        self.uniqueStringProvider = uniqueStringProviding
     }
     
     private func makeAuthParameters() -> [URLQueryItem] {
-        let ts = UUID().uuidString
+        let ts = uniqueStringProvider.uniqueString
         let tsQueryItem = URLQueryItem(name: "ts", value: ts)
         let apiKeyQueryItem = URLQueryItem(name: "apikey", value: store.publicKey)
         let hashQueryItem = URLQueryItem(name: "hash", value: hash(with: ts))

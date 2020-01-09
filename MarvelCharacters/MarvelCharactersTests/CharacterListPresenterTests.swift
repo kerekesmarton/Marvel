@@ -70,7 +70,7 @@ class CharacterListPresenterTests: XCTestCase {
         let mockItem = MockCharacterPresentingItem()
         presenter.setup(cell: mockItem, at: 0)
         
-        XCTAssertEqual(mockItem.spyInfo?.name.string, "John AppleseedThis is John")
+        XCTAssertEqual(mockItem.spyInfo?.name.string, "John Appleseed This is John")
         XCTAssertEqual(mockItem.spyTitle, "This is John")
         XCTAssertEqual(mockItem.spyUrl, URL(string: "https://i.annihil.us/u/prod/marvel/i/mg/5/a0/570bde5514b01/portrait_uncanny.jpg"))
     }

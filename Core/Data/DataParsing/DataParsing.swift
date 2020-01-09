@@ -106,12 +106,23 @@ public struct GenericDataEncoder: DataEncoding {
     
     func model<U, T>(from entity: U) throws -> T where T : Model {
         switch entity.self {
+        case is Entities.CharacterDataWrapper:
+            return try CharacterDataEncoder().model(from: entity)
+        case is Entities.SeriesDataWrapper:
+            return try SeriedDataEncoder().model(from: entity)
         default:
             throw ServiceError.parsing("GenericDataEncoder: entity not found")
         }
     }
     
     func encode<U>(from entity: U) throws -> Data? {
-        return nil
+        switch entity.self {
+        case is Entities.CharacterDataWrapper:
+            return try CharacterDataEncoder().encode(from: entity)
+        case is Entities.SeriesDataWrapper:
+            return try SeriedDataEncoder().encode(from: entity)
+        default:
+            throw ServiceError.parsing("GenericDataEncoder: entity not found")
+        }
     }
 }

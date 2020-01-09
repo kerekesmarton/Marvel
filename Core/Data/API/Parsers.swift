@@ -57,3 +57,24 @@ class SeriesDataParser: DataParsing {
         }
     }
 }
+
+class SeriedDataEncoder: DataEncoding {
+    func encode<U>(from entity: U) throws -> Data? {
+        guard let e = entity as? Entities.SeriesDataWrapper else {
+            throw ServiceError.parsing("Entities.SeriesDataWrapper")
+        }
+        let request: SeriesDataWrapper = try model(from: e)
+        return try JSONEncoder().encode(request)
+    }
+    
+    func model<U, T>(from entity: U) throws -> T where T : Model {
+        
+        guard let e = entity as? Entities.SeriesDataWrapper else {
+            throw ServiceError.parsing("Entities.SeriesDataWrapper")
+        }
+        guard let m = try SeriesDataWrapper(from: e) as? T else {
+            throw ServiceError.parsing("Entities.SeriesDataWrapper")
+        }
+        return m
+    }
+}

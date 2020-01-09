@@ -22,7 +22,7 @@ class MockRequestBuilder: BaseRequestBuilder, RequestBuilding {
     }
     
     init() {
-        super.init(store: MockUserProfileStore(), config: MockSettingsConfigurable(defaults: UserDefaults(suiteName: nil)!), crypto: MockEncryptable())
+        super.init(store: MockUserProfileStore(defaults: MockDefaultSettings()), config: MockSettingsConfigurable(defaults: UserDefaults(suiteName: nil)!), crypto: MockEncryptable(), uniqueStringProviding: UniqueStringProvider())
     }
     
     var stubURL = URL(string: "some.url")!

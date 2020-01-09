@@ -87,7 +87,7 @@ class CharacterListPresenter: CharacterListPresenting {
         
         var text = [FontCalculable(text: name, style: .largeAuthor), ]
         if let desc = item.description {
-            text.append(FontCalculable(text: desc, style: .normal))
+            text.append(FontCalculable(text: " " + desc, style: .normal))
         }
         let info = BasicInfo(displayableText: text, tick: false)
         let profileInfo = PresentableInfo(info: info, helper: output)
