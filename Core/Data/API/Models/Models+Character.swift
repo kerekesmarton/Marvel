@@ -50,6 +50,12 @@ class CharacterDataWrapper: Wrapper, Model {
         try super.init(from: decoder)
     }
     
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CharacterCodingKeys.self)
+        try container.encode(data, forKey: .data)
+        try super.encode(to: encoder)
+    }
+    
     enum CharacterCodingKeys: String, CodingKey {
         case data
     }
@@ -91,6 +97,12 @@ class CharacterDataContainer: Container, Model {
             results.append(objectsIn: t)
         }
         try super.init(from: decoder)
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(results.compactMap { $0 }, forKey: .results)
+        try super.encode(to: encoder)
     }
     
     enum CodingKeys: String, CodingKey {
@@ -160,6 +172,12 @@ class Character: CodableCharacter, Model {
             urls.append(objectsIn: t)
         }
         try super.init(from: decoder)
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CharacterCodingKeys.self)
+        try container.encode(urls.compactMap { $0 }, forKey: .urls)
+        try super.encode(to: encoder)
     }
     
     enum CharacterCodingKeys: String, CodingKey {

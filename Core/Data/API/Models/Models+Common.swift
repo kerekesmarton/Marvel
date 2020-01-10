@@ -87,14 +87,20 @@ class CreatorList: SummaryList, Model {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        if let temp = try container.decodeIfPresent([CreatorSummary].self, forKey: .item) {
+        if let temp = try container.decodeIfPresent([CreatorSummary].self, forKey: .items) {
             items.append(objectsIn: temp)
         }
         try super.init(from: decoder)
     }
     
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(items.compactMap { $0 }, forKey: .items)
+        try super.encode(to: encoder)
+    }
+    
     enum CodingKeys: String, CodingKey {
-        case item
+        case items
     }
     
 }
@@ -125,6 +131,12 @@ class CreatorSummary: Summary, Model {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         role = try container.decodeIfPresent(String.self, forKey: .role) ?? ""
         try super.init(from: decoder)
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(role, forKey: .role)
+        try super.encode(to: encoder)
     }
     
     enum CodingKeys: String, CodingKey {
@@ -159,14 +171,20 @@ class CharacterList: SummaryList, Model {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        if let temp = try container.decodeIfPresent([CharacterSummary].self, forKey: .item) {
+        if let temp = try container.decodeIfPresent([CharacterSummary].self, forKey: .items) {
             items.append(objectsIn: temp)
         }
         try super.init(from: decoder)
     }
     
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(items.compactMap { $0 }, forKey: .items)
+        try super.encode(to: encoder)
+    }
+    
     enum CodingKeys: String, CodingKey {
-        case item
+        case items
     }
 }
 
@@ -196,6 +214,12 @@ class CharacterSummary: Summary, Model {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         role = try container.decodeIfPresent(String.self, forKey: .role) ?? ""
         try super.init(from: decoder)
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(role, forKey: .role)
+        try super.encode(to: encoder)
     }
     
     enum CodingKeys: String, CodingKey {
@@ -230,14 +254,20 @@ class ComicList: SummaryList, Model {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        if let temp = try container.decodeIfPresent([ComicSummary].self, forKey: .item) {
+        if let temp = try container.decodeIfPresent([ComicSummary].self, forKey: .items) {
             items.append(objectsIn: temp)
         }
         try super.init(from: decoder)
     }
     
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(items.compactMap { $0 }, forKey: .items)
+        try super.encode(to: encoder)
+    }
+    
     enum CodingKeys: String, CodingKey {
-        case item
+        case items
     }
 }
 
@@ -262,6 +292,10 @@ class ComicSummary: Summary, Model {
     
     required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder)
     }
     
 }
@@ -293,14 +327,20 @@ class StoryList: SummaryList, Model {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        if let temp = try container.decodeIfPresent([StorySummary].self, forKey: .item) {
+        if let temp = try container.decodeIfPresent([StorySummary].self, forKey: .items) {
             items.append(objectsIn: temp)
         }
         try super.init(from: decoder)
     }
     
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(items.compactMap { $0 }, forKey: .items)
+        try super.encode(to: encoder)
+    }
+    
     enum CodingKeys: String, CodingKey {
-        case item
+        case items
     }
     
 }
@@ -331,6 +371,12 @@ class StorySummary: Summary, Model {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         type = try container.decodeIfPresent(String.self, forKey: .type) ?? ""
         try super.init(from: decoder)
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(type, forKey: .type)
+        try super.encode(to: encoder)
     }
     
     enum CodingKeys: String, CodingKey {
@@ -365,14 +411,20 @@ class EventList: SummaryList, Model {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        if let temp = try container.decodeIfPresent([EventSummary].self, forKey: .item) {
+        if let temp = try container.decodeIfPresent([EventSummary].self, forKey: .items) {
             items.append(objectsIn: temp)
         }
         try super.init(from: decoder)
     }
     
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(items.compactMap { $0 }, forKey: .items)
+        try super.encode(to: encoder)
+    }
+    
     enum CodingKeys: String, CodingKey {
-        case item
+        case items
     }
     
 }
@@ -398,6 +450,10 @@ class EventSummary: Summary, Model {
     
     required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder)
     }
 }
 
@@ -428,14 +484,20 @@ class SeriesList: SummaryList, Model {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        if let t = try container.decodeIfPresent([SeriesSummary].self, forKey: .item) {
+        if let t = try container.decodeIfPresent([SeriesSummary].self, forKey: .items) {
             items.append(objectsIn: t)
         }
         try super.init(from: decoder)
     }
     
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(items.compactMap { $0 }, forKey: .items)
+        try super.encode(to: encoder)
+    }
+    
     enum CodingKeys: String, CodingKey {
-        case item
+        case items
     }
 }
 
@@ -460,5 +522,9 @@ class SeriesSummary: Summary, Model {
     
     required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder)
     }
 }

@@ -79,7 +79,7 @@ class CharacterListPresenter: CharacterListPresenting {
     }
     
     var itemCount: Int {
-        return results?.data?.results?.count ?? 0
+        return unwrappedItems?.count ?? 0
     }
     
     func setup(cell: CharacterPresentingItem, at index: Int) {
