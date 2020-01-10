@@ -16,22 +16,6 @@
 		101C7C4C23A4EF7A00F177A6 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4323A4EF7A00F177A6 /* KeychainSwift.framework */; };
 		101C7C4E23A4EF7A00F177A6 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4423A4EF7A00F177A6 /* RealmSwift.framework */; };
 		101C7C5323A4EFB200F177A6 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A70F62138310700DE8A6A /* Data.framework */; };
-		101C7C5723A4EFC600F177A6 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4023A4EF7A00F177A6 /* Apollo.framework */; };
-		101C7C5823A4EFC600F177A6 /* Apollo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4023A4EF7A00F177A6 /* Apollo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		101C7C5B23A4EFC600F177A6 /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4123A4EF7A00F177A6 /* JWTDecode.framework */; };
-		101C7C5C23A4EFC600F177A6 /* JWTDecode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4123A4EF7A00F177A6 /* JWTDecode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		101C7C5D23A4EFC600F177A6 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4323A4EF7A00F177A6 /* KeychainSwift.framework */; };
-		101C7C5E23A4EFC600F177A6 /* KeychainSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4323A4EF7A00F177A6 /* KeychainSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		101C7C5F23A4EFC600F177A6 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4523A4EF7A00F177A6 /* Realm.framework */; };
-		101C7C6023A4EFC600F177A6 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4523A4EF7A00F177A6 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		101C7C6123A4EFC600F177A6 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4423A4EF7A00F177A6 /* RealmSwift.framework */; };
-		101C7C6223A4EFC600F177A6 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4423A4EF7A00F177A6 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		101C7C6923A4EFC700F177A6 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C6423A4EFC700F177A6 /* SnapKit.framework */; };
-		101C7C6A23A4EFC700F177A6 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C6423A4EFC700F177A6 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		101C7C6B23A4EFC700F177A6 /* TLPhotoPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C6523A4EFC700F177A6 /* TLPhotoPicker.framework */; };
-		101C7C6C23A4EFC700F177A6 /* TLPhotoPicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C6523A4EFC700F177A6 /* TLPhotoPicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		101C7C7123A4EFC700F177A6 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C6823A4EFC700F177A6 /* Kingfisher.framework */; };
-		101C7C7223A4EFC700F177A6 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C6823A4EFC700F177A6 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		101C7C7823A4F81A00F177A6 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101C7C4523A4EF7A00F177A6 /* Realm.framework */; };
 		10206E3C2244EE0300B81CD1 /* RowHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10206E3B2244EE0300B81CD1 /* RowHeight.swift */; };
 		102A67E622FD5FE5002A45A5 /* CoreTestHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 102A67E422FD5FE5002A45A5 /* CoreTestHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -270,6 +254,20 @@
 		10E75F5E23C5F2FA00C5F562 /* TextRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F5423C5F10900C5F562 /* TextRouter.swift */; };
 		10E75F8723C7709E00C5F562 /* CustomCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84BE823C2005400121E26 /* CustomCrypto.swift */; };
 		10E75F8923C7DF0600C5F562 /* UniqueStringProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F8823C7DF0600C5F562 /* UniqueStringProvider.swift */; };
+		10E75F8F23C88BBF00C5F562 /* TLPhotoPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E75F8E23C88BBE00C5F562 /* TLPhotoPicker.framework */; };
+		10E75F9023C88BBF00C5F562 /* TLPhotoPicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10E75F8E23C88BBE00C5F562 /* TLPhotoPicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		10E75F9223C88BD400C5F562 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E75F9123C88BD400C5F562 /* SnapKit.framework */; };
+		10E75F9323C88BD400C5F562 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10E75F9123C88BD400C5F562 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		10E75F9623C88C1000C5F562 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E75F9423C88C1000C5F562 /* RealmSwift.framework */; };
+		10E75F9723C88C1000C5F562 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10E75F9423C88C1000C5F562 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		10E75F9823C88C1000C5F562 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E75F9523C88C1000C5F562 /* Realm.framework */; };
+		10E75F9923C88C1000C5F562 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10E75F9523C88C1000C5F562 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		10E75F9B23C88C1800C5F562 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E75F9A23C88C1800C5F562 /* Kingfisher.framework */; };
+		10E75F9C23C88C1800C5F562 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10E75F9A23C88C1800C5F562 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		10E75F9E23C88C1F00C5F562 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E75F9D23C88C1F00C5F562 /* KeychainSwift.framework */; };
+		10E75F9F23C88C1F00C5F562 /* KeychainSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10E75F9D23C88C1F00C5F562 /* KeychainSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		10E75FA123C88C2700C5F562 /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E75FA023C88C2700C5F562 /* JWTDecode.framework */; };
+		10E75FA223C88C2700C5F562 /* JWTDecode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10E75FA023C88C2700C5F562 /* JWTDecode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10E9834923C493F8008721B1 /* Entities+Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9834823C493F8008721B1 /* Entities+Character.swift */; };
 		10E9834B23C49497008721B1 /* Models+Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9834A23C49497008721B1 /* Models+Character.swift */; };
 		10E9836023C4A091008721B1 /* ModuleDeclarations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9835F23C4A091008721B1 /* ModuleDeclarations.swift */; };
@@ -375,15 +373,14 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				101C7C5E23A4EFC600F177A6 /* KeychainSwift.framework in Embed Frameworks */,
-				101C7C5C23A4EFC600F177A6 /* JWTDecode.framework in Embed Frameworks */,
+				10E75FA223C88C2700C5F562 /* JWTDecode.framework in Embed Frameworks */,
+				10E75F9C23C88C1800C5F562 /* Kingfisher.framework in Embed Frameworks */,
+				10E75F9723C88C1000C5F562 /* RealmSwift.framework in Embed Frameworks */,
 				10F84C7823C3349600121E26 /* Reqres.framework in Embed Frameworks */,
-				101C7C6223A4EFC600F177A6 /* RealmSwift.framework in Embed Frameworks */,
-				101C7C6C23A4EFC700F177A6 /* TLPhotoPicker.framework in Embed Frameworks */,
-				101C7C6A23A4EFC700F177A6 /* SnapKit.framework in Embed Frameworks */,
-				101C7C5823A4EFC600F177A6 /* Apollo.framework in Embed Frameworks */,
-				101C7C7223A4EFC700F177A6 /* Kingfisher.framework in Embed Frameworks */,
-				101C7C6023A4EFC600F177A6 /* Realm.framework in Embed Frameworks */,
+				10E75F9F23C88C1F00C5F562 /* KeychainSwift.framework in Embed Frameworks */,
+				10E75F9923C88C1000C5F562 /* Realm.framework in Embed Frameworks */,
+				10E75F9023C88BBF00C5F562 /* TLPhotoPicker.framework in Embed Frameworks */,
+				10E75F9323C88BD400C5F562 /* SnapKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -646,6 +643,13 @@
 		10E75F5423C5F10900C5F562 /* TextRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRouter.swift; sourceTree = "<group>"; };
 		10E75F5523C5F10900C5F562 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		10E75F8823C7DF0600C5F562 /* UniqueStringProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueStringProvider.swift; sourceTree = "<group>"; };
+		10E75F8E23C88BBE00C5F562 /* TLPhotoPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TLPhotoPicker.framework; path = ../Carthage/Build/iOS/TLPhotoPicker.framework; sourceTree = "<group>"; };
+		10E75F9123C88BD400C5F562 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = ../Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		10E75F9423C88C1000C5F562 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		10E75F9523C88C1000C5F562 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		10E75F9A23C88C1800C5F562 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = ../Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		10E75F9D23C88C1F00C5F562 /* KeychainSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainSwift.framework; path = ../Carthage/Build/iOS/KeychainSwift.framework; sourceTree = "<group>"; };
+		10E75FA023C88C2700C5F562 /* JWTDecode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JWTDecode.framework; path = ../Carthage/Build/iOS/JWTDecode.framework; sourceTree = "<group>"; };
 		10E9834823C493F8008721B1 /* Entities+Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entities+Character.swift"; sourceTree = "<group>"; };
 		10E9834A23C49497008721B1 /* Models+Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models+Character.swift"; sourceTree = "<group>"; };
 		10E9835D23C49F61008721B1 /* SeriesListFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesListFetcher.swift; sourceTree = "<group>"; };
@@ -738,19 +742,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				101C7C5F23A4EFC600F177A6 /* Realm.framework in Frameworks */,
+				10E75FA123C88C2700C5F562 /* JWTDecode.framework in Frameworks */,
+				10E75F9E23C88C1F00C5F562 /* KeychainSwift.framework in Frameworks */,
+				10E75F9823C88C1000C5F562 /* Realm.framework in Frameworks */,
 				101C7C5323A4EFB200F177A6 /* Data.framework in Frameworks */,
 				101C7C3B23A4D18400F177A6 /* Additions.framework in Frameworks */,
-				101C7C6B23A4EFC700F177A6 /* TLPhotoPicker.framework in Frameworks */,
-				101C7C5B23A4EFC600F177A6 /* JWTDecode.framework in Frameworks */,
+				10E75F9223C88BD400C5F562 /* SnapKit.framework in Frameworks */,
+				10E75F8F23C88BBF00C5F562 /* TLPhotoPicker.framework in Frameworks */,
 				10F84C7723C3349600121E26 /* Reqres.framework in Frameworks */,
+				10E75F9623C88C1000C5F562 /* RealmSwift.framework in Frameworks */,
 				101C7C3C23A4D18400F177A6 /* Domain.framework in Frameworks */,
-				101C7C5D23A4EFC600F177A6 /* KeychainSwift.framework in Frameworks */,
-				101C7C6123A4EFC600F177A6 /* RealmSwift.framework in Frameworks */,
-				101C7C7123A4EFC700F177A6 /* Kingfisher.framework in Frameworks */,
-				101C7C5723A4EFC600F177A6 /* Apollo.framework in Frameworks */,
+				10E75F9B23C88C1800C5F562 /* Kingfisher.framework in Frameworks */,
 				101C7C3D23A4D18400F177A6 /* Presentation.framework in Frameworks */,
-				101C7C6923A4EFC700F177A6 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1540,6 +1543,13 @@
 		FF2911FC5CAE330151613ECA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				10E75FA023C88C2700C5F562 /* JWTDecode.framework */,
+				10E75F9D23C88C1F00C5F562 /* KeychainSwift.framework */,
+				10E75F9A23C88C1800C5F562 /* Kingfisher.framework */,
+				10E75F9523C88C1000C5F562 /* Realm.framework */,
+				10E75F9423C88C1000C5F562 /* RealmSwift.framework */,
+				10E75F9123C88BD400C5F562 /* SnapKit.framework */,
+				10E75F8E23C88BBE00C5F562 /* TLPhotoPicker.framework */,
 				10F84C7623C3349600121E26 /* Reqres.framework */,
 				101C7C6623A4EFC700F177A6 /* ApolloSQLite.framework */,
 				101C7C6823A4EFC700F177A6 /* Kingfisher.framework */,

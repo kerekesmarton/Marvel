@@ -21,8 +21,6 @@
 		10D94B4323BF924300EE8B30 /* IosCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10D94B3A23BF924300EE8B30 /* IosCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10D94B4423BF924300EE8B30 /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D94B3B23BF924300EE8B30 /* Presentation.framework */; };
 		10D94B4523BF924300EE8B30 /* Presentation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10D94B3B23BF924300EE8B30 /* Presentation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		10D94B4923BF937100EE8B30 /* AppModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D94B4723BF937100EE8B30 /* AppModule.swift */; };
-		10D94B4A23BF937100EE8B30 /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D94B4823BF937100EE8B30 /* DependencyInjection.swift */; };
 		10D94B7623BF93D200EE8B30 /* DemoCellStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D94B6823BF93D200EE8B30 /* DemoCellStyle.swift */; };
 		10D94B7723BF93D200EE8B30 /* DemoControlsStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D94B6923BF93D200EE8B30 /* DemoControlsStyle.swift */; };
 		10D94B7823BF93D200EE8B30 /* DemoNavigationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D94B6A23BF93D200EE8B30 /* DemoNavigationStyle.swift */; };
@@ -48,6 +46,8 @@
 		10E75F8023C7515400C5F562 /* CharacterListSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F7F23C7515400C5F562 /* CharacterListSteps.swift */; };
 		10E75F8223C7517400C5F562 /* CharacterSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F8123C7517400C5F562 /* CharacterSteps.swift */; };
 		10E75F8423C7518900C5F562 /* SeriesListSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F8323C7518900C5F562 /* SeriesListSteps.swift */; };
+		10E75F8C23C88B1E00C5F562 /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F8A23C88B1E00C5F562 /* DependencyInjection.swift */; };
+		10E75F8D23C88B1E00C5F562 /* AppModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75F8B23C88B1E00C5F562 /* AppModule.swift */; };
 		10E983A623C4D421008721B1 /* MarvelSeries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E983A523C4D421008721B1 /* MarvelSeries.framework */; };
 		10E983A723C4D421008721B1 /* MarvelSeries.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10E983A523C4D421008721B1 /* MarvelSeries.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10F84C5E23C24A2B00121E26 /* MarvelAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84C5D23C24A2B00121E26 /* MarvelAuth.framework */; };
@@ -103,8 +103,6 @@
 		10D94B3923BF924300EE8B30 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10D94B3A23BF924300EE8B30 /* IosCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IosCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10D94B3B23BF924300EE8B30 /* Presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		10D94B4723BF937100EE8B30 /* AppModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppModule.swift; path = ../../../Core/DemoApp/DemoApp/DemoApp/Classes/App/AppModule.swift; sourceTree = "<group>"; };
-		10D94B4823BF937100EE8B30 /* DependencyInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DependencyInjection.swift; path = ../../../Core/DemoApp/DemoApp/DemoApp/Classes/App/DependencyInjection.swift; sourceTree = "<group>"; };
 		10D94B6823BF93D200EE8B30 /* DemoCellStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCellStyle.swift; sourceTree = "<group>"; };
 		10D94B6923BF93D200EE8B30 /* DemoControlsStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoControlsStyle.swift; sourceTree = "<group>"; };
 		10D94B6A23BF93D200EE8B30 /* DemoNavigationStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoNavigationStyle.swift; sourceTree = "<group>"; };
@@ -134,6 +132,8 @@
 		10E75F7F23C7515400C5F562 /* CharacterListSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListSteps.swift; sourceTree = "<group>"; };
 		10E75F8123C7517400C5F562 /* CharacterSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSteps.swift; sourceTree = "<group>"; };
 		10E75F8323C7518900C5F562 /* SeriesListSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesListSteps.swift; sourceTree = "<group>"; };
+		10E75F8A23C88B1E00C5F562 /* DependencyInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyInjection.swift; sourceTree = "<group>"; };
+		10E75F8B23C88B1E00C5F562 /* AppModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppModule.swift; sourceTree = "<group>"; };
 		10E983A523C4D421008721B1 /* MarvelSeries.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelSeries.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F84C5D23C24A2B00121E26 /* MarvelAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F84C6023C24A3600121E26 /* MarvelCharacters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelCharacters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,8 +193,8 @@
 				10D94B6723BF93D200EE8B30 /* Style */,
 				10D94B3523BF919F00EE8B30 /* Marvel.entitlements */,
 				10D94B1923BF8FB900EE8B30 /* AppDelegate.swift */,
-				10D94B4723BF937100EE8B30 /* AppModule.swift */,
-				10D94B4823BF937100EE8B30 /* DependencyInjection.swift */,
+				10E75F8B23C88B1E00C5F562 /* AppModule.swift */,
+				10E75F8A23C88B1E00C5F562 /* DependencyInjection.swift */,
 				10D94B1B23BF8FB900EE8B30 /* SceneDelegate.swift */,
 				10D94B2423BF8FBB00EE8B30 /* Assets.xcassets */,
 				10F84C6523C2618800121E26 /* Main.storyboard */,
@@ -459,12 +459,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10E75F8D23C88B1E00C5F562 /* AppModule.swift in Sources */,
 				10D94B7B23BF93D200EE8B30 /* Colors.swift in Sources */,
 				10D94B7623BF93D200EE8B30 /* DemoCellStyle.swift in Sources */,
+				10E75F8C23C88B1E00C5F562 /* DependencyInjection.swift in Sources */,
 				10D94B7A23BF93D200EE8B30 /* DemoAppStyle.swift in Sources */,
 				10D94B7823BF93D200EE8B30 /* DemoNavigationStyle.swift in Sources */,
-				10D94B4923BF937100EE8B30 /* AppModule.swift in Sources */,
-				10D94B4A23BF937100EE8B30 /* DependencyInjection.swift in Sources */,
 				10D94B7723BF93D200EE8B30 /* DemoControlsStyle.swift in Sources */,
 				10D94B8223BF93D200EE8B30 /* DemoComponentsStyle.swift in Sources */,
 				10D94B7923BF93D200EE8B30 /* Fonts.swift in Sources */,
