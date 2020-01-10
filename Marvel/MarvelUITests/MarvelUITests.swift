@@ -12,7 +12,7 @@ import Domain
 class CharacterListUITests: BaseFeature {
 
     lazy var character = Entities.johnAppleseed
-    lazy var characterList = Entities.characters([character])
+    lazy var characterList = Entities.characters([character, Entities.billAppleseed, Entities.adamAppleseed])
         
     //data source for character list
     var characterListPair: RequestResponsePair {
