@@ -331,11 +331,12 @@ extension NetworkDataService {
         guard requestBuilder.method == .get else {
             return
         }
+        
         let persistenceRequest = requestBuilder.persistenceRequest(parameters: params)
         if persistenceRequest.count > 0 {
             dataPersistence?.fetch(with: persistenceRequest, fetchResult: completion)
-        } else if let id = request.url?.absoluteString {
-            dataPersistence?.fetch(with: ["id":id], fetchResult: completion)
+        } else if let url = request.url?.stringRemovingAuthParams() {
+            dataPersistence?.fetch(with: ["id":url], fetchResult: completion)
         } else {
             dataPersistence?.fetch(with: [:], fetchResult: completion)
         }

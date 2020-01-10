@@ -10,14 +10,13 @@ import Domain
 import Realm
 import RealmSwift
 
-class CharacterDataWrapper: Object, Codable, Model {
-    var code: Int? // The HTTP status code of the returned result.,
-    var status: String? // A string description of the call status.,
-    var copyright: String? // The copyright notice for the returned result.,
-    var attributionText: String? // The attribution notice for this result. Please display either this notice or the contents of the attributionHTML field on all screens which contain data from the Marvel Comics API.,
-    var attributionHTML: String? // An HTML representation of the attribution notice for this result. Please display either this notice or the contents of the attributionText field on all screens which contain data from the Marvel Comics API.,
-    var data: CharacterDataContainer? //The results returned by the call.,
-    var etag: String? // A digest value of the content returned by the call.
+class CharacterDataWrapper: Wrapper, Model {
+    @objc dynamic var data: CharacterDataContainer? //The results returned by the call.,
+    @objc dynamic var id = ""
+    
+    override class func primaryKey() -> String? {
+        return "id"
+    }
     
     typealias Entity = Entities.CharacterDataWrapper
     
@@ -26,41 +25,38 @@ class CharacterDataWrapper: Object, Codable, Model {
     }
     
     required init(from entity: Entities.CharacterDataWrapper) throws {
-        code = entity.code
-        status = entity.status
-        copyright = entity.copyright
-        attributionText = entity.attributionText
-        attributionHTML = entity.attributionHTML
         if let t = entity.data {
             data = try CharacterDataContainer(from: t)
         }
-        etag = entity.etag
-        super.init()
+        super.init(code: entity.code,
+                   status: entity.status,
+                   copyright: entity.copyright,
+                   attributionText: entity.attributionText,
+                   attributionHTML: entity.attributionHTML,
+                   etag: entity.etag)
     }
     
     func matches(parameters: [String : String]) -> Bool {
-        return data?.matches(parameters: parameters) ?? false
+        return id == parameters["id"]
     }
     
     required init() {
         super.init()
     }
     
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init()
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CharacterCodingKeys.self)
+        data = try container.decodeIfPresent(CharacterDataContainer.self, forKey: .data)
+        try super.init(from: decoder)
     }
     
-    required init(value: Any, schema: RLMSchema) {
-        super.init()
+    enum CharacterCodingKeys: String, CodingKey {
+        case data
     }
 }
 
-class CharacterDataContainer: Object, Codable, Model {
-    var offset: Int? // The requested offset (number of skipped results) of the call.,
-    var limit: Int? // The requested result limit.,
-    var total: Int? // The total number of resources available given the current filter set.,
-    var count: Int? // The total number of results returned by this call.,
-    var results: [Character]? // The list of characters returned by the call.
+class CharacterDataContainer: Container, Model {
+    let results = List<Character>() // The list of characters returned by the call.
     
     typealias Entity = Entities.CharacterDataContainer
     
@@ -69,73 +65,52 @@ class CharacterDataContainer: Object, Codable, Model {
                                                limit: limit,
                                                total: total,
                                                count: count,
-                                               results: try results?.compactMap { try $0.generateEntity() })
+                                               results: try results.compactMap { try $0.generateEntity() })
     }
     
     required init(from entity: Entities.CharacterDataContainer) throws {
-        offset = entity.offset
-        limit = entity.limit
-        total = entity.total
-        count = entity.count
-        results = try entity.results?.compactMap { try Character(from: $0) }
-        super.init()
+        if let t = try entity.results?.compactMap { try Character(from: $0) } {
+            results.append(objectsIn: t)
+        }
+        super.init(offset: entity.offset, limit: entity.limit, total: entity.total, count: entity.count)
     }
     
     func matches(parameters: [String : String]) -> Bool {
-        return results?.reduce(true, { (result, character) -> Bool in
+        return results.reduce(true, { (result, character) -> Bool in
             return result && character.matches(parameters: parameters)
-        }) ?? false
+        })
     }
     
     required init() {
         super.init()
     }
     
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init()
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        if let t = try container.decodeIfPresent([Character].self, forKey: .results) {
+            results.append(objectsIn: t)
+        }
+        try super.init(from: decoder)
     }
     
-    required init(value: Any, schema: RLMSchema) {
-        super.init()
+    enum CodingKeys: String, CodingKey {
+        case results
     }
 }
 
-class Character: Object, Codable, Model {
-    var id: Int? // The unique ID of the character resource.,
-    var name: String? // The name of the character.,
-    var desc: String? // A short bio or description of the character.,
-    var modified: String? // The date the resource was most recently modified.,
-    var resourceURI: String? // The canonical URL identifier for this resource.,
-    var urls: [Url]? // A set of web site URLs for the resource.,
-    var thumbnail: Image? //The representative image for this character.,
-    var comics: ComicList? // A resource list containing comics which feature this character.,
-    var stories: StoryList? // A resource list of stories in which this character appears.,
-    var events: EventList? // A resource list of events in which this character appears.,
-    var series: SeriesList? // A resource list of series in which this character appears.
+class Character: CodableCharacter, Model {
+    let urls = List<Url>() // A set of web site URLs for the resource.,
     
     typealias Entity = Entities.Character
     
-    enum CodingKeys: String, CodingKey {
-        case id
-        case name
-        case desc = "description"
-        case modified
-        case resourceURI
-        case urls
-        case thumbnail
-        case comics
-        case stories
-        case events
-        case series
-    }
-    
     func generateEntity() throws -> Entities.Character {
+        
         return Entities.Character(id: id,
                                   name: name,
                                   description: desc,
                                   modified: modified,
                                   resourceURI: resourceURI,
-                                  urls: try urls?.compactMap { try $0.generateEntity() },
+                                  urls: try urls.compactMap { try $0.generateEntity() },
                                   thumbnail: try thumbnail?.generateEntity(),
                                   comics: try comics?.generateEntity(),
                                   stories: try stories?.generateEntity(),
@@ -144,12 +119,16 @@ class Character: Object, Codable, Model {
     }
     
     required init(from entity: Entities.Character) throws {
-        id = entity.id
-        name = entity.name
-        desc = entity.description
-        modified = entity.modified
-        resourceURI = entity.resourceURI
-        urls = try entity.urls?.compactMap { try Url(from: $0) }
+        if let t = try entity.urls?.compactMap { try Url(from: $0) } {
+            urls.append(objectsIn: t)
+        }
+        super.init()
+        
+        id = entity.id ?? 0
+        name = entity.name ?? ""
+        desc = entity.description ?? ""
+        modified = entity.modified ?? ""
+        resourceURI = entity.resourceURI ?? ""
         if let t = entity.thumbnail {
             thumbnail = try Image(from: t)
         }
@@ -165,7 +144,6 @@ class Character: Object, Codable, Model {
         if let t = entity.series {
             series = try SeriesList(from: t)
         }
-        super.init()
     }
     
     func matches(parameters: [String : String]) -> Bool {
@@ -176,11 +154,45 @@ class Character: Object, Codable, Model {
         super.init()
     }
     
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init()
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CharacterCodingKeys.self)
+        if let t = try container.decodeIfPresent([Url].self, forKey: .urls) {
+            urls.append(objectsIn: t)
+        }
+        try super.init(from: decoder)
     }
     
-    required init(value: Any, schema: RLMSchema) {
-        super.init()
+    enum CharacterCodingKeys: String, CodingKey {
+        case urls        
+    }
+}
+
+class CodableCharacter: Object, Codable {
+    @objc dynamic var id: Int = 0 // The unique ID of the character resource.,
+    @objc dynamic var name = "" // The name of the character.,
+    @objc dynamic var desc = "" // A short bio or description of the character.,
+    @objc dynamic var modified = "" // The date the resource was most recently modified.,
+    @objc dynamic var resourceURI = "" // The canonical URL identifier for this resource.,
+    @objc dynamic var thumbnail: Image? //The representative image for this character.,
+    @objc dynamic var comics: ComicList? // A resource list containing comics which feature this character.,
+    @objc dynamic var stories: StoryList? // A resource list of stories in which this character appears.,
+    @objc dynamic var events: EventList? // A resource list of events in which this character appears.,
+    @objc dynamic var series: SeriesList? // A resource list of series in which this character appears.
+    
+    override class func primaryKey() -> String? {
+        return "resourceURI"
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case desc = "description"
+        case modified
+        case resourceURI
+        case thumbnail
+        case comics
+        case stories
+        case events
+        case series
     }
 }

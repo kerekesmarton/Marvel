@@ -16,6 +16,8 @@ class CharacterDataParser: DataParsing {
             guard let entity = try result.generateEntity() as? T else {
                 throw ServiceError.parsing("Entities.CharacterDataWrapper")
             }
+            result.id = source?.stringRemovingAuthParams() ?? ""
+            try persist(model: result)
             return entity
         } catch {
             throw findServiceError(data) ?? error
@@ -51,6 +53,8 @@ class SeriesDataParser: DataParsing {
             guard let entity = try result.generateEntity() as? T else {
                 throw ServiceError.parsing("Entities.SeriesDataWrapper")
             }
+            result.id = source?.stringRemovingAuthParams() ?? ""
+            try persist(model: result)
             return entity
         } catch {
             throw findServiceError(data) ?? error
@@ -76,5 +80,29 @@ class SeriedDataEncoder: DataEncoding {
             throw ServiceError.parsing("Entities.SeriesDataWrapper")
         }
         return m
+    }
+}
+
+
+
+extension URL {
+    func stringRemovingAuthParams() -> String? {
+        var components = URLComponents(url: self, resolvingAgainstBaseURL: false)
+        components?.queryItems?.removeAll(where: { (item) -> Bool in
+            return item.name == "ts"
+        })
+        components?.queryItems?.removeAll(where: { (item) -> Bool in
+            return item.name == "apikey"
+        })
+        components?.queryItems?.removeAll(where: { (item) -> Bool in
+            return item.name == "hash"
+        })
+        guard var reducedURL = components?.url?.absoluteString else {
+            return nil
+        }
+        if reducedURL.last == "?" {
+            reducedURL.removeLast()
+        }
+        return reducedURL
     }
 }

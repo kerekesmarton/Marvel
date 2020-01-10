@@ -81,13 +81,5 @@ class StubModel: Object, Model {
         super.init()
     }
     
-    required public init(value: Any, schema: RLMSchema) {
-        super.init(value: value, schema: schema)
-    }
-    
-    required public init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init(realm: realm, schema: schema)
-    }
-    
     open override class func primaryKey() -> String? { return "field" }
 }

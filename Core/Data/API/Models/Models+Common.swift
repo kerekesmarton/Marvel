@@ -11,8 +11,8 @@ import Realm
 import RealmSwift
 
 class Url: Object, Codable, Model {
-    var type: String? // A text identifier for the URL.,
-    var url: String? // A full URL (including scheme, domain, and path).
+    @objc dynamic var type = "" // A text identifier for the URL.,
+    @objc dynamic var url = "" // A full URL (including scheme, domain, and path).
     
     typealias Entity = Entities.Url
     
@@ -21,8 +21,8 @@ class Url: Object, Codable, Model {
     }
     
     required init(from entity: Entities.Url) throws {
-        type = entity.type
-        url = entity.url
+        type = entity.type ?? ""
+        url = entity.url ?? ""
         super.init()
     }
     
@@ -33,19 +33,11 @@ class Url: Object, Codable, Model {
     required init() {
         super.init()
     }
-    
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init()
-    }
-    
-    required init(value: Any, schema: RLMSchema) {
-        super.init()
-    }
 }
 
 class Image: Object, Codable, Model {
-    var path: String? // The directory path of to the image.,
-    var `extension`: String? // The file extension for the image.
+    @objc dynamic var path = "" // The directory path of to the image.,
+    @objc dynamic var `extension` = "" // The file extension for the image.
     
     typealias Entity = Entities.Image
     
@@ -54,8 +46,8 @@ class Image: Object, Codable, Model {
     }
     
     required init(from entity: Entities.Image) throws {
-        path = entity.path
-        `extension` = entity.extension
+        path = entity.path ?? ""
+        `extension` = entity.extension ?? ""
         super.init()
     }
     
@@ -66,35 +58,23 @@ class Image: Object, Codable, Model {
     func matches(parameters: [String : String]) -> Bool {
         return path == parameters["path"]
     }
-    
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init()
-    }
-    
-    required init(value: Any, schema: RLMSchema) {
-        super.init()
-    }
 }
 
-class CreatorList: Object, Codable, Model {
-    var available: Int? // The number of total available creators in this list. Will always be greater than or equal to the "returned" value.,
-    var returned: Int? // The number of creators returned in this collection (up to 20).,
-    var collectionURI: String? // The path to the full list of creators in this collection.,
-    var items: [CreatorSummary]? // The list of returned creators in this collection.
+class CreatorList: SummaryList, Model {
+    let items = List<CreatorSummary>() // The list of returned creators in this collection.
     
     typealias Entity = Entities.CreatorList
     
     func generateEntity() throws -> Entities.CreatorList {
-        let summaries = try items?.compactMap { try $0.generateEntity() }
+        let summaries = try items.compactMap { try $0.generateEntity() }
         return Entities.CreatorList(available: available, returned: returned, collectionURI: collectionURI, items: summaries)
     }
     
     required init(from entity: Entities.CreatorList) throws {
-        available = entity.available
-        returned = entity.returned
-        collectionURI = entity.collectionURI
-        items = try entity.items?.compactMap { try CreatorSummary(from: $0) }
-        super.init()
+        if let t = try entity.items?.compactMap { try CreatorSummary(from: $0) } {
+            items.append(objectsIn: t)
+        }
+        super.init(available: entity.available, returned: entity.returned, collectionURI: entity.collectionURI)
     }
     
     func matches(parameters: [String : String]) -> Bool {
@@ -105,19 +85,22 @@ class CreatorList: Object, Codable, Model {
         super.init()
     }
     
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init()
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        if let temp = try container.decodeIfPresent([CreatorSummary].self, forKey: .item) {
+            items.append(objectsIn: temp)
+        }
+        try super.init(from: decoder)
     }
     
-    required init(value: Any, schema: RLMSchema) {
-        super.init()
+    enum CodingKeys: String, CodingKey {
+        case item
     }
+    
 }
 
-class CreatorSummary: Object, Codable, Model {
-    var resourceURI: String? // The path to the individual creator resource.,
-    var name: String? // The full name of the creator.,
-    var role: String? // The role of the creator in the parent entity.
+class CreatorSummary: Summary, Model {
+    @objc dynamic var role = "" // The role of the creator in the parent entity.
     
     typealias Entity = Entities.CreatorSummary
     
@@ -126,10 +109,8 @@ class CreatorSummary: Object, Codable, Model {
     }
     
     required init(from entity: Entities.CreatorSummary) throws {
-        resourceURI = entity.resourceURI
-        name = entity.name
-        role = entity.role
-        super.init()
+        role = entity.role ?? ""
+        super.init(resourceURI: entity.resourceURI, name: entity.name)
     }
     
     func matches(parameters: [String : String]) -> Bool {
@@ -140,34 +121,32 @@ class CreatorSummary: Object, Codable, Model {
         super.init()
     }
     
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init()
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        role = try container.decodeIfPresent(String.self, forKey: .role) ?? ""
+        try super.init(from: decoder)
     }
     
-    required init(value: Any, schema: RLMSchema) {
-        super.init()
+    enum CodingKeys: String, CodingKey {
+        case role
     }
 }
 
-class CharacterList: Object, Codable, Model {
-    var available: Int? // The number of total available characters in this list. Will always be greater than or equal to the "returned" value.,
-    var returned: Int? // The number of characters returned in this collection (up to 20).,
-    var collectionURI: String? // The path to the full list of characters in this collection.,
-    var items: [CharacterSummary]? // The list of returned characters in this collection.
+class CharacterList: SummaryList, Model {
+    let items = List<CharacterSummary>() // The list of returned characters in this collection.
     
     typealias Entity = Entities.CharacterList
     
     func generateEntity() throws -> Entities.CharacterList {
-        let summaries = try items?.compactMap { try $0.generateEntity() }
+        let summaries = try items.compactMap { try $0.generateEntity() }
         return Entities.CharacterList(available: available, returned: returned, collectionURI: collectionURI, items: summaries)
     }
     
     required init(from entity: Entities.CharacterList) throws {
-        available = entity.available
-        returned = entity.returned
-        collectionURI = entity.collectionURI
-        items = try entity.items?.compactMap { try CharacterSummary(from: $0) }
-        super.init()
+        if let t = try entity.items?.compactMap { try CharacterSummary(from: $0) } {
+            items.append(objectsIn: t)
+        }
+        super.init(available: entity.available, returned: entity.returned, collectionURI: entity.collectionURI)
     }
     
     func matches(parameters: [String : String]) -> Bool {
@@ -178,19 +157,21 @@ class CharacterList: Object, Codable, Model {
         super.init()
     }
     
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init()
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        if let temp = try container.decodeIfPresent([CharacterSummary].self, forKey: .item) {
+            items.append(objectsIn: temp)
+        }
+        try super.init(from: decoder)
     }
     
-    required init(value: Any, schema: RLMSchema) {
-        super.init()
+    enum CodingKeys: String, CodingKey {
+        case item
     }
 }
 
-class CharacterSummary: Object, Codable, Model {
-    var resourceURI: String? // The path to the individual character resource.,
-    var name: String? // The full name of the character.,
-    var role: String? // The role of the creator in the parent entity.
+class CharacterSummary: Summary, Model {
+    @objc dynamic var role = "" // The role of the creator in the parent entity.
     
     typealias Entity = Entities.CharacterSummary
     
@@ -199,10 +180,8 @@ class CharacterSummary: Object, Codable, Model {
     }
     
     required init(from entity: Entities.CharacterSummary) throws {
-        resourceURI = entity.resourceURI
-        name = entity.name
-        role = entity.role
-        super.init()
+        role = entity.role ?? ""
+        super.init(resourceURI: entity.resourceURI, name: entity.name)
     }
     
     func matches(parameters: [String : String]) -> Bool {
@@ -213,34 +192,32 @@ class CharacterSummary: Object, Codable, Model {
         super.init()
     }
     
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init()
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        role = try container.decodeIfPresent(String.self, forKey: .role) ?? ""
+        try super.init(from: decoder)
     }
     
-    required init(value: Any, schema: RLMSchema) {
-        super.init()
+    enum CodingKeys: String, CodingKey {
+        case role
     }
 }
 
-class ComicList: Object, Codable, Model {
-    var available: Int? // The number of total available issues in this list. Will always be greater than or equal to the "returned" value.,
-    var returned: Int? // The number of issues returned in this collection (up to 20).,
-    var collectionURI: String? // The path to the full list of issues in this collection.,
-    var items: [ComicSummary]? // The list of returned issues in this collection.
+class ComicList: SummaryList, Model {
+    let items = List<ComicSummary>() // The list of returned issues in this collection.
     
     typealias Entity = Entities.ComicList
     
     func generateEntity() throws -> Entities.ComicList {
-        let summaries = try items?.compactMap { try $0.generateEntity() }
+        let summaries = try items.compactMap { try $0.generateEntity() }
         return Entities.ComicList(available: available, returned: returned, collectionURI: collectionURI, items: summaries)
     }
     
     required init(from entity: Entities.ComicList) throws {
-        available = entity.available
-        returned = entity.returned
-        collectionURI = entity.collectionURI
-        items = try entity.items?.compactMap { try ComicSummary(from: $0) }
-        super.init()
+        if let t = try entity.items?.compactMap { try ComicSummary(from: $0) } {
+            items.append(objectsIn: t)
+        }
+        super.init(available: entity.available, returned: entity.returned, collectionURI: entity.collectionURI)
     }
     
     func matches(parameters: [String : String]) -> Bool {
@@ -251,19 +228,20 @@ class ComicList: Object, Codable, Model {
         super.init()
     }
     
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init()
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        if let temp = try container.decodeIfPresent([ComicSummary].self, forKey: .item) {
+            items.append(objectsIn: temp)
+        }
+        try super.init(from: decoder)
     }
     
-    required init(value: Any, schema: RLMSchema) {
-        super.init()
+    enum CodingKeys: String, CodingKey {
+        case item
     }
 }
 
-class ComicSummary: Object, Codable, Model {
-    var resourceURI: String? // The path to the individual comic resource.,
-    var name: String? // The canonical name of the comic.
-    
+class ComicSummary: Summary, Model {
     typealias Entity = Entities.ComicSummary
     
     func generateEntity() throws -> Entities.ComicSummary {
@@ -271,9 +249,7 @@ class ComicSummary: Object, Codable, Model {
     }
     
     required init(from entity: Entities.ComicSummary) throws {
-        resourceURI = entity.resourceURI
-        name = entity.name
-        super.init()
+        super.init(resourceURI: entity.resourceURI, name: entity.name)
     }
     
     func matches(parameters: [String : String]) -> Bool {
@@ -284,34 +260,27 @@ class ComicSummary: Object, Codable, Model {
         super.init()
     }
     
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init()
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
     }
     
-    required init(value: Any, schema: RLMSchema) {
-        super.init()
-    }
 }
 
-class StoryList: Object, Codable, Model {
-    var available: Int? // The number of total available stories in this list. Will always be greater than or equal to the "returned" value.,
-    var returned: Int? // The number of stories returned in this collection (up to 20).,
-    var collectionURI: String? // The path to the full list of stories in this collection.,
-    var items: [StorySummary]? // The list of returned stories in this collection.
+class StoryList: SummaryList, Model {
+    let items = List<StorySummary>() // The list of returned stories in this collection.
     
     typealias Entity = Entities.StoryList
     
     func generateEntity() throws -> Entities.StoryList {
-        let summaries = try items?.compactMap { try $0.generateEntity() }
+        let summaries = try items.compactMap { try $0.generateEntity() }
         return Entities.StoryList(available: available, returned: returned, collectionURI: collectionURI, items: summaries)
     }
     
     required init(from entity: Entities.StoryList) throws {
-        available = entity.available
-        returned = entity.returned
-        collectionURI = entity.collectionURI
-        items = try entity.items?.compactMap { try StorySummary(from: $0) }
-        super.init()
+        if let t = try entity.items?.compactMap { try StorySummary(from: $0) } {
+            items.append(objectsIn: t)
+        }
+        super.init(available: entity.available, returned: entity.returned, collectionURI: entity.collectionURI)
     }
     
     func matches(parameters: [String : String]) -> Bool {
@@ -322,21 +291,22 @@ class StoryList: Object, Codable, Model {
         super.init()
     }
     
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init()
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        if let temp = try container.decodeIfPresent([StorySummary].self, forKey: .item) {
+            items.append(objectsIn: temp)
+        }
+        try super.init(from: decoder)
     }
     
-    required init(value: Any, schema: RLMSchema) {
-        super.init()
+    enum CodingKeys: String, CodingKey {
+        case item
     }
-    
     
 }
 
-class StorySummary: Object, Codable, Model {
-    var resourceURI: String? // The path to the individual story resource.,
-    var name: String? // The canonical name of the story.,
-    var type: String? // The type of the story (interior or cover).
+class StorySummary: Summary, Model {
+    @objc dynamic var type = "" // The type of the story (interior or cover).
     
     typealias Entity = Entities.StorySummary
     
@@ -345,10 +315,8 @@ class StorySummary: Object, Codable, Model {
     }
     
     required init(from entity: Entities.StorySummary) throws {
-        resourceURI = entity.resourceURI
-        name = entity.name
-        type = entity.type
-        super.init()
+        type = entity.type ?? ""
+        super.init(resourceURI: entity.resourceURI, name: entity.name)
     }
     
     func matches(parameters: [String : String]) -> Bool {
@@ -359,34 +327,32 @@ class StorySummary: Object, Codable, Model {
         super.init()
     }
     
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init()
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        type = try container.decodeIfPresent(String.self, forKey: .type) ?? ""
+        try super.init(from: decoder)
     }
     
-    required init(value: Any, schema: RLMSchema) {
-        super.init()
+    enum CodingKeys: String, CodingKey {
+        case type
     }
 }
 
-class EventList: Object, Codable, Model {
-    var available: Int? // The number of total available events in this list. Will always be greater than or equal to the "returned" value.,
-    var returned: Int? // The number of events returned in this collection (up to 20).,
-    var collectionURI: String? // The path to the full list of events in this collection.,
-    var items: [EventSummary]? // The list of returned events in this collection.
+class EventList: SummaryList, Model {
+    let items = List<EventSummary>() // The list of returned events in this collection.
     
     typealias Entity = Entities.EventList
     
     func generateEntity() throws -> Entities.EventList {
-        let summaries = try items?.compactMap { try $0.generateEntity() }
+        let summaries = try items.compactMap { try $0.generateEntity() }
         return Entities.EventList(available: available, returned: returned, collectionURI: collectionURI, items: summaries)
     }
     
     required init(from entity: Entities.EventList) throws {
-        available = entity.available
-        returned = entity.returned
-        collectionURI = entity.collectionURI
-        items = try entity.items?.compactMap { try EventSummary(from: $0) }
-        super.init()
+        if let t = try entity.items?.compactMap { try EventSummary(from: $0) } {
+            items.append(objectsIn: t)
+        }
+        super.init(available: entity.available, returned: entity.returned, collectionURI: entity.collectionURI)
     }
     
     func matches(parameters: [String : String]) -> Bool {
@@ -397,21 +363,21 @@ class EventList: Object, Codable, Model {
         super.init()
     }
     
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init()
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        if let temp = try container.decodeIfPresent([EventSummary].self, forKey: .item) {
+            items.append(objectsIn: temp)
+        }
+        try super.init(from: decoder)
     }
     
-    required init(value: Any, schema: RLMSchema) {
-        super.init()
+    enum CodingKeys: String, CodingKey {
+        case item
     }
-    
     
 }
 
-class EventSummary: Object, Codable, Model {
-    var resourceURI: String? // The path to the individual event resource.,
-    var name: String? // The name of the event.
-    
+class EventSummary: Summary, Model {
     typealias Entity = Entities.EventSummary
     
     func generateEntity() throws -> Entities.EventSummary {
@@ -419,9 +385,7 @@ class EventSummary: Object, Codable, Model {
     }
     
     required init(from entity: Entities.EventSummary) throws {
-        resourceURI = entity.resourceURI
-        name = entity.name
-        super.init()
+        super.init(resourceURI: entity.resourceURI, name: entity.name)
     }
     
     func matches(parameters: [String : String]) -> Bool {
@@ -432,34 +396,26 @@ class EventSummary: Object, Codable, Model {
         super.init()
     }
     
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init()
-    }
-    
-    required init(value: Any, schema: RLMSchema) {
-        super.init()
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
     }
 }
 
-class SeriesList: Object, Codable, Model {
-    var available: Int? // The number of total available series in this list. Will always be greater than or equal to the "returned" value.,
-    var returned: Int? // The number of series returned in this collection (up to 20).,
-    var collectionURI: String? // The path to the full list of series in this collection.,
-    var items: [SeriesSummary]? // The list of returned series in this collection.
+class SeriesList: SummaryList, Model {
+    let items = List<SeriesSummary>() // The list of returned series in this collection.
     
     typealias Entity = Entities.SeriesList
     
     func generateEntity() throws -> Entities.SeriesList {
-        let summaries = try items?.compactMap { try $0.generateEntity() }
+        let summaries = try items.compactMap { try $0.generateEntity() }
         return Entities.SeriesList(available: available, returned: returned, collectionURI: collectionURI, items: summaries)
     }
     
     required init(from entity: Entities.SeriesList) throws {
-        available = entity.available
-        returned = entity.returned
-        collectionURI = entity.collectionURI
-        items = try entity.items?.compactMap { try SeriesSummary(from: $0) }
-        super.init()
+        if let t = try entity.items?.compactMap { try SeriesSummary(from: $0) } {
+            items.append(objectsIn: t)
+        }
+        super.init(available: entity.available, returned: entity.returned, collectionURI: entity.collectionURI)
     }
     
     func matches(parameters: [String : String]) -> Bool {
@@ -470,19 +426,20 @@ class SeriesList: Object, Codable, Model {
         super.init()
     }
     
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init()
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        if let t = try container.decodeIfPresent([SeriesSummary].self, forKey: .item) {
+            items.append(objectsIn: t)
+        }
+        try super.init(from: decoder)
     }
     
-    required init(value: Any, schema: RLMSchema) {
-        super.init()
+    enum CodingKeys: String, CodingKey {
+        case item
     }
 }
 
-class SeriesSummary: Object, Codable, Model {
-    var resourceURI: String? // The path to the individual series resource.,
-    var name: String? // The canonical name of the series.
-    
+class SeriesSummary: Summary, Model {
     typealias Entity = Entities.SeriesSummary
     
     func generateEntity() throws -> Entities.SeriesSummary {
@@ -490,9 +447,7 @@ class SeriesSummary: Object, Codable, Model {
     }
     
     required init(from entity: Entities.SeriesSummary) throws {
-        resourceURI = entity.resourceURI
-        name = entity.name
-        super.init()
+        super.init(resourceURI: entity.resourceURI, name: entity.name)
     }
     
     func matches(parameters: [String : String]) -> Bool {
@@ -503,11 +458,7 @@ class SeriesSummary: Object, Codable, Model {
         super.init()
     }
     
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init()
-    }
-    
-    required init(value: Any, schema: RLMSchema) {
-        super.init()
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
     }
 }

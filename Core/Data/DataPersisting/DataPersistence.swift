@@ -5,10 +5,10 @@
 //
 
 import Foundation
-import RealmSwift
 import Domain
 import Additions
 import Realm
+import RealmSwift
 
 public class RealmFactory {
     public static func makeRealm(with identifier: String? = nil) throws -> Realm {

@@ -268,6 +268,8 @@
 		10E75F9F23C88C1F00C5F562 /* KeychainSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10E75F9D23C88C1F00C5F562 /* KeychainSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10E75FA123C88C2700C5F562 /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E75FA023C88C2700C5F562 /* JWTDecode.framework */; };
 		10E75FA223C88C2700C5F562 /* JWTDecode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10E75FA023C88C2700C5F562 /* JWTDecode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		10E75FA423C8A13B00C5F562 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75FA323C8A13B00C5F562 /* ModelTests.swift */; };
+		10E75FA723C8A98D00C5F562 /* Models+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E75FA623C8A98D00C5F562 /* Models+Base.swift */; };
 		10E9834923C493F8008721B1 /* Entities+Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9834823C493F8008721B1 /* Entities+Character.swift */; };
 		10E9834B23C49497008721B1 /* Models+Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9834A23C49497008721B1 /* Models+Character.swift */; };
 		10E9836023C4A091008721B1 /* ModuleDeclarations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9835F23C4A091008721B1 /* ModuleDeclarations.swift */; };
@@ -650,6 +652,8 @@
 		10E75F9A23C88C1800C5F562 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = ../Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		10E75F9D23C88C1F00C5F562 /* KeychainSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainSwift.framework; path = ../Carthage/Build/iOS/KeychainSwift.framework; sourceTree = "<group>"; };
 		10E75FA023C88C2700C5F562 /* JWTDecode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JWTDecode.framework; path = ../Carthage/Build/iOS/JWTDecode.framework; sourceTree = "<group>"; };
+		10E75FA323C8A13B00C5F562 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
+		10E75FA623C8A98D00C5F562 /* Models+Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models+Base.swift"; sourceTree = "<group>"; };
 		10E9834823C493F8008721B1 /* Entities+Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entities+Character.swift"; sourceTree = "<group>"; };
 		10E9834A23C49497008721B1 /* Models+Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models+Character.swift"; sourceTree = "<group>"; };
 		10E9835D23C49F61008721B1 /* SeriesListFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesListFetcher.swift; sourceTree = "<group>"; };
@@ -1034,9 +1038,11 @@
 		105026C323C091B300340F9C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				10E75FA623C8A98D00C5F562 /* Models+Base.swift */,
 				105026B823C0908C00340F9C /* Models+Common.swift */,
 				10E9834A23C49497008721B1 /* Models+Character.swift */,
 				10E983AA23C4D730008721B1 /* Models+Series.swift */,
+				10E75FA523C8A13F00C5F562 /* Tests */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1519,6 +1525,14 @@
 				10E75F5523C5F10900C5F562 /* TextViewController.swift */,
 			);
 			path = TextSegment;
+			sourceTree = "<group>";
+		};
+		10E75FA523C8A13F00C5F562 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				10E75FA323C8A13B00C5F562 /* ModelTests.swift */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		10EE8573230EE2370009B6E0 /* Settings */ = {
@@ -2057,6 +2071,7 @@
 			files = (
 				104A714F2138312000DE8A6A /* BundleLoaderDataService.swift in Sources */,
 				10F84BED23C207D300121E26 /* APIs.swift in Sources */,
+				10E75FA723C8A98D00C5F562 /* Models+Base.swift in Sources */,
 				104A71502138312000DE8A6A /* DataPersistence.swift in Sources */,
 				10AC3FC022E099AD008DAA66 /* ErrorResponse.swift in Sources */,
 				10542941213EAF920031A78F /* MockDataParser.swift in Sources */,
@@ -2084,6 +2099,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10E75FA423C8A13B00C5F562 /* ModelTests.swift in Sources */,
 				104A71902138319300DE8A6A /* MockDataPersisting.swift in Sources */,
 				10F84BEC23C2041200121E26 /* CustomCryptoTests.swift in Sources */,
 				104A718F2138319300DE8A6A /* DataPersistenceTests.swift in Sources */,

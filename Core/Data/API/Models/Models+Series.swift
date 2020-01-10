@@ -10,14 +10,13 @@ import Domain
 import Realm
 import RealmSwift
 
-class SeriesDataWrapper: Object, Codable, Model {
-    var code: Int? //The HTTP status code of the returned result.,
-    var status: String? //A string description of the call status.,
-    var copyright: String? //The copyright notice for the returned result.,
-    var attributionText: String? //The attribution notice for this result. Please display either this notice or the contents of the attributionHTML field on all screens which contain data from the Marvel Comics API.,
-    var attributionHTML: String? //An HTML representation of the attribution notice for this result. Please display either this notice or the contents of the attributionText field on all screens which contain data from the Marvel Comics API.,
-    var data: SeriesDataContainer? //The results returned by the call.,
-    var etag: String? //A digest value of the content returned by the call.
+class SeriesDataWrapper: Wrapper, Model {
+    @objc dynamic var data: SeriesDataContainer? //The results returned by the call.,
+    @objc dynamic var id = ""
+    
+    override class func primaryKey() -> String? {
+        return "id"
+    }
     
     typealias Entity = Entities.SeriesDataWrapper
     
@@ -26,41 +25,38 @@ class SeriesDataWrapper: Object, Codable, Model {
     }
     
     required init(from entity: Entities.SeriesDataWrapper) throws {
-        code = entity.code
-        status = entity.status
-        copyright = entity.copyright
-        attributionText = entity.attributionText
-        attributionHTML = entity.attributionHTML
         if let t = entity.data {
             data = try SeriesDataContainer(from: t)
         }
-        etag = entity.etag
-        super.init()
+        super.init(code: entity.code,
+            status: entity.status,
+            copyright: entity.copyright,
+            attributionText: entity.attributionText,
+            attributionHTML: entity.attributionHTML,
+            etag: entity.etag)
     }
     
     func matches(parameters: [String : String]) -> Bool {
-        return data?.matches(parameters: parameters) ?? false
+        return id == parameters["id"]
     }
     
     required init() {
         super.init()
     }
     
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init()
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: SeriesCodingKeys.self)
+        data = try container.decodeIfPresent(SeriesDataContainer.self, forKey: .data)
+        try super.init(from: decoder)
     }
     
-    required init(value: Any, schema: RLMSchema) {
-        super.init()
+    enum SeriesCodingKeys: String, CodingKey {
+        case data
     }
 }
 
-class SeriesDataContainer: Object, Codable, Model {
-    var offset: Int? //The requested offset (number of skipped results) of the call.,
-    var limit: Int? //The requested result limit.,
-    var total: Int? //The total number of resources available given the current filter set.,
-    var count: Int? //The total number of results returned by this call.,
-    var results: [Series]? //The list of series returned by the call
+class SeriesDataContainer: Container, Model {
+    let results = List<Series>() //The list of series returned by the call
     
     typealias Entity = Entities.SeriesDataContainer
     
@@ -69,83 +65,49 @@ class SeriesDataContainer: Object, Codable, Model {
                                                limit: limit,
                                                total: total,
                                                count: count,
-                                               results: try results?.compactMap { try $0.generateEntity() })
+                                               results: try results.compactMap { try $0.generateEntity() })
     }
     
     required init(from entity: Entities.SeriesDataContainer) throws {
-        offset = entity.offset
-        limit = entity.limit
-        total = entity.total
-        count = entity.count
-        results = try entity.results?.compactMap { try Series(from: $0) }
-        super.init()
+        if let t = try entity.results?.compactMap { try Series(from: $0) } {
+            results.append(objectsIn: t)
+        }
+        super.init(offset: entity.offset, limit: entity.limit, total: entity.total, count: entity.count)
     }
     
     func matches(parameters: [String : String]) -> Bool {
-        return results?.reduce(true, { (result, character) -> Bool in
+        return results.reduce(true, { (result, character) -> Bool in
             return result && character.matches(parameters: parameters)
-        }) ?? false
+        })
     }
     
     required init() {
         super.init()
     }
     
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init()
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        if let t = try container.decodeIfPresent([Series].self, forKey: .results) {
+            results.append(objectsIn: t)
+        }
+        try super.init(from: decoder)
     }
-    
-    required init(value: Any, schema: RLMSchema) {
-        super.init()
-    }
-}
-class Series: Object, Codable, Model {
-    var id: Int? //The unique ID of the series resource.,
-    var title: String? //The canonical title of the series.,
-    var desc: String? //A description of the series.,
-    var resourceURI: String? //The canonical URL identifier for this resource.,
-    var urls: [Url]? //A set of web site URLs for the resource.,
-    var startYear: Int? //The first year of publication for the series.,
-    var endYear: Int? //The last year of publication for the series (conventionally, 2099 for ongoing series) .,
-    var rating: String? //The age-appropriateness rating for the series.,
-    var modified: String? //The date the resource was most recently modified.,
-    var thumbnail: Image? //The representative image for this series.,
-    var comics: ComicList? //A resource list containing comics in this series.,
-    var stories: StoryList? //A resource list containing stories which occur in comics in this series.,
-    var events: EventList? //A resource list containing events which take place in comics in this series.,
-    var characters: CharacterList? //A resource list containing characters which appear in comics in this series.,
-    var creators: CreatorList? //A resource list of creators whose work appears in comics in this series.,
-    var next: SeriesSummary? //A summary representation of the series which follows this series.,
-    var previous: SeriesSummary? //A summary representation of the series which preceded this series.
-    
-    typealias Entity = Entities.Series
     
     enum CodingKeys: String, CodingKey {
-        case id
-        case title
-        case desc = "description"
-        case resourceURI
-        case urls
-        case startYear
-        case endYear
-        case rating
-        case modified
-        case thumbnail
-        case comics
-        case stories
-        case events
-        case characters
-        case creators
-        case next
-        case previous
+        case results
     }
+}
+
+class Series: CodableSeries, Model {
+    let urls = List<Url>() //A set of web site URLs for the resource.,
+    typealias Entity = Entities.Series
     
     func generateEntity() throws -> Entities.Series {
         return Entities.Series(id: id,
                                title: title,
                                description: desc,
                                resourceURI: resourceURI,
-                               urls: try urls?.compactMap { try $0.generateEntity() },
+                               urls: try urls.compactMap { try $0.generateEntity() },
                                startYear: startYear,
                                endYear: endYear,
                                rating: rating,
@@ -161,15 +123,18 @@ class Series: Object, Codable, Model {
     }
     
     required init(from entity: Entities.Series) throws {
-        id = entity.id
-        title = entity.title
-        desc = entity.description
-        resourceURI = entity.resourceURI
-        urls = try entity.urls?.compactMap { try Url(from: $0) }
-        startYear = entity.startYear
-        endYear = entity.endYear
-        rating = entity.rating
-        modified = entity.modified
+        if let t = try entity.urls?.compactMap { try Url(from: $0) } {
+            urls.append(objectsIn: t)
+        }
+        super.init()
+        id = entity.id ?? 0
+        title = entity.title ?? ""
+        desc = entity.description ?? ""
+        resourceURI = entity.resourceURI ?? ""
+        startYear = entity.startYear ?? 0
+        endYear = entity.endYear ?? 0
+        rating = entity.rating ?? ""
+        modified = entity.modified ?? ""
         if let t = entity.thumbnail {
             thumbnail = try Image(from: t)
         }
@@ -194,7 +159,6 @@ class Series: Object, Codable, Model {
         if let t = entity.previous {
             previous = try SeriesSummary(from: t)
         }
-        super.init()
     }
     
     func matches(parameters: [String : String]) -> Bool {
@@ -205,12 +169,53 @@ class Series: Object, Codable, Model {
         super.init()
     }
     
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init()
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: SeriesCodingKeys.self)
+        if let t = try container.decodeIfPresent([Url].self, forKey: .urls) {
+            urls.append(objectsIn: t)
+        }
+        try super.init(from: decoder)
     }
     
-    required init(value: Any, schema: RLMSchema) {
-        super.init()
+    enum SeriesCodingKeys: String, CodingKey {
+        case urls
     }
+}
 
+class CodableSeries: Object, Codable {
+    @objc dynamic var id: Int = 0 //The unique ID of the series resource.,
+    @objc dynamic var title = "" //The canonical title of the series.,
+    @objc dynamic var desc: String? = "" //A description of the series.,
+    @objc dynamic var resourceURI = "" //The canonical URL identifier for this resource.,
+    @objc dynamic var startYear: Int = 0 //The first year of publication for the series.,
+    @objc dynamic var endYear: Int = 0 //The last year of publication for the series (conventionally, 2099 for ongoing series) .,
+    @objc dynamic var rating = "" //The age-appropriateness rating for the series.,
+    @objc dynamic var modified = "" //The date the resource was most recently modified.,
+    @objc dynamic var thumbnail: Image? //The representative image for this series.,
+    @objc dynamic var comics: ComicList? //A resource list containing comics in this series.,
+    @objc dynamic var stories: StoryList? //A resource list containing stories which occur in comics in this series.,
+    @objc dynamic var events: EventList? //A resource list containing events which take place in comics in this series.,
+    @objc dynamic var characters: CharacterList? //A resource list containing characters which appear in comics in this series.,
+    @objc dynamic var creators: CreatorList? //A resource list of creators whose work appears in comics in this series.,
+    @objc dynamic var next: SeriesSummary? //A summary representation of the series which follows this series.,
+    @objc dynamic var previous: SeriesSummary? //A summary representation of the series which preceded this series.
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case desc = "description"
+        case resourceURI
+        case startYear
+        case endYear
+        case rating
+        case modified
+        case thumbnail
+        case comics
+        case stories
+        case events
+        case characters
+        case creators
+        case next
+        case previous
+    }
 }

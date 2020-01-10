@@ -3,8 +3,12 @@
 
 ### Install notes
 
-    carthage bootstrap --platform ios --no-use-binaries --cache-builds
+For external dependencies run
 
+    carthage update --platform ios --configuration Debug --verbose
+    
+For `realm-cocoa` there seemed to be a problem to build under MacOS Catalina,  the flag `--no-use-binaries` seems to solve the issue
+        
 
 ![High level architecture](App Architecure.png)
 
