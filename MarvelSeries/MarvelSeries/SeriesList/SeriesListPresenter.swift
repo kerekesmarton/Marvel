@@ -13,7 +13,7 @@ protocol SeriesPresentingItem {
 
 protocol SeriesListPresenting {
     func viewReady()
-    func viewDidReachEnd()
+    func viewDidReachEnd(index: IndexPath)
     var itemCount: Int { get }
     func setup(cell: SeriesPresentingItem, at index: Int)
     func didSelect(cell: SeriesPresentingItem, at index: Int)
@@ -66,10 +66,10 @@ class SeriesListPresenter: SeriesListPresenting {
         }
     }
     
-    var lastLoaded: String? = nil
-    func viewDidReachEnd() {
-        guard let results = results, lastLoaded != results.etag else { return }
-        lastLoaded = results.etag
+    var lastLoaded: IndexPath? = nil
+    func viewDidReachEnd(index: IndexPath) {
+        guard let results = results, lastLoaded != index else { return }
+        lastLoaded = index
         fetcher.fetchNext(result: results) { [weak self] (result) in
             do {
                 self?.results = try result.get()

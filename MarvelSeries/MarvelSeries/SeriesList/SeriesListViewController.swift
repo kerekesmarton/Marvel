@@ -38,6 +38,7 @@ class SeriesListViewController: CollectionViewController, SeriesListPresentation
     
     func reload() {
         collectionView.reloadData()
+        updateSegmentDelegate()
     }
     
         
@@ -50,8 +51,8 @@ class SeriesListViewController: CollectionViewController, SeriesListPresentation
             fatalError()
         }
         presenter.setup(cell: cell, at: indexPath.row)
-        if indexPath.row == presenter.itemCount - 1 {
-            presenter.viewDidReachEnd()
+        if indexPath.row == presenter.itemCount - 1, delegate == nil {
+            presenter.viewDidReachEnd(index: indexPath)
         }
         return cell
     }
@@ -122,9 +123,9 @@ extension SeriesListViewController: SegmentsRoutableChild {
     }
     
     func didScroll(to index: IndexPath) {
-        if index != lastVisibleIndex {
+        if index.row == presenter.itemCount - 1, index != lastVisibleIndex {
             lastVisibleIndex = index
-            presenter.viewDidReachEnd()
+            presenter.viewDidReachEnd(index: index)
         }
     }
 }
