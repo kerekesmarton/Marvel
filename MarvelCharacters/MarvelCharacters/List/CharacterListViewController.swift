@@ -17,7 +17,7 @@ class CharacterListViewController: CollectionViewController, CharacterListPresen
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        applyStyle()
         collectionView.showsVerticalScrollIndicator = false
         collectionView.bounces = false
         registerCell(cellClass: ProfileCollectionViewCell.self, with: collectionView)
@@ -30,18 +30,14 @@ class CharacterListViewController: CollectionViewController, CharacterListPresen
         searchController?.searchBar.delegate = self
         searchController?.searchResultsUpdater = self
         searchController?.obscuresBackgroundDuringPresentation = false
-        searchController?.searchBar.placeholder = "search_placeholder".localised
+        searchController?.searchBar.placeholder = ""
         
         definesPresentationContext = true
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
         edgesForExtendedLayout = .all
         
-        presenter.viewReady()        
-    }
-    
-    override func applyStyle() {
-        super.applyStyle()
+        presenter.viewReady()
     }
     
     func reload() {
@@ -126,6 +122,7 @@ extension CharacterListViewController: UISearchBarDelegate, UISearchResultsUpdat
     
     public func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text, text.length > 0 else {
+            presenter.viewReady()
             return
         }
         presenter.didUpdate(searchTerm: text)
