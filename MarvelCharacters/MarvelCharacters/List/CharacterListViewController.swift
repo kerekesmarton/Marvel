@@ -13,6 +13,7 @@ import Presentation
 class CharacterListViewController: CollectionViewController, CharacterListPresentationOutput {
     
     var presenter: CharacterListPresenting!
+    var searchController: UISearchController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,16 @@ class CharacterListViewController: CollectionViewController, CharacterListPresen
         if let image = UIImage(named: "General-logo") { //not using image literal for testability purposes
             setLogoInNavigation(image: image)
         }
+        
+        searchController?.searchBar.delegate = self
+        searchController?.searchResultsUpdater = self
+        searchController?.obscuresBackgroundDuringPresentation = false
+        searchController?.searchBar.placeholder = "search_placeholder".localised
+        
+        definesPresentationContext = true
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
+        edgesForExtendedLayout = .all
         
         presenter.viewReady()        
     }
@@ -105,6 +116,19 @@ extension CharacterListViewController: EmptyStateDataSource, EmptyStateDelegate 
     
     func emptyStatebuttonWasTapped(button: UIButton) {
         presenter.didTapEmptyStateButton()
+    }
+}
+
+extension CharacterListViewController: UISearchBarDelegate, UISearchResultsUpdating {
+    public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        presenter.didCancel()
+    }
+    
+    public func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text, text.length > 0 else {
+            return
+        }
+        presenter.didUpdate(searchTerm: text)
     }
 }
 

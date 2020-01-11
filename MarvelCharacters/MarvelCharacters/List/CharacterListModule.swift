@@ -27,11 +27,12 @@ public class CharacterListModule: TabModule {
                                              bundle: Bundle(for: CharacterListViewController.self)) as! CharacterListViewController
         let navigation = createNavigation(with: title, imageResource: image, tag: tab)
         let router = CharacterListRouter(host: navigation, context: vc)
-        let fetcher = CharacterListFetcher(service: NetworkDataServiceFactory.GetCharacterListDataService(config))
+        let fetcher = CharacterListFetcher(factory: CharacterListServiceFactoryProvider(config: config))
         let presenter = CharacterListPresenter(charecterListFetcher: fetcher, router: router)
         
         presenter.output = vc
         vc.presenter = presenter
+        vc.searchController = UISearchController(searchResultsController: nil)
         
         return (navigation, router)
     }
@@ -43,12 +44,24 @@ public class CharacterListModule: TabModule {
                                              storyboard: "Profile",
                                              bundle: Bundle(for: CharacterListViewController.self)) as! CharacterListViewController
         let router = CharacterListRouter(host: host, context: vc)
-        let fetcher = CharacterListFetcher(service: NetworkDataServiceFactory.GetCharacterListDataService(config))
+        let fetcher = CharacterListFetcher(factory: CharacterListServiceFactoryProvider(config: config))
         let presenter = CharacterListPresenter(charecterListFetcher: fetcher, router: router)
         
         presenter.output = vc
         vc.presenter = presenter
         
         return (router, vc)
+    }
+}
+
+class CharacterListServiceFactoryProvider: CharacterListServiceFactory {
+    
+    let config: Configurable
+    init(config: Configurable) {
+        self.config = config
+    }
+    
+    func makeService() -> SpecialisedDataService {
+        return NetworkDataServiceFactory.GetCharacterListDataService(config )
     }
 }

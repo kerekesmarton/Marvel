@@ -15,3 +15,5 @@
 "list_empty_state_title" = "No items found";
 "list_empty_state_details" = "Please try again later";
 "list_empty_state_button" = "Try again";
+
+"search_placeholder" = "Search";

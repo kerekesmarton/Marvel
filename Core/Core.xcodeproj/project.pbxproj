@@ -239,6 +239,7 @@
 		109D3DA3239D690700D6A4EF /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109D3C3B239BC7A700D6A4EF /* MockURLSession.swift */; };
 		10AC3FBC22E0737A008DAA66 /* MockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A70CA213830F400DE8A6A /* MockDataService.swift */; };
 		10AC3FC022E099AD008DAA66 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AC3FBF22E099AD008DAA66 /* ErrorResponse.swift */; };
+		10AD7C4523CA263000B711BA /* CharacterListFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AD7C4423CA263000B711BA /* CharacterListFetcherTests.swift */; };
 		10BD166A220DC87400E90411 /* RealmHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BD1669220DC87400E90411 /* RealmHelpers.swift */; };
 		10C85A87222E7A4300FC6894 /* UserProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C85A86222E7A4300FC6894 /* UserProfileStore.swift */; };
 		10D2E86221B80B7F001FEFC4 /* ImageHeightCalcuating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D2E86121B80B7F001FEFC4 /* ImageHeightCalcuating.swift */; };
@@ -634,6 +635,7 @@
 		109D3CE8239BC7D200D6A4EF /* MockNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNavigationController.swift; sourceTree = "<group>"; };
 		109D3CE9239BC7D200D6A4EF /* MockUITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUITableView.swift; sourceTree = "<group>"; };
 		10AC3FBF22E099AD008DAA66 /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		10AD7C4423CA263000B711BA /* CharacterListFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListFetcherTests.swift; sourceTree = "<group>"; };
 		10BD1669220DC87400E90411 /* RealmHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelpers.swift; sourceTree = "<group>"; };
 		10C85A86222E7A4300FC6894 /* UserProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileStore.swift; sourceTree = "<group>"; };
 		10D2E86121B80B7F001FEFC4 /* ImageHeightCalcuating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHeightCalcuating.swift; sourceTree = "<group>"; };
@@ -1055,6 +1057,7 @@
 				10E983A823C4D57C008721B1 /* Entities+Series.swift */,
 				10E75F4E23C4EB3C00C5F562 /* EntitiesFactory.swift */,
 				105026F323C09AF800340F9C /* CharacterListFetcher.swift */,
+				10AD7C4423CA263000B711BA /* CharacterListFetcherTests.swift */,
 				10E9835D23C49F61008721B1 /* SeriesListFetcher.swift */,
 			);
 			path = Marvel;
@@ -2062,6 +2065,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				104A71852138317F00DE8A6A /* FeatureFlagLoaderTests.swift in Sources */,
+				10AD7C4523CA263000B711BA /* CharacterListFetcherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

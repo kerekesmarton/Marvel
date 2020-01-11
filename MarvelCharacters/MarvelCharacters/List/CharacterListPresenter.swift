@@ -25,6 +25,9 @@ protocol CharacterListPresenting {
     var emptyStateTitleDetail: NSAttributedString? { get }
     var emptyStateButtonTitle: String? { get }
     var emptyStateShouldShow: Bool { get }
+    
+    func didCancel()
+    func didUpdate(searchTerm: String)
 }
 
 protocol CharacterListPresentationOutput: FontCalculating {
@@ -56,7 +59,7 @@ class CharacterListPresenter: CharacterListPresenting {
     }
     
     func viewReady() {
-        charecterListFetcher.fetchCharacters { [weak self] (result) in
+        charecterListFetcher.fetchCharacters(filter: .all) { [weak self] (result) in
             do {
                 self?.results = try result.get()
             } catch {
@@ -102,6 +105,19 @@ class CharacterListPresenter: CharacterListPresenting {
         router.route(character: item)
     }
     
+    func didCancel() {
+        charecterListFetcher.cancel()
+    }
+    
+    func didUpdate(searchTerm: String) {
+        charecterListFetcher.fetchCharacters(filter: .nameStartsWith(searchTerm)) { [weak self] (result) in
+            do {
+                self?.results = try result.get()
+            } catch {
+                self?.router.show(error: ServiceError(from: error))
+            }
+        }
+    }
     
     func didTapEmptyStateButton() {
         viewReady()
