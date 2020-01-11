@@ -120,4 +120,12 @@ class MockCharacterListPresenting: CharacterListPresenting {
     var emptyStateShouldShow: Bool {
            return false
     }
+    
+    func didCancel() {
+        
+    }
+    
+    func didUpdate(searchTerm: String) {
+        
+    }
 }

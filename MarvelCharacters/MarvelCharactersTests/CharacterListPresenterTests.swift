@@ -105,7 +105,7 @@ final class MockCharacterPresentingItem: CharacterPresentingItem {
 final class MockCharacterListFetching: CharacterListFetching {
     
     var stubResponse: Result<Entities.CharacterDataWrapper, ServiceError>!
-    func fetchCharacters(completion: @escaping (Result<Entities.CharacterDataWrapper, ServiceError>) -> Void) {
+    func fetchCharacters(filter: CharacterListFilter, completion: @escaping (Result<Entities.CharacterDataWrapper, ServiceError>) -> Void) {
         completion(stubResponse)
     }
     
@@ -113,6 +113,10 @@ final class MockCharacterListFetching: CharacterListFetching {
     func fetchNext(result: Entities.CharacterDataWrapper, completion: @escaping (Result<Entities.CharacterDataWrapper, ServiceError>) -> Void) {
         spyResult = result
         completion(stubResponse)
+    }
+    
+    func cancel() {
+        
     }
 }
 
