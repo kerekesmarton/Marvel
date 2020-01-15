@@ -2,6 +2,8 @@
 
 - The Core framework used in this project is a collection of helpers and architectural niceties I've been working on for a while. It's a recent development that is meant for programmers (and me first of all) with SOLID principles, and I intend to structure it 1. according to Clean Architecture, 2. as reusable as possible. It is a work in progress, that I will use in a GraphQL project, so it will probablt go through some changes as previously it was used with standard URL session, supporting Swagger / OpenAPI definitions to integrate and use auto-generated API side code. You will find more on this in the following notes.
 
+- This app uses the Marvel [API](https://developer.marvel.com/account) where you will need an account. Launching the app, the Sign Up button of the login screen will take you here also.
+
 ## Install notes
 
 For external dependencies run
