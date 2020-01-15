@@ -19,7 +19,7 @@ public protocol TabModule: Module {
     func setup(title: String, image: String?, config: Configurable) -> (controller: UIViewController, router: Routing)
 }
 
-public extension TabModule {
+public extension Module {
     
     func createNavigation(with title: String, imageResource: String?, tag: Int) -> UINavigationController {
         let nav = NavigationController()

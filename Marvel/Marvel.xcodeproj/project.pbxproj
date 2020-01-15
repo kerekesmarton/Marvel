@@ -91,6 +91,7 @@
 
 /* Begin PBXFileReference section */
 		1050278E23C1F9BA00340F9C /* Characters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Characters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		10AD7C4623CC757600B711BA /* App Architecure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "App Architecure.png"; path = "../../App Architecure.png"; sourceTree = "<group>"; };
 		10D94B1623BF8FB900EE8B30 /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10D94B1923BF8FB900EE8B30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10D94B1B23BF8FB900EE8B30 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +203,7 @@
 				10D94B2923BF8FBB00EE8B30 /* Info.plist */,
 				10F84C6823C26CF700121E26 /* Localizable.strings */,
 				10D94B8723BF9ED100EE8B30 /* README.md */,
+				10AD7C4623CC757600B711BA /* App Architecure.png */,
 				10F84C7523C332E200121E26 /* Cartfile */,
 				10D94B8423BF94F400EE8B30 /* Settings.bundle */,
 				10D94B8323BF947000EE8B30 /* Extra Settings */,

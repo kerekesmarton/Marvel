@@ -240,6 +240,7 @@
 		10AC3FBC22E0737A008DAA66 /* MockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A70CA213830F400DE8A6A /* MockDataService.swift */; };
 		10AC3FC022E099AD008DAA66 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AC3FBF22E099AD008DAA66 /* ErrorResponse.swift */; };
 		10AD7C4523CA263000B711BA /* CharacterListFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AD7C4423CA263000B711BA /* CharacterListFetcherTests.swift */; };
+		10AD7C4A23CF197300B711BA /* BlockBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AD7C4723CF12FF00B711BA /* BlockBarButtonItem.swift */; };
 		10BD166A220DC87400E90411 /* RealmHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BD1669220DC87400E90411 /* RealmHelpers.swift */; };
 		10C85A87222E7A4300FC6894 /* UserProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C85A86222E7A4300FC6894 /* UserProfileStore.swift */; };
 		10D2E86221B80B7F001FEFC4 /* ImageHeightCalcuating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D2E86121B80B7F001FEFC4 /* ImageHeightCalcuating.swift */; };
@@ -636,6 +637,7 @@
 		109D3CE9239BC7D200D6A4EF /* MockUITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUITableView.swift; sourceTree = "<group>"; };
 		10AC3FBF22E099AD008DAA66 /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		10AD7C4423CA263000B711BA /* CharacterListFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListFetcherTests.swift; sourceTree = "<group>"; };
+		10AD7C4723CF12FF00B711BA /* BlockBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockBarButtonItem.swift; sourceTree = "<group>"; };
 		10BD1669220DC87400E90411 /* RealmHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelpers.swift; sourceTree = "<group>"; };
 		10C85A86222E7A4300FC6894 /* UserProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileStore.swift; sourceTree = "<group>"; };
 		10D2E86121B80B7F001FEFC4 /* ImageHeightCalcuating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHeightCalcuating.swift; sourceTree = "<group>"; };
@@ -1165,6 +1167,7 @@
 				109D3C41239BC7A800D6A4EF /* Tests */,
 				109D3C42239BC7A800D6A4EF /* NSLayout+Characters.swift */,
 				109D3C43239BC7A800D6A4EF /* UIButton.swift */,
+				10AD7C4723CF12FF00B711BA /* BlockBarButtonItem.swift */,
 				109D3C44239BC7A800D6A4EF /* UICollectionView+RegisterCell.swift */,
 				109D3C45239BC7A800D6A4EF /* UIFont.swift */,
 				109D3C46239BC7A800D6A4EF /* UIImage.swift */,
@@ -2274,6 +2277,7 @@
 				109D3D13239BC83600D6A4EF /* ImagePickerModule.swift in Sources */,
 				109D3D1D239BC85000D6A4EF /* BaseCommentCell.swift in Sources */,
 				109D3D0A239BC82F00D6A4EF /* UIStackView.swift in Sources */,
+				10AD7C4A23CF197300B711BA /* BlockBarButtonItem.swift in Sources */,
 				109D3D26239BC85600D6A4EF /* SingleButtonCell.swift in Sources */,
 				109D3D81239BC89400D6A4EF /* SettingsViewController.swift in Sources */,
 				10E75F5723C5F10900C5F562 /* TextModule.swift in Sources */,

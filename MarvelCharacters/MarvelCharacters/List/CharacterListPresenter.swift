@@ -62,6 +62,9 @@ class CharacterListPresenter: CharacterListPresenting {
         charecterListFetcher.fetchCharacters(filter: .all) { [weak self] (result) in
             do {
                 self?.results = try result.get()
+                if let attributionText = self?.results?.attributionText {
+                    self?.router.route(message: .message(attributionText))
+                }
             } catch {
                 self?.router.show(error: ServiceError(from: error))
             }

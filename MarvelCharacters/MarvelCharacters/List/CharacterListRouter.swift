@@ -25,18 +25,12 @@ class CharacterListRouter: Routing, CharacterListRouting {
     
     var parent: Routing?
     
-    func present(controller: UIViewController) {
-        context?.present(controller, animated: true, completion: {
-            
-        })
-    }
-    
     weak var host: UINavigationController?
     
     func route(character: Entities.Character) {
-        guard let nav = host else { return }
+        guard let context = context else { return }
         let module: CharacterModule = config.appModules.module()
-        let result = module.setup(character: character, host: nav, config: config)
+        let result = module.setup(character: character, presentationHost: context, config: config)
         addChild(router: result.router)
         result.router.start()
     }

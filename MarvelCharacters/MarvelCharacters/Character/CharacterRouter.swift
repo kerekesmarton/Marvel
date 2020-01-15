@@ -14,10 +14,12 @@ import Presentation
 class CharacterRouter: SegmentsRouter, ErrorRouting, CameraRouting, CharacterRouting {
     
     weak var context: SegmentedHeaderViewController?
+    weak var presentationHost: UIViewController?
     
-    init(navigation: UINavigationController, context: SegmentedHeaderViewController) {
+    init(navigation: UINavigationController, context: SegmentedHeaderViewController, presentationHost: UIViewController?) {
         super.init(nav: navigation)
         self.context = context
+        self.presentationHost = presentationHost
     }
     
     override func start() {
@@ -27,9 +29,14 @@ class CharacterRouter: SegmentsRouter, ErrorRouting, CameraRouting, CharacterRou
         navigationController?.pushViewController(context, animated: true)
         self.delegate = context
         context.router = self
+        
+        if let presentationHost = presentationHost, let navigationController = navigationController {
+            presentationHost.present(navigationController, animated: true)
+            context.navigationItem.leftBarButtonItem = BlockBarButtonItem(title: "Back", style: .plain, action: {
+                presentationHost.dismiss(animated: true)
+            })
+        }
     }
-    
-    var parent: Routing?
     
     private var _viewControllers: [UIViewController]?
     override var viewControllers: [UIViewController]? {
