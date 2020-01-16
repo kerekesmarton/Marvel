@@ -8,12 +8,8 @@
 
 For external dependencies run
 
-    carthage update --platform ios --configuration Debug --verbose
+    carthage update --platform ios --no-use-binaries
     
-
-- For `realm-cocoa` there seemed to be a problem to build under MacOS Catalina,  the flag `--no-use-binaries` tells carthage to download the original, however `po` is broken by importing online libraries.  Haven't found a solution for this problem yet..
-
-
 ## App overview
 
 The purpose of this application is to display, for demo purposes, the use of some core concepts and best practices I advocate as an ios consultant and engineer.
