@@ -10,9 +10,9 @@ Checkout with submodules:
 
     git clone --recurse-submodules https://github.com/kerekesmarton/Marvel
 
-For external dependencies run
+For external dependencies on the git submodule `Core` go to `Core.xcodeproj` and run
 
-    carthage update --platform ios --no-use-binaries
+    carthage update --platform ios
     
 ## App overview
 

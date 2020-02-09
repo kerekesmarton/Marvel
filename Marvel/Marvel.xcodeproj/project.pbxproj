@@ -140,7 +140,6 @@
 		10F84C6023C24A3600121E26 /* MarvelCharacters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelCharacters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F84C6623C2618800121E26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		10F84C6923C26CF700121E26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		10F84C7523C332E200121E26 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Cartfile; path = ../../Cartfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,7 +203,6 @@
 				10F84C6823C26CF700121E26 /* Localizable.strings */,
 				10D94B8723BF9ED100EE8B30 /* README.md */,
 				10AD7C4623CC757600B711BA /* App Architecure.png */,
-				10F84C7523C332E200121E26 /* Cartfile */,
 				10D94B8423BF94F400EE8B30 /* Settings.bundle */,
 				10D94B8323BF947000EE8B30 /* Extra Settings */,
 			);
@@ -316,7 +314,7 @@
 				10D94B1223BF8FB900EE8B30 /* Sources */,
 				10D94B1323BF8FB900EE8B30 /* Frameworks */,
 				10D94B1423BF8FB900EE8B30 /* Resources */,
-				10D94B8623BF953400EE8B30 /* ShellScript */,
+				10D94B8623BF953400EE8B30 /* Add Extra Settings */,
 				10D94B4623BF924300EE8B30 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -415,7 +413,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		10D94B8623BF953400EE8B30 /* ShellScript */ = {
+		10D94B8623BF953400EE8B30 /* Add Extra Settings */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -424,13 +422,14 @@
 			);
 			inputPaths = (
 			);
+			name = "Add Extra Settings";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "pwd \nsh Marvel/Extra\\ Settings/AddExtraSettingsToCompiledSettingsBundleForNonAppStoreBuilds.sh\n";
+			shellScript = "sh Marvel/Extra\\ Settings/AddExtraSettingsToCompiledSettingsBundleForNonAppStoreBuilds.sh\n";
 		};
 		10E75F8523C7521E00C5F562 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -440,10 +439,11 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(PROJECT_DIR)/../Carthage/Build/iOS/KeychainSwift.framework",
-				"$(PROJECT_DIR)/../Carthage/Build/iOS/JWTDecode.framework",
-				"$(PROJECT_DIR)/../Carthage/Build/iOS/Realm.framework",
-				"$(PROJECT_DIR)/../Carthage/Build/iOS/RealmSwift.framework",
+				"$(PROJECT_DIR)/../Core/Core/Carthage/Build/iOS/KeychainSwift.framework",
+				"$(PROJECT_DIR)/../Core/Core/Carthage/Build/iOS/JWTDecode.framework",
+				"$(PROJECT_DIR)/../Core/Core/Carthage/Build/iOS/Kingfisher.framework",
+				"$(PROJECT_DIR)/../Core/Core/Carthage/Build/iOS/Realm.framework",
+				"$(PROJECT_DIR)/../Core/Core/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (

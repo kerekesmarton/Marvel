@@ -14,90 +14,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "104A7198213835E900DE8A6A"
-               BuildableName = "Additions.framework"
-               BlueprintName = "Additions"
-               ReferencedContainer = "container:../Core/Core.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "104A70AD213830D700DE8A6A"
-               BuildableName = "Domain.framework"
-               BlueprintName = "Domain"
-               ReferencedContainer = "container:../Core/Core.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "102A67E122FD5FE4002A45A5"
-               BuildableName = "CoreTestHelpers.framework"
-               BlueprintName = "CoreTestHelpers"
-               ReferencedContainer = "container:../Core/Core.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "104A70F52138310700DE8A6A"
-               BuildableName = "Data.framework"
-               BlueprintName = "Data"
-               ReferencedContainer = "container:../Core/Core.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "104A71612138312B00DE8A6A"
-               BuildableName = "Presentation.framework"
-               BlueprintName = "Presentation"
-               ReferencedContainer = "container:../Core/Core.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "109D3C13239BC78E00D6A4EF"
-               BuildableName = "IosCore.framework"
-               BlueprintName = "IosCore"
-               ReferencedContainer = "container:../Core/Core.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "10F84BF923C20C8E00121E26"
                BuildableName = "MarvelAuth.framework"
                BlueprintName = "MarvelAuth"
@@ -130,62 +46,6 @@
                BuildableName = "MarvelSeries.framework"
                BlueprintName = "MarvelSeries"
                ReferencedContainer = "container:../MarvelSeries/MarvelSeries.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "104A70FD2138310700DE8A6A"
-               BuildableName = "DataTests.xctest"
-               BlueprintName = "DataTests"
-               ReferencedContainer = "container:../Core/Core.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "104A70B5213830D700DE8A6A"
-               BuildableName = "DomainTests.xctest"
-               BlueprintName = "DomainTests"
-               ReferencedContainer = "container:../Core/Core.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "109D3C1B239BC78E00D6A4EF"
-               BuildableName = "IosCoreTests.xctest"
-               BlueprintName = "IosCoreTests"
-               ReferencedContainer = "container:../Core/Core.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "104A71692138312C00DE8A6A"
-               BuildableName = "PresentationTests.xctest"
-               BlueprintName = "PresentationTests"
-               ReferencedContainer = "container:../Core/Core.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -252,46 +112,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "104A70FD2138310700DE8A6A"
-               BuildableName = "DataTests.xctest"
-               BlueprintName = "DataTests"
-               ReferencedContainer = "container:../Core/Core.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "104A70B5213830D700DE8A6A"
-               BuildableName = "DomainTests.xctest"
-               BlueprintName = "DomainTests"
-               ReferencedContainer = "container:../Core/Core.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "109D3C1B239BC78E00D6A4EF"
-               BuildableName = "IosCoreTests.xctest"
-               BlueprintName = "IosCoreTests"
-               ReferencedContainer = "container:../Core/Core.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "104A71692138312C00DE8A6A"
-               BuildableName = "PresentationTests.xctest"
-               BlueprintName = "PresentationTests"
-               ReferencedContainer = "container:../Core/Core.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
