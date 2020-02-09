@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Core/Core.xcodeproj">
+      location = "group:Core/Core/Core.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:MarvelAuth/MarvelAuth.xcodeproj">

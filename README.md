@@ -6,6 +6,10 @@
 
 ## Install notes
 
+Checkout with submodules:
+
+    git clone --recurse-submodules https://github.com/kerekesmarton/Marvel
+
 For external dependencies run
 
     carthage update --platform ios --no-use-binaries
