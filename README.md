@@ -6,18 +6,19 @@
 
 ## Install notes
 
-Checkout with submodules:
+1. Checkout with submodules:
 
     git clone --recurse-submodules https://github.com/kerekesmarton/Marvel
     
-If you forgot to check out submodules, do it later using:
+2. If you forgot to check out submodules, do it later using:
 
     git submodule init
     git submodule update
 
 For external dependencies used by git submodule `Core`:
-1. isntall ![Carthage](https://github.com/Carthage/Carthage#installing-carthage)  
-2. run in the root of your workspace
+
+3. install [Carthage](https://github.com/Carthage/Carthage#installing-carthage)  
+4. run in the root of your workspace
 
         carthage update --platform ios
     
