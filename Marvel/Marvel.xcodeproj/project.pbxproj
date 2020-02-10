@@ -439,11 +439,11 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(PROJECT_DIR)/../Core/Core/Carthage/Build/iOS/KeychainSwift.framework",
-				"$(PROJECT_DIR)/../Core/Core/Carthage/Build/iOS/JWTDecode.framework",
-				"$(PROJECT_DIR)/../Core/Core/Carthage/Build/iOS/Kingfisher.framework",
-				"$(PROJECT_DIR)/../Core/Core/Carthage/Build/iOS/Realm.framework",
-				"$(PROJECT_DIR)/../Core/Core/Carthage/Build/iOS/RealmSwift.framework",
+				"$(PROJECT_DIR)/../Carthage/Build/iOS/KeychainSwift.framework",
+				"$(PROJECT_DIR)/../Carthage/Build/iOS/JWTDecode.framework",
+				"$(PROJECT_DIR)/../Carthage/Build/iOS/Kingfisher.framework",
+				"$(PROJECT_DIR)/../Carthage/Build/iOS/Realm.framework",
+				"$(PROJECT_DIR)/../Carthage/Build/iOS/RealmSwift.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (

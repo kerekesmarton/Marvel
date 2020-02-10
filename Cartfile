@@ -1,0 +1,8 @@
+github "AckeeCZ/Reqres" == 3.1.0
+github "tilltue/TLPhotoPicker" == 1.9.2
+github "evgenyneu/keychain-swift" == 13.0
+github "SnapKit/SnapKit" == 4.2.0
+github "onevcat/Kingfisher" == 5.7.0
+github "auth0/JWTDecode.swift" == 2.2
+github "realm/realm-cocoa"
+github "apollographql/apollo-ios"

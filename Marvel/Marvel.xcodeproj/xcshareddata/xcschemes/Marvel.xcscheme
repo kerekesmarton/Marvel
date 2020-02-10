@@ -8,48 +8,6 @@
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "10F84BF923C20C8E00121E26"
-               BuildableName = "MarvelAuth.framework"
-               BlueprintName = "MarvelAuth"
-               ReferencedContainer = "container:../MarvelAuth/MarvelAuth.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "10F84C1D23C236BC00121E26"
-               BuildableName = "MarvelCharacters.framework"
-               BlueprintName = "MarvelCharacters"
-               ReferencedContainer = "container:../MarvelCharacters/MarvelCharacters.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "10E9837423C4D301008721B1"
-               BuildableName = "MarvelSeries.framework"
-               BlueprintName = "MarvelSeries"
-               ReferencedContainer = "container:../MarvelSeries/MarvelSeries.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
             buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "NO"

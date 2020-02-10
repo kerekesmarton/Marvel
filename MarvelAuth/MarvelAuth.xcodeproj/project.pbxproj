@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10B7876123F17036009888E4 /* CoreTestHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B7876023F17035009888E4 /* CoreTestHelpers.framework */; };
+		10B7876223F17036009888E4 /* CoreTestHelpers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10B7876023F17035009888E4 /* CoreTestHelpers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10F84C0423C20C8E00121E26 /* MarvelAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F84BFA23C20C8E00121E26 /* MarvelAuth.framework */; };
 		10F84C0923C20C8E00121E26 /* MarvelAuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F84C0823C20C8E00121E26 /* MarvelAuthTests.swift */; };
 		10F84C0B23C20C8E00121E26 /* MarvelAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 10F84BFD23C20C8E00121E26 /* MarvelAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -46,6 +48,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				10F84C4823C236ED00121E26 /* Domain.framework in Embed Frameworks */,
+				10B7876223F17036009888E4 /* CoreTestHelpers.framework in Embed Frameworks */,
 				10F84C4A23C236ED00121E26 /* IosCore.framework in Embed Frameworks */,
 				10F84C4623C236ED00121E26 /* Data.framework in Embed Frameworks */,
 				10F84C4C23C236ED00121E26 /* Presentation.framework in Embed Frameworks */,
@@ -57,6 +60,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		10B7876023F17035009888E4 /* CoreTestHelpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoreTestHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F84BFA23C20C8E00121E26 /* MarvelAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarvelAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F84BFD23C20C8E00121E26 /* MarvelAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarvelAuth.h; sourceTree = "<group>"; };
 		10F84BFE23C20C8E00121E26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10F84C4723C236ED00121E26 /* Domain.framework in Frameworks */,
+				10B7876123F17036009888E4 /* CoreTestHelpers.framework in Frameworks */,
 				10F84C4923C236ED00121E26 /* IosCore.framework in Frameworks */,
 				10F84C4523C236ED00121E26 /* Data.framework in Frameworks */,
 				10F84C4B23C236ED00121E26 /* Presentation.framework in Frameworks */,
@@ -142,6 +147,7 @@
 		10F84C3D23C236ED00121E26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				10B7876023F17035009888E4 /* CoreTestHelpers.framework */,
 				10F84C3E23C236ED00121E26 /* Additions.framework */,
 				10F84C3F23C236ED00121E26 /* Data.framework */,
 				10F84C4023C236ED00121E26 /* Domain.framework */,
