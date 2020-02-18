@@ -9,6 +9,7 @@
 import Foundation
 import Domain
 import Presentation
+import MarvelDomain
 
 protocol CharacterPresenting {
     func viewReady()

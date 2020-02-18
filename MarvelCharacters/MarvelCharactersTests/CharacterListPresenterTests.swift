@@ -11,6 +11,7 @@ import XCTest
 @testable import Domain
 @testable import Presentation
 @testable import IosCore
+@testable import MarvelDomain
 
 class CharacterListPresenterTests: XCTestCase {
 

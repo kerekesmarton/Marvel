@@ -9,6 +9,7 @@
 import Foundation
 import Domain
 import Presentation
+import MarvelDomain
 
 protocol CharacterPresentingItem {
     func setup(info: PresentableInfo, title: String?, imageURL: URL?, type: ListType)

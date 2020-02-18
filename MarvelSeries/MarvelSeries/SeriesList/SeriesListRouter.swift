@@ -6,6 +6,7 @@
 import UIKit
 import IosCore
 import Domain
+import MarvelDomain
 
 class SeriesListRouter: Routing, SeriesListRouting {
     

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		102F045923FC174500FC4639 /* MarvelData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 102F045723FC174500FC4639 /* MarvelData.framework */; };
+		102F045A23FC174500FC4639 /* MarvelData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 102F045723FC174500FC4639 /* MarvelData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		102F045B23FC174500FC4639 /* MarvelDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 102F045823FC174500FC4639 /* MarvelDomain.framework */; };
+		102F045C23FC174500FC4639 /* MarvelDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 102F045823FC174500FC4639 /* MarvelDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10D94B1A23BF8FB900EE8B30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D94B1923BF8FB900EE8B30 /* AppDelegate.swift */; };
 		10D94B1C23BF8FB900EE8B30 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D94B1B23BF8FB900EE8B30 /* SceneDelegate.swift */; };
 		10D94B2523BF8FBB00EE8B30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10D94B2423BF8FBB00EE8B30 /* Assets.xcassets */; };
@@ -78,7 +82,9 @@
 				10D94B3D23BF924300EE8B30 /* Additions.framework in Embed Frameworks */,
 				10D94B4123BF924300EE8B30 /* Domain.framework in Embed Frameworks */,
 				10D94B3F23BF924300EE8B30 /* Data.framework in Embed Frameworks */,
+				102F045A23FC174500FC4639 /* MarvelData.framework in Embed Frameworks */,
 				10D94B4523BF924300EE8B30 /* Presentation.framework in Embed Frameworks */,
+				102F045C23FC174500FC4639 /* MarvelDomain.framework in Embed Frameworks */,
 				10D94B4323BF924300EE8B30 /* IosCore.framework in Embed Frameworks */,
 				10F84C5F23C24A2B00121E26 /* MarvelAuth.framework in Embed Frameworks */,
 				10E983A723C4D421008721B1 /* MarvelSeries.framework in Embed Frameworks */,
@@ -90,6 +96,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		102F045723FC174500FC4639 /* MarvelData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		102F045823FC174500FC4639 /* MarvelDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MarvelDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1050278E23C1F9BA00340F9C /* Characters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Characters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10AD7C4623CC757600B711BA /* App Architecure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "App Architecure.png"; path = "../../App Architecure.png"; sourceTree = "<group>"; };
 		10D94B1623BF8FB900EE8B30 /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,7 +158,9 @@
 				10D94B4023BF924300EE8B30 /* Domain.framework in Frameworks */,
 				10D94B4223BF924300EE8B30 /* IosCore.framework in Frameworks */,
 				10F84C5E23C24A2B00121E26 /* MarvelAuth.framework in Frameworks */,
+				102F045923FC174500FC4639 /* MarvelData.framework in Frameworks */,
 				10F84C6123C24A3600121E26 /* MarvelCharacters.framework in Frameworks */,
+				102F045B23FC174500FC4639 /* MarvelDomain.framework in Frameworks */,
 				10D94B3E23BF924300EE8B30 /* Data.framework in Frameworks */,
 				10D94B4423BF924300EE8B30 /* Presentation.framework in Frameworks */,
 				10E983A623C4D421008721B1 /* MarvelSeries.framework in Frameworks */,
@@ -212,6 +222,8 @@
 		10D94B3623BF924300EE8B30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				102F045723FC174500FC4639 /* MarvelData.framework */,
+				102F045823FC174500FC4639 /* MarvelDomain.framework */,
 				10E983A523C4D421008721B1 /* MarvelSeries.framework */,
 				10F84C6023C24A3600121E26 /* MarvelCharacters.framework */,
 				10F84C5D23C24A2B00121E26 /* MarvelAuth.framework */,

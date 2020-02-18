@@ -7,6 +7,7 @@
 import Foundation
 @testable import Data
 @testable import Domain
+@testable import MarvelData
 
 class RequestResponsePair: Codable {
     var request: String? = nil

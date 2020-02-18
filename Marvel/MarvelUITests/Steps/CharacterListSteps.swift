@@ -9,6 +9,7 @@
 import Foundation
 import XCTest
 @testable import Domain
+@testable import MarvelDomain
 
 class CharacterListSteps: BaseSteps {
     

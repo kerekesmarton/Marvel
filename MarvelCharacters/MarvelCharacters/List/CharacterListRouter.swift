@@ -10,6 +10,7 @@ import Foundation
 import IosCore
 import UIKit
 import Domain
+import MarvelDomain
 
 class CharacterListRouter: Routing, CharacterListRouting {
     

@@ -10,6 +10,7 @@ import Foundation
 import IosCore
 import UIKit
 import Presentation
+import MarvelCommon
 
 class CharacterRouter: SegmentsRouter, ErrorRouting, CameraRouting, CharacterRouting {
     

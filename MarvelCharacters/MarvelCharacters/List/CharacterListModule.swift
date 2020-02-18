@@ -11,6 +11,8 @@ import Domain
 import Data
 import Presentation
 import IosCore
+import MarvelDomain
+import MarvelData
 
 public class CharacterListModule: TabModule {
     public var tabIdentifier: String

@@ -5,6 +5,9 @@
       location = "group:Core/Core/Core.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:MarvelCore/MarvelCore.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:MarvelAuth/MarvelAuth.xcodeproj">
    </FileRef>
    <FileRef

@@ -8,6 +8,7 @@
 
 import XCTest
 import Domain
+@testable import MarvelDomain
 
 class CharacterListUITests: BaseFeature {
 

@@ -6,6 +6,7 @@
 import Foundation
 import Domain
 import Presentation
+import MarvelDomain
 
 protocol SeriesPresentingItem {
     func setup(info: PresentableInfo, title: String?, imageURL: URL?, type: ListType)

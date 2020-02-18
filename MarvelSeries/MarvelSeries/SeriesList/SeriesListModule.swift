@@ -8,6 +8,9 @@ import Domain
 import Data
 import Presentation
 import IosCore
+import MarvelDomain
+import MarvelData
+import MarvelCommon
 
 public class SeriesListModule: SeriesListModuleable, TabModule {
     public var tabIdentifier: String

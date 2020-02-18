@@ -11,6 +11,9 @@ import Domain
 import Data
 import Presentation
 import IosCore
+import MarvelDomain
+import MarvelData
+
 
 public class CharacterModule: Module {
     
