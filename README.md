@@ -58,6 +58,8 @@ A feature doesn't necessarily require all of the stack components if it doesn't 
     This ensures that until the Presentation layer there is no need to know about UIKit, and all domain data stays above the ViewController.
 
     If we have to deploy to a new architecture, only IosCore needs to be duplicated for TvOS or WatchOS.
+    
+![VIPER Architecture](https://github.com/kerekesmarton/Core/blob/master/VIPER.png)
 
 ### Routers, Coordinator Pattern
 - Routers serve their purpose as known in VIPER: starting the feature and managing the navigation stack. Creating new features.
@@ -66,6 +68,8 @@ A feature doesn't necessarily require all of the stack components if it doesn't 
 
 ### Dependency Injection, Modules
 - Dependency injection is done via `Modules`. A `Module` would normally require a host to route on, while returning it's `Router` and  `ViewController`. The next `Router` has to be added to the calling router's children once it's started. 
+
+![Coordinator pattern](https://github.com/kerekesmarton/Core/blob/master/Coordinators.png)
 
 ### Style
 - IosCore framework describes a styling protocol. Reusable components in here will try to infer some these styles and decorate themselves accordingly. 
@@ -127,7 +131,7 @@ Syntax sugar
 
 - main application is supposed to be very thin, only launches the feature frameworks and binds them togetether for dependency injection.
 
-### 3rd party dependencies
+### Dependencies
         
 - photo picker library    
         
@@ -167,5 +171,3 @@ Protocols should be called *ing:
 Implementations should follow the -er convention:
         
      "-Router", "-Fetcher", "-Interactor", "-Presenter", etc..
-
-
